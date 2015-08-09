@@ -1,7 +1,24 @@
 <!-- Meeting title (editable) -->
-
 <!-- Date time (editable) -->
-
 <!-- location -->
+<!-- notes (notes must have a textfield that saves) -->
 
-<!-- notes -->
+<template name="newEvent">
+
+ {{#with singleEvent}}
+  <h1 contenteditable="true">Title: {{title}}</h1>
+  <h2 contenteditable="true">Date: {{date_time}} </h2>
+  <h2>Location: {{location}}</h2>
+
+  <form>
+    <div name="notes-area">
+      <h2> Notes </h2>
+      <p contenteditable>{{notes}}</p>
+    </div>
+  </form>
+  {{/with}}
+</template>
+
+
+
+
