@@ -4,18 +4,57 @@
 <!-- notes (notes must have a textfield that saves) -->
 
 <template name="newEvent">
-
+<!--   -->
  {{#with singleEvent}}
+  <ul>
+    <li> <h1>{{title}}   </h1>  </li>
+    <li> <h3>{{date_time}}</h3> </li>
+    <li> <h3>{{location}}</h3>  </li>
+    <li>
+      <form>
+        <div name="notes-area">
+          <h4> Notes </h4>
+          <p contenteditable>{{notes}}</p>
+        </div>
+      </form>
+    </li>
+    <li>  
+      <p>
+        Completion Status: 
+        {{#if completed}} 
+          FINISHED 
+        {{else}} 
+          UNFINISHED
+        {{/if}} 
+      </p>
+    </li>
+
+  </ul>
+
+<!-- ABOVE: In unordered list format
+     BELOW: In separated Elements, made 2 versions depending on which one is easier to work with when we start nesting templates, and dom manipulation  -->
+
+<hr>
+<hr>
+<hr>
+
+
+  
   <h1 contenteditable="true">Title: {{title}}</h1>
   <h2 contenteditable="true">Date: {{date_time}} </h2>
   <h2>Location: {{location}}</h2>
-
   <form>
     <div name="notes-area">
       <h2> Notes </h2>
       <p contenteditable>{{notes}}</p>
     </div>
   </form>
+  <p>
+    Completion Status: 
+      {{#if completed}} FINISHED 
+        {{else}} UNFINISHED
+      {{/if}} 
+  </p>
   {{/with}}
 </template>
 

@@ -8,7 +8,7 @@ Template.newEvent.helpers({
 
   singleEvent: function(){
    var events = Projects.findOne().events
-   console.log(events[0])
+   console.log(events)
    return events[0]
   }
 
