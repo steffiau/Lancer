@@ -1,9 +1,17 @@
 <template name='tomTemplate'>
-{{# each projects}}
+{{# each projects events}}
 {{> project }}
 {{/each}}
 </template>
+
+
 <template name='project'>
-{{name}}
+{{#each events}}
+{{> event }}
+{{/each}}
 
 </template>
+
+<template name='event'>
+<p>{{title}} </p> 
+</template> 
