@@ -1,1 +1,21 @@
 <!-- nav bar goes here, because it's always on the page -->
+<template name="layout">
+    <nav role="navigation">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="navbar-text nav-button" id="active-projects"><a href="#">Active Projects</a></li>
+        <li role="presentation" class="navbar-text nav-button" id="clients"><a href="#">Clients</a></li>
+        <li role="presentation" class="navbar-text nav-button" id="archive"><a href="#">Archive</a></li>
+        <li role="presentation" class="navbar-text nav-button" id="status"><a href="#">Status</a></li>
+        <li role="presentation" class="navbar-text nav-button" id="add-new-project"><a href="#">Add New Project</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      {{#if pageIs 'add-new-project'}}
+        <p>add-new-project template renders here</p>
+      {{else}}
+        {{> allProjects }}
+      {{/if}}
+    </div>
+    
+</template>
