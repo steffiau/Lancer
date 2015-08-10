@@ -30,9 +30,22 @@ Template.newEvent.events({
     var currentEvent = events[0]
     Session.set("eventCompleted", event.target.checked)
     Projects.update({_id: projectId}, {$set:  {'events.0.completed': !currentEvent.completed}})
-    console.log(events[0].completed)
+    
+  },
+  "blur .single-event-details li": function(e){
+    
+    Projects.update({_id: this._id}, {$set: 
+      {
+      'events.0.title': "blaaah",
+      'events.0.location': this.location
+    }
+  })
+    console.log(this.title)
+    console.log(this.location)
+    
+
   }
 })
-
+// helpers required for all changes to events page being reflected in the database
 
 

@@ -6,19 +6,19 @@
 <template name="newEvent">
   <!--   -->
   {{#with singleEvent}}
-  <ul>
-    <li> <h1>{{title}}   </h1>  </li>
-    <li> <h3>{{date_time}}</h3> </li>
-    <li> <h3>{{location}}</h3>  </li>
-    <li>
+  <ul class="list-group single-event-details">
+    <li class="list-group-item"> <h1 contenteditable>{{title}}   </h1>  </li>
+    <li class="list-group-item"> <h3 contenteditable>{{date_time}}</h3> </li>
+    <li class="list-group-item"> <h3 contenteditable>{{location}}</h3>  </li>
+    <li class="list-group-item">
       <form>
         <div name="notes-area">
           <h4> Notes </h4>
-          <p contenteditable>{{notes}}</p>
+          <p contenteditable="true">{{notes}}</p>
         </div>
       </form>
     </li>
-    <li>  
+    <li class="list-group-item">  
      <label class="event-completed">
        <p>
          <input type="checkbox" checked="{{eventCompleted}}">
@@ -33,10 +33,15 @@
    </li>
  </ul>
 
+ 
+{{/with}}
+</template>
+
 <!-- ABOVE: In unordered list format
  BELOW: In separated Elements, made 2 versions depending on which one is easier to work with when we start nesting templates, and dom manipulation  -->
 
- <hr>
+<!-- 
+<hr>
  <hr>
  <hr>
  <h1 contenteditable="true">Title: {{title}}</h1>
@@ -58,10 +63,5 @@
    Unfinished
    {{/if}}    
  </p>
-</label>
-{{/with}}
-</template>
-
-
-
+</label> -->
 
