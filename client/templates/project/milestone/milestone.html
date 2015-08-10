@@ -12,16 +12,16 @@
         <li class="list-group-item"><p>Due date:</p><h3 contenteditable>{{due_date}}</h3></li>
         <li class="list-group-item">
           <p>Requirements:</p>
-            <ul>
+            <ol>
               {{#each requirements}}
                 {{> requirementItem}}
               {{/each}}
-            </ul>
+            </ol>
         </li>
         <li class="list-group-item">
           <form>
             <div name="notes-area">
-              <h4> Notes </h4>
+              <p>Notes</p>
               <p contenteditable="true">{{notes}}</p>
             </div>
           </form>
@@ -39,15 +39,34 @@
            </p>
          </label>
        </li>
+       <li class="list-group-item">
+          <p>Comments:</p>
+            <ul>
+              {{#each comments}}
+                {{> commentItem}}
+              {{/each}}
+            </ul>
+          <input placeholder="Write a comment..." />
+          <button id="add-comment">Comment</button>
+        </li>
      </ul> 
+     <button id="save">Save</button>
+     <button id="delete">Delete</button>
     {{/with}}
 </template>
 
 
 <template name="requirementItem">
-  <h4 contenteditable>
-    <li>{{name}}</li>
-  </h4>
+  <li>
+    <h4 contenteditable>{{name}}</h4>
+  </li>
   <input type="checkbox" checked="{{requirementCompleted}}">
+</template>
+
+<template name="commentItem">
+  <li>
+    <p>{{user_name}}</p>
+    <h5>{{text}}</h5>
+  </li>
 </template>
 
