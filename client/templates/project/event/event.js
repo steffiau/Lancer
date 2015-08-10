@@ -20,13 +20,19 @@ Template.newEvent.helpers({
       return true
     }
   },
-
-
-
 });
 
 Template.newEvent.events({
   "change .event-completed input": function(e){
+    var project = Projects.findOne()
+    var projectId = project._id
+    var events = Projects.findOne().events
+    var currentEvent = events[0]
     Session.set("eventCompleted", event.target.checked)
+    Projects.update({_id: projectId}, {$set:  {'events.0.completed': !'events.0.completed'}})
+    console.log(currentEvent)
   }
 })
+
+
+
