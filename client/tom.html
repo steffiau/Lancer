@@ -1,9 +1,25 @@
 <template name='tomTemplate'>
-{{> timeline}}
-{{name}}
-{{# each projects}}
-{{> project }}
-{{/each}}
+ <div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        {{> timeline}}
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              {{name}}
+              {{# each projects}}
+              {{> project }}
+              {{/each}}
+            </div>
+        </div>
+    </div>
+  </div>
+  </div>
 </template>
 
 
