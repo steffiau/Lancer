@@ -125,8 +125,8 @@ if (Projects.find().count() === 0) {
         completed: false
       },
     ]
-  })
-}
+  });
+
 
 
 
@@ -217,3 +217,5 @@ Projects.insert({
 	}
 	]
 });
+
+}

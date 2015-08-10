@@ -9,7 +9,7 @@
     {{#with singleMilestone}}
       <ul class="list-group single-event-details">
         <li class="list-group-item"> <h1 contenteditable>{{title}}   </h1>  </li>
-        <li class="list-group-item"><p>Due date:</p><h3 contenteditable>{{due_date}}</h3></li>
+        <li class="list-group-item"><p>Date:</p><h3 contenteditable>{{date}}</h3></li>
         <li class="list-group-item">
           <p>Requirements:</p>
             <ol>
@@ -46,8 +46,10 @@
                 {{> commentItem}}
               {{/each}}
             </ul>
-          <input placeholder="Write a comment..." />
-          <button id="add-comment">Comment</button>
+          <form id="new-comment">
+            <input placeholder="Write a comment..." />
+            <input type="submit" value="Comment">
+          </form>
         </li>
      </ul> 
      <button id="save">Save</button>
