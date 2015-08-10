@@ -29,8 +29,8 @@ Template.newEvent.events({
     var events = Projects.findOne().events
     var currentEvent = events[0]
     Session.set("eventCompleted", event.target.checked)
-    Projects.update({_id: projectId}, {$set:  {'events.0.completed': !'events.0.completed'}})
-    console.log(currentEvent)
+    Projects.update({_id: projectId}, {$set:  {'events.0.completed': !currentEvent.completed}})
+    console.log(events[0].completed)
   }
 })
 
