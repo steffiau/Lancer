@@ -13,3 +13,4 @@ twbs:bootstrap
 aldeed:autoform
 accounts-ui
 accounts-password
+accounts-google
