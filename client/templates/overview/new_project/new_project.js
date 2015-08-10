@@ -160,7 +160,7 @@ var scafold = function(doc){
 			requirement:[],
 			completed:false,
 			comments:[],
-			due_date:date,
+			date:date,
 		};
 	};
 
@@ -170,7 +170,7 @@ var scafold = function(doc){
 			title: title,
 			notes: '',
 			location:'',
-			date_time:moment(date).subtract(2,'d').toDate(),
+			date:moment(date).subtract(2,'d').toDate(),
 			completed:false
 		}
 	};
