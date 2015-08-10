@@ -10,7 +10,7 @@ if (Projects.find().count() === 0) {
   })
 
   Projects.insert ({
-    client_id: "55c51d77a464965ae2fa0ef6",
+    client_id: client._id,
     name: "Steffo Logo Design",
     description: "A logo nice ",
     start_date: "2015-09-01",
