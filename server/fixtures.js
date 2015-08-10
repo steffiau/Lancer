@@ -21,7 +21,7 @@ if (Projects.find().count() === 0) {
       {
         title: "Inital Meeting",
         location: "Lighthouse Labs - 128 W Hastings",
-        date_time: "2015-09-02 12:30:00",
+        date: "2015-09-02 12:30:00",
         notes: "Cusomter was not happy",
         completed: false
       },
@@ -29,7 +29,7 @@ if (Projects.find().count() === 0) {
       {
         title: "Coffee Touch Base",
         location: "Lighthouse Labs - 128 W Hastings",
-        date_time: "2015-09-16 14:30:00",
+        date: "2015-09-16 14:30:00",
         notes: "This meeting is to go over the mockups.",
         completed: false
       },
@@ -37,7 +37,7 @@ if (Projects.find().count() === 0) {
       {
         title: "Logo Delivery Meeting",
         location: "Lighthouse Labs - 128 W Hastings",
-        date_time: "2015-09-29 15:30:00",
+        date: "2015-09-29 15:30:00",
         notes: "This meeting is to go over the mockups.",
         completed: false
       }
@@ -45,7 +45,7 @@ if (Projects.find().count() === 0) {
     milestones: [
       {
         title: "Logo Mockup",
-        due_date: "2015-09-17",
+        date: "2015-09-17",
         completed:false,
         requirements:[
           {
@@ -72,7 +72,7 @@ if (Projects.find().count() === 0) {
       },
       {
         title: "Logo Development",
-        due_date: "2015-09-28",
+        date: "2015-09-28",
         completed:false,
         requirements:[
           {
