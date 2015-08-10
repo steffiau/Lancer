@@ -1,4 +1,5 @@
 <template name='projectView'>
+
  <div id="wrapper">
     <div id="sidebar-wrapper">
         {{> timeline}}
@@ -7,8 +8,11 @@
       <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
+              {{#if $.Session.equals "template" "Project"}}
+                {{> project}}
+              {{/if}}
               {{#if $.Session.equals "template" "Meeting"}}
-                {{> meeting}}
+                {{> singleEvent}}
               {{/if}}
               {{#if $.Session.equals "template" "Invoice"}}
                 {{> invoice}}
@@ -16,13 +20,11 @@
               {{#if $.Session.equals "template" "Milestone"}}
                 {{> milestone}}
               {{/if}}
-              {{#if $.Session.equals "template" "Project"}}
-                {{> project}}
-              {{/if}}
             </div>
         </div>
       </div>
     </div>
   </div>
+
 </template>
 
