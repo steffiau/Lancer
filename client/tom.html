@@ -6,11 +6,15 @@
 
 
 <template name='project'>
-{{#each events}}
-{{> event }}
+<p> Project name: {{name}} </p>
+<p> Client Name: {{client}} </p>
+<hr/>
+{{#each invoices}}
+  {{> invoice1 }}
 {{/each}}
 </template>
 
-<template name='event'>
-<p>{{title}} </p> 
-</template> 
+<template name='invoice1'>
+<p>{{amount}}</p>
+<p></p>
+</template>
