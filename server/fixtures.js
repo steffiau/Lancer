@@ -126,7 +126,6 @@ if (Projects.find().count() === 0) {
       },
     ]
   })
-}
 
 
 
@@ -217,3 +216,4 @@ Projects.insert({
 	}
 	]
 });
+}
