@@ -10,3 +10,4 @@ insecure
 iron:router
 momentjs:moment
 twbs:bootstrap
+aldeed:autoform
