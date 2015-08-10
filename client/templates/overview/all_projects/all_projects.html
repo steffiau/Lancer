@@ -1,7 +1,17 @@
-<!-- title active projects --> 
-<!-- optional: project count -->
+<template name="allProjects">
+  <h1>Active Projects <span class="badge">{{count}}</span></h1>
+  <!-- each project: -->
+  {{#each projects}}
+    {{> projectListing}}
+  {{/each}}
+</template>
 
-<!-- each project: -->
-<!-- project name, status/current node -->
 
-<!-- add project button -->
+<template name="projectListing">
+  <!-- project name, status/current node -->
+  <div id="{{_id}}">
+    <h3 class="lead">{{name}} <small>- {{description}}</small></h3>
+    <div><!-- Project Timeline (nodes) --></div>
+  </div>
+  
+</template>
