@@ -11,3 +11,5 @@ iron:router
 momentjs:moment
 twbs:bootstrap
 aldeed:autoform
+accounts-ui
+accounts-password
