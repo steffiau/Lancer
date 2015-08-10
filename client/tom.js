@@ -1,5 +1,7 @@
 Template.tomTemplate.helpers({
-	projects: function(){return Projects.find();}
+	projects: function(){
+    return Projects.find();
+  }
 });
 
 Template.project.helpers({
@@ -13,6 +15,7 @@ Template.project.helpers({
 
 Template.invoice1.helpers({
   name: function(){
-    console.log(this)
   }
 })
+
+
