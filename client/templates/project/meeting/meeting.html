@@ -3,19 +3,19 @@
 <!-- location -->
 <!-- notes (notes must have a textfield that saves) -->
 
-<template name="singleEvent">
+<template name="meeting">
   <!--   -->
   {{#with singleEvent}}
   <ul class="list-group single-event-details">
     <li class="list-group-item"> <h1 id="single-event-title" contenteditable="false">{{title}}   </h1>  </li>
     <li class="list-group-item"> <h3 contenteditable="false" id="single-event-date">{{date}}</h3>  </li>
     <li class="list-group-item"> <h3 contenteditable="false" id="single-event-location">{{location}}</h3>  </li>
-    <li class="list-group-item">  
+    <li class="list-group-item">
       <h4> Notes </h4>
-      <p contenteditable="false" id="single-event-notes">{{notes}}</p>   
-       
+      <p contenteditable="false" id="single-event-notes">{{notes}}</p>
+
     </li>
-    <li class="list-group-item">  
+    <li class="list-group-item">
      <label class="event-completed">
        <p>
         {{#if completed}}
@@ -24,13 +24,13 @@
           <button>Mark completed</button>
          {{/if}}
          <br>
-         Status: 
+         Status:
          {{#if completed}}
            completed
          {{else}}
            not completed
          {{/if}}
-       </p>     
+       </p>
      </label>
    </li>
  </ul>

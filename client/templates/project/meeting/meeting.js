@@ -1,5 +1,5 @@
 
-Template.singleEvent.helpers({
+Template.meeting.helpers({
   events: function(){
     return Projects.findOne().events
   },
@@ -9,14 +9,14 @@ Template.singleEvent.helpers({
     var events = Projects.findOne().events
     return events[0]
   }
- 
+
 });
 
 
 // singleEvent event helpers
-Template.singleEvent.events({
-  "click .event-completed button": function(e){ 
-    
+Template.meeting.events({
+  "click .event-completed button": function(e){
+
     var project = Projects.findOne()
     var projectId = project._id
     var events = project.events
@@ -45,8 +45,8 @@ Template.singleEvent.events({
       title: title,
       location: location,
       date: date,
-      notes: notes 
-    }   
+      notes: notes
+    }
   }
 })
 // helpers required for all changes to events page being reflected in the database
