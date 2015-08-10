@@ -11,10 +11,11 @@
     </nav>
 
     <div>
-      {{> overviewLayout}}
-
-
-      {{> Template.dynamic template={{}} }}
+      {{#if pageIs 'add-new-project'}}
+        <p>add-new-project template renders here</p>
+      {{else}}
+        {{> allProjects }}
+      {{/if}}
     </div>
     
 </template>
