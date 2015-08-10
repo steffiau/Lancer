@@ -43,13 +43,8 @@ Template.singleEvent.events({
       location: location,
       date: date,
       notes: notes 
-    }
-
-    Projects.update({_id: currentProject}, {$set: 
-    {}
-    })
-   
-    console.log(this)
+    }   
+     console.log(this)
   }
 })
 // helpers required for all changes to events page being reflected in the database
