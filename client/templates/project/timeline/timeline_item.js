@@ -13,3 +13,10 @@ Template.timelineItem.helpers({
     }
   }
 })
+
+Template.timelineItem.events({
+  "click .timeline-item": function(e) {
+    var template_type = e.currentTarget.dataset.template;
+    Session.set("template", template_type)
+  }
+})

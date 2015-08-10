@@ -1,6 +1,11 @@
 Template.tomTemplate.helpers({
 	projects: function(){
     return Projects.find();
+  },
+  template: function(){
+    Session.set("template", "invoice")
+    console.log (Session.get("template"))
+    return Session.get("template")
   }
 });
 
