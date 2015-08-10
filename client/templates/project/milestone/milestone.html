@@ -5,8 +5,49 @@
 <!-- comments -->
 <!-- comments box -->
 
-<template name="projectMilestone">
+<template name="singleMilestone">
+    {{#with singleMilestone}}
+      <ul class="list-group single-event-details">
+        <li class="list-group-item"> <h1 contenteditable>{{title}}   </h1>  </li>
+        <li class="list-group-item"><p>Due date:</p><h3 contenteditable>{{due_date}}</h3></li>
+        <li class="list-group-item">
+          <p>Requirements:</p>
+            <ul>
+              {{#each requirements}}
+                {{> requirementItem}}
+              {{/each}}
+            </ul>
+        </li>
+        <li class="list-group-item">
+          <form>
+            <div name="notes-area">
+              <h4> Notes </h4>
+              <p contenteditable="true">{{notes}}</p>
+            </div>
+          </form>
+        </li>
+        <li class="list-group-item">  
+         <label class="event-completed">
+           <p>
+             <input type="checkbox" checked="{{milestoneCompleted}}">
+             Completion Status: 
+             {{#if milestoneCompleted}}
+             Finished
+             {{else}}
+              Unfinished
+             {{/if}}    
+           </p>
+         </label>
+       </li>
+     </ul> 
+    {{/with}}
+</template>
 
-  This should be project milestones.
+
+<template name="requirementItem">
+  <h4 contenteditable>
+    <li>{{name}}</li>
+  </h4>
+  <input type="checkbox" checked="{{requirementCompleted}}">
 </template>
 
