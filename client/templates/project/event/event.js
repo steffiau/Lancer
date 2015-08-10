@@ -1,4 +1,4 @@
-Template.newEvent.helpers({
+Template.singleEvent.helpers({
   // find all projects
   projects: function(){
     return Projects.find()
@@ -22,7 +22,7 @@ Template.newEvent.helpers({
   },
 });
 
-Template.newEvent.events({
+Template.singleEvent.events({
   "change .event-completed input": function(e){
     var project = Projects.findOne()
     var projectId = project._id
@@ -33,17 +33,23 @@ Template.newEvent.events({
     
   },
   "blur .single-event-details li": function(e){
-    
-    Projects.update({_id: this._id}, {$set: 
-      {
-      'events.0.title': "blaaah",
-      'events.0.location': this.location
+    var currentProject = Projects.findOne()._id
+    var title = document.getElementById("single-event-title").innerHTML
+    var location = document.getElementById("single-event-location").innerHTML
+    var date = document.getElementById("single-event-date").innerHTML
+    var  notes = document.getElementById("single-event-notes").innerHTML
+    var eventAttributes = {
+      title: title,
+      location: location,
+      date: date,
+      notes: notes 
     }
-  })
-    console.log(this.title)
-    console.log(this.location)
-    
 
+    Projects.update({_id: currentProject}, {$set: 
+    {}
+    })
+   
+    console.log(this)
   }
 })
 // helpers required for all changes to events page being reflected in the database
