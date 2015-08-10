@@ -23,7 +23,8 @@ if (Projects.find().count() === 0) {
         location: "Lighthouse Labs - 128 W Hastings",
         date: "2015-09-02 12:30:00",
         notes: "Cusomter was not happy",
-        completed: false
+        completed: false,
+        type: "meeting"
       },
 
       {
@@ -31,7 +32,8 @@ if (Projects.find().count() === 0) {
         location: "Lighthouse Labs - 128 W Hastings",
         date: "2015-09-16 14:30:00",
         notes: "This meeting is to go over the mockups.",
-        completed: false
+        completed: false,
+        type: "meeting"
       },
 
       {
@@ -39,12 +41,12 @@ if (Projects.find().count() === 0) {
         location: "Lighthouse Labs - 128 W Hastings",
         date: "2015-09-29 15:30:00",
         notes: "This meeting is to go over the mockups.",
-        completed: false
-      }
-    ],
-    milestones: [
+        completed: false,
+        type: "meeting"
+      },
       {
         title: "Logo Mockup",
+        type: "milestone",
         date: "2015-09-17",
         completed:false,
         requirements:[
@@ -72,6 +74,7 @@ if (Projects.find().count() === 0) {
       },
       {
         title: "Logo Development",
+        type: "milestone",
         date: "2015-09-28",
         completed:false,
         requirements:[
@@ -96,23 +99,22 @@ if (Projects.find().count() === 0) {
             text: "Remember: Make the customer happy :)"
           }
         ]
-      }
-    ],
-    invoices: [
+      },
       {
         date:"2015-09-18",
+        type: "invoice",
         invoice_number: "20150918",
         amount: 700.00,
-        paid: false
+        completed: false
       },
 
       {
         date:"2015-09-30",
+        type: "invoice",
         invoice_number: "20150930",
         amount: 700.00,
-        paid: false
+        completed: false
       },
-
     ]
   })
 }
