@@ -58,7 +58,7 @@ newProjectSchema = new SimpleSchema({
 	'milestones.$.milestone_invoice':{
 		type: Boolean,
 		defaultValue: true,
-		label: "Invoice?"
+		label: "Invoice?",
 	},
 	'milestones.$.invoice_percentage':{
 		type:Number,
