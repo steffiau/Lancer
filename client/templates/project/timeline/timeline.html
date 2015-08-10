@@ -1,0 +1,19 @@
+<template name="timeline">
+
+  <div class="row">
+    <div class="col-md-3">
+      <center>
+        <h3>Timeline</h3>
+      </center>
+    </div>
+  </div>
+
+  <div class="col-md-3 cd-bkgd">
+    <section id="cd-timeline" class="cd-container">
+    {{#each timeline }}
+      {{> timelineItem}}
+    {{/each}}
+    </section>
+  </div>
+
+</template>

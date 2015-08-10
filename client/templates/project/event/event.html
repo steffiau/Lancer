@@ -3,25 +3,25 @@
 <!-- location -->
 <!-- notes (notes must have a textfield that saves) -->
 
-<template name="newEvent">
+<template name="singleEvent">
   <!--   -->
   {{#with singleEvent}}
   <ul class="list-group single-event-details">
-    <li class="list-group-item"> <h1 contenteditable>{{title}}   </h1>  </li>
-    <li class="list-group-item"> <h3 contenteditable>{{date_time}}</h3> </li>
-    <li class="list-group-item"> <h3 contenteditable>{{location}}</h3>  </li>
+    <li class="list-group-item"> <h1 id="single-event-title" contenteditable>{{title}}   </h1>  </li>
+    <li class="list-group-item"> <h3 contenteditable id="single-event-date">{{date_time}}</h3> </li>
+    <li class="list-group-item"> <h3 contenteditable id="single-event-location">{{location}}</h3>  </li>
     <li class="list-group-item">
       <form>
         <div name="notes-area">
           <h4> Notes </h4>
-          <p contenteditable="true">{{notes}}</p>
+          <p contenteditable="true" id="single-event-notes">{{notes}}</p>
         </div>
       </form>
     </li>
     <li class="list-group-item">  
      <label class="event-completed">
        <p>
-         <input type="checkbox" checked="{{eventCompleted}}">
+         <input type="checkbox" checked="">
          Completion Status: 
          {{#if eventCompleted}}
          Finished

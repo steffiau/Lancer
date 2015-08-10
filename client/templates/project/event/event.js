@@ -1,4 +1,4 @@
-Template.newEvent.helpers({
+Template.singleEvent.helpers({
   // find all projects
   projects: function(){
     return Projects.find()
@@ -22,28 +22,31 @@ Template.newEvent.helpers({
   },
 });
 
-Template.newEvent.events({
+Template.singleEvent.events({
   "change .event-completed input": function(e){
+    e.stopPropagation
     var project = Projects.findOne()
     var projectId = project._id
     var events = Projects.findOne().events
     var currentEvent = events[0]
     Session.set("eventCompleted", event.target.checked)
-    Projects.update({_id: projectId}, {$set:  {'events.0.completed': !currentEvent.completed}})
-    
+    var completeStatus = Session.get("eventCompleted")
+    Projects.update({_id: projectId}, {$set:  {'events.0.completed': completeStatus }})
+    console.log(events[0].completed)
+   
   },
   "blur .single-event-details li": function(e){
-    
-    Projects.update({_id: this._id}, {$set: 
-      {
-      'events.0.title': "blaaah",
-      'events.0.location': this.location
-    }
-  })
-    console.log(this.title)
-    console.log(this.location)
-    
-
+    var currentProject = Projects.findOne()._id
+    var title = document.getElementById("single-event-title").innerHTML
+    var location = document.getElementById("single-event-location").innerHTML
+    var date = document.getElementById("single-event-date").innerHTML
+    var notes = document.getElementById("single-event-notes").innerHTML
+    var eventAttributes = {
+      title: title,
+      location: location,
+      date: date,
+      notes: notes 
+    }   
   }
 })
 // helpers required for all changes to events page being reflected in the database

@@ -100,9 +100,7 @@ var scafold = function(doc){
 		client_id: doc.client_id,
 		owner_id: '123',
 		contract_amount: doc.contract_amount,
-		events: [],
-		milestones: [],
-		invoices: []}
+		events: []}
 
 	 if (processMilestone(doc.milestones) == false) {
 		 return false
@@ -129,8 +127,8 @@ var scafold = function(doc){
 		if (amount_sum !== 100 && empty_count == 0){
 			alert("Sum of percentage < 100% and you didn't leave any field empty..., Aborted, Try again .");
 			return false;
-		} else if (amount_sum !== 1){
-			var default_pct = (1 - amount_sum) / empty_count;
+		} else if (amount_sum !== 100){
+			var default_pct = (100 - amount_sum) / empty_count;
 		};
 		for( var i = 0; i < argv.length; i ++ ){
 			// Handle invoice here
@@ -147,9 +145,8 @@ var scafold = function(doc){
 			milestones.push(newMilestone(argv[i].milestone_date, i));
 
 		};
-		Project.invoices = (invoices); // Display all invoices generated
-		Project.events = (events); // Display all invoices generated
-		Project.milestones = (milestones); // Display all invoices generated
+		var events_array = invoices.concat(events.concat(milestones));
+		Project.events = events_array; // Display all invoices generated
 		console.log(Project);
 	};
 
@@ -157,10 +154,11 @@ var scafold = function(doc){
 		var title = "Milestone" + (index + 1);
 		return{
 			title: title,
+			type:'milestone',
 			requirement:[],
 			completed:false,
 			comments:[],
-			due_date:date,
+			date:date,
 		};
 	};
 
@@ -168,21 +166,24 @@ var scafold = function(doc){
 		var title = "Event" + (index + 1);
 		return{
 			title: title,
+			type:'meeting',
 			notes: '',
 			location:'',
-			date_time:moment(date).subtract(2,'d').toDate(),
+			date:moment(date).subtract(2,'d').toDate(),
 			completed:false
 		}
 	};
 
 	function newInvoice(date,pct_amount,total_amount){
-		var amount = pct_amount * total_amount;
+		var amount = pct_amount * total_amount / 100;
 		amount = amount.toPrecision(3);
 		var invoice_no = date;
-		return { amount: amount,
+		return { amount: Number(amount),
 			date: date,
+			title:'',
 			invoice_no: invoice_no,
-			paid: false
+			type:'invoice',
+			completed: false
 		};
 	};
 
