@@ -1,3 +1,6 @@
+Meteor.startup(function(){
+
+
 Template.singleEvent.helpers({
   // find all projects
   projects: function(){
@@ -47,8 +50,30 @@ Template.singleEvent.events({
       date: date,
       notes: notes 
     }   
+  },
+
+  "click .single-event-details button": function(){
+    var editable = $('li').attr('contenteditable')
+    
+    if(editable == 'false')
+    {
+      $('li').attr('contenteditable', 'true')
+    }
+    else
+    {
+       $('li').attr('contenteditable', 'false')
+    }
   }
 })
+});
+
+
+// Meter.methods({
+//   updateEvent: function(attributes){
+//     var currentProject = Projects.find(this._id)
+//     Projects.update({currentProject}, {$set: {}})
+//   },
+// })
 // helpers required for all changes to events page being reflected in the database
 
 
