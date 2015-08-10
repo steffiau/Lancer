@@ -1,33 +1,6 @@
-<template name='tomTemplate'>
- <div id="wrapper">
-    <div id="sidebar-wrapper">
-        {{> timeline}}
-    </div>
-    <div id="page-content-wrapper">
-      <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12">
-              {{template}}
-              {{name}}
-              {{# each projects}}
-              {{> project }}
-              {{/each}}
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-
 <template name='project'>
 {{name}}
-<p> Project name: {{name}} </p>
-<p> Client Name: {{client}} </p>
-<hr/>
-{{#each invoices}}
-  {{> invoice1 }}
-{{/each}}
+<h1> Hey! </h1>
 </template>
 
 
@@ -36,3 +9,10 @@
 <p>{{name}}</p>
 </template>
 
+
+<!-- <p> Project name: {{name}} </p>
+<p> Client Name: {{client}} </p>
+<hr/>
+{{#each invoices}}
+  {{> invoice1 }}
+{{/each}} -->
