@@ -1,21 +1,4 @@
-<template name='tomTemplate'>
-{{> timeline}}
-{{name}}
-{{# each projects}}
-{{> project }}
-{{/each}}
-</template>
 
-
-<template name='project'>
-{{name}}
-<p> Project name: {{name}} </p>
-<p> Client Name: {{client}} </p>
-<hr/>
-{{#each invoices}}
-  {{> invoice1 }}
-{{/each}}
-</template>
 
 
 <template name='invoice1'>
@@ -23,3 +6,10 @@
 <p>{{name}}</p>
 </template>
 
+
+<!-- <p> Project name: {{name}} </p>
+<p> Client Name: {{client}} </p>
+<hr/>
+{{#each invoices}}
+  {{> invoice1 }}
+{{/each}} -->

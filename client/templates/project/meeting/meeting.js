@@ -1,10 +1,5 @@
-Template.singleEvent.helpers({
-  // find all projects
-  projects: function(){
-    return Projects.find()
-  },
 
-  // finds the events of a project (an array)
+Template.meeting.helpers({
   events: function(){
     return Projects.findOne().events
   },
@@ -13,30 +8,35 @@ Template.singleEvent.helpers({
   singleEvent: function(){
     var events = Projects.findOne().events
     return events[0]
-  },
+  }
 
-  eventCompleted: function(){
-    if(Session.get("eventCompleted")){
-      return true
-    }
-  },
 });
 
-Template.singleEvent.events({
-  "change .event-completed input": function(e){
-    e.stopPropagation
+
+// singleEvent event helpers
+Template.meeting.events({
+  "click .event-completed button": function(e){
+
     var project = Projects.findOne()
     var projectId = project._id
-    var events = Projects.findOne().events
-    var currentEvent = events[0]
-    Session.set("eventCompleted", event.target.checked)
-    var completeStatus = Session.get("eventCompleted")
-    Projects.update({_id: projectId}, {$set:  {'events.0.completed': completeStatus }})
-    console.log(events[0].completed)
-   
+    var events = project.events
+    console.log("before change completed is", events[0].completed);
+    if(events[0].completed){
+
+      Projects.update({_id: projectId}, {$set:  {'events.0.completed': false }})
+    } else {
+       Projects.update({_id: projectId}, {$set:  {'events.0.completed': true }})
+    }
+    //   Session.set("eventCompleted", !event.target.checked)
+    var project = Projects.findOne()
+    var projectId = project._id
+    var events = project.events
+    console.log("after change completed: ", events[0].completed)
   },
   "blur .single-event-details li": function(e){
     var currentProject = Projects.findOne()._id
+    // variables below grab changes to the event-details by the user
+    // these are meant to be sent to mongo to update on server-side
     var title = document.getElementById("single-event-title").innerHTML
     var location = document.getElementById("single-event-location").innerHTML
     var date = document.getElementById("single-event-date").innerHTML
@@ -45,8 +45,8 @@ Template.singleEvent.events({
       title: title,
       location: location,
       date: date,
-      notes: notes 
-    }   
+      notes: notes
+    }
   }
 })
 // helpers required for all changes to events page being reflected in the database
