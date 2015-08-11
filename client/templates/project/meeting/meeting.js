@@ -1,5 +1,5 @@
 
-Template.singleEvent.helpers({
+Template.meeting.helpers({
   events: function(){
     return Projects.findOne().events
   },
@@ -9,14 +9,14 @@ Template.singleEvent.helpers({
     var events = Projects.findOne().events
     return events[0]
   }
- 
+
 });
 
 
 // singleEvent event helpers
-Template.singleEvent.events({
-  "click .event-completed button": function(e){ 
-    
+Template.meeting.events({
+  "click .event-completed button": function(e){
+
     var project = Projects.findOne()
     var projectId = project._id
     var events = project.events
@@ -38,6 +38,7 @@ Template.singleEvent.events({
     var currentProject = Projects.findOne()._id
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
+<<<<<<< HEAD
     var title = document.getElementById("single-event-title").innerText
     var location = document.getElementById("single-event-location").innerText
     var date = document.getElementById("single-event-date").innerText
