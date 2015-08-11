@@ -180,4 +180,56 @@ header h1 {
   background: #d7e4ed;
 }
 
+#right-panel {
+  width: 80%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  background-color: #EEEEEE;
+}
+
+#left-nav {
+  position: fixed;
+  display: block;
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  background: white;
+}
+
+.nav-stacked > li {
+    float: none;
+    width: 20%;
+}
+
+@media (min-width: 768px) {
+  .navbar-text {
+    margin-left: 0; 
+  }
+}
+
+#login-buttons {
+  margin-left: 15px;
+/*  position: fixed;
+  bottom: 50px;*/
+}
+
+#login-dropdown-list {
+/*  top: -80px;*/
+  width: 220px;
+}
+
+#profile-pic {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 3em auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 99em;
+  -moz-border-radius: 99em;
+  border-radius: 99em;
+  border: 5px solid #eee;
+}
 
