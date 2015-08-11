@@ -12,7 +12,7 @@ Template.allProjects.events({
   "click .overview-project": function(e) {
     var projectId = $(e.target).parent().attr('id');
     Session.set('projectId', projectId);
-    Session.set('onPage', 'projectView');
+    Router.go("/project")
   }
 });
 
