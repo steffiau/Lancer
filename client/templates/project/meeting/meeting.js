@@ -6,8 +6,8 @@ Template.meeting.helpers({
 
    // targets a single event in the array
   singleEvent: function(){
-    var events = Projects.findOne().events
-    return events[0]
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    return project.events[Session.get("event_index")]
   }
 
 });
@@ -34,7 +34,7 @@ Template.meeting.events({
     console.log("after change completed: ", events[0].completed)
   },
   "blur .single-event-details li": function(e){
-    
+
     var currentProject = Projects.findOne()._id
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
