@@ -72,20 +72,63 @@ newProjectSchema = new SimpleSchema({
 });
 
 AutoForm.addHooks('newProjectForm', {
-		onSubmit: function(doc){
+	onSubmit: function(doc){
 		this.event.preventDefault();
 		//var error = new Error("aaaaaaa");
 		//console.log(error);		// How to throw error
 		if (project = scafold(doc)){
-		// if scafold success, write to db
-			Projects.insert(project);	
+			// if scafold success, write to db
+			Projects.insert(project, function(err,id){
+				// once inserted, now populate google calenar
+				if (id) {
+					var events = Projects.findOne({_id: id}).events;
+					events.forEach(function(eventObj){
+						// iterating each event here
+						// Google Calendar Here
+						var start_time = moment(eventObj.date).add(1,'d');
+						var end_time = moment(eventObj.date).add(12,'h');
+						if (eventObj.type == "meeting"){
+							var title = eventObj.title;
+							var location = eventObj.location;
+							var description = eventObj.title; 
+						} else if (eventObj.type == "invoice"){
+							var title = eventObj.title;
+							var location = "Home";
+							var description = eventObj.title; 
+						} else if (eventObj.type == "milestone"){
+							var title = eventObj.title;
+							var location = "Home";
+							var description = eventObj.title; 
+						}
+						writeToGoogleCalendar(start_time, end_time,title,title,location);
+					});
+				};
+			});	
 		}else{
-		var error = new Error("Scafold failed, please check data");
-		alert("Failed");
-		return false;
+			var error = new Error("Scafold failed, please check data");
+			alert("Failed");
+			return false;
 		};
-		}		
+	}		
 });
+
+
+function writeToGoogleCalendar(start_time, end_time,summary, description, location){
+	var data = {
+		"end": {
+			"dateTime": start_time.toISOString(),
+		},
+		"start": {
+			"dateTime": end_time.toISOString(),
+		},
+		"summary": summary,
+		"description":description,
+		"location":location}
+	console.log(data)
+		GoogleApi.post('calendar/v3/calendars/primary/events?key=AIzaSyDyFVciOLzGriMnI8UTicaHzx-KseU6JBY',{
+			data: data});
+	console.log('google request sent');
+}
 
 
 var scafold = function(doc){
@@ -152,6 +195,7 @@ var scafold = function(doc){
 
 	function newMilestone(date, index){
 		var title = "Milestone" + (index + 1);
+		
 		return{
 			title: title,
 			type:'milestone',
@@ -160,6 +204,7 @@ var scafold = function(doc){
 			comments:[],
 			date:date,
 		};
+
 	};
 
 	function newMeeting(date, index){
@@ -180,7 +225,7 @@ var scafold = function(doc){
 		var invoice_no = date;
 		return { amount: Number(amount),
 			date: date,
-			title:'',
+			title:'Invoice',
 			invoice_no: invoice_no,
 			type:'invoice',
 			completed: false
