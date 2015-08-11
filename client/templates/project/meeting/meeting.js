@@ -38,7 +38,7 @@ Template.meeting.events({
     var currentProject = Projects.findOne()._id
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
-<<<<<<< HEAD
+
     var title = document.getElementById("single-event-title").innerText
     var location = document.getElementById("single-event-location").innerText
     var date = document.getElementById("single-event-date").innerText
