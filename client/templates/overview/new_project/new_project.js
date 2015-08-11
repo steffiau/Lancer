@@ -224,7 +224,7 @@ var scafold = function(doc){
 		amount = amount.toPrecision(3);
 		var invoice_no = date;
 		return { amount: Number(amount),
-			date: date,
+			date: moment(date).add(1,'h').toDate(), 
 			title:'Invoice',
 			invoice_no: invoice_no,
 			type:'invoice',
