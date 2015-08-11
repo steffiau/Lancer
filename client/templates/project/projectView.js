@@ -1,5 +1,4 @@
 Template.projectView.onCreated( function() {
-  console.log("hey!")
   Session.set('template', 'Project');
 });
 
