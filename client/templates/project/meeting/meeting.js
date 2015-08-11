@@ -1,22 +1,13 @@
 
 Template.meeting.helpers({
-  events: function(){
-    return Projects.findOne().events
-  },
-
-   // targets a single event in the array
   singleEvent: function(){
     var project = Projects.findOne({_id: Session.get("projectId")});
     return project.events[Session.get("event_index")]
   }
-
 });
 
-
-// singleEvent event helpers
 Template.meeting.events({
   "click .event-completed button": function(e){
-
     var project = Projects.findOne()
     var projectId = project._id
     var events = project.events
