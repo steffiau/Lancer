@@ -6,12 +6,30 @@
   {{/each}}
 </template>
 
-
 <template name="projectListing">
   <!-- project name, status/current node -->
   <div id="{{_id}}">
+    <div class="col-md-12 cd-bkgd">
     <h3 class="lead">{{name}} <small>- {{description}}</small></h3>
-    <div><!-- Project Timeline (nodes) --></div>
+      <section id="overview-cd-timeline" class="cd-container"> 
+        {{#each timeline}}
+          {{> overviewTimelineItem}}
+        {{/each}}
+      </section>
+    </div>
   </div>
-  
+</template>
+
+<template name="overviewTimelineItem">
+  <div class="overview-cd-timeline-content">
+    <h4>{{type}}  <small>{{details}}</small></h4>
+  </div>
+  <div class="overview-timeline-item" data-template="{{type}}">
+    <div class="cd-timeline-block">
+      
+
+      <div class="cd-timeline-img cd-picture overview-node">
+      </div>
+    </div>
+  </div>
 </template>
