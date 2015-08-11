@@ -8,10 +8,10 @@
 
 <template name="projectListing">
   <!-- project name, status/current node -->
-  <div id="{{_id}}">
+  <div data-project_id="{{_id}}">
     <div class="col-md-12 cd-bkgd overview-project">
       <h3 class="lead">{{name}} <small>- {{description}}</small></h3>
-      <section id="overview-cd-timeline" class="cd-container"> 
+      <section id="overview-cd-timeline" class="cd-container">
         {{#each timeline}}
           {{> overviewTimelineItem}}
         {{/each}}
@@ -26,7 +26,7 @@
   </div>
   <div class="overview-timeline-item" data-template="{{type}}">
     <div class="cd-timeline-block">
-      
+
 
       <div class="cd-timeline-img cd-picture overview-node">
       </div>
