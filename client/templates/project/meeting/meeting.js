@@ -34,7 +34,7 @@ Template.meeting.events({
     console.log("after change completed: ", events[0].completed)
   },
   "blur .single-event-details li": function(e){
-    $('.single-event-details li').on('click')
+    
     var currentProject = Projects.findOne()._id
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
@@ -49,6 +49,7 @@ Template.meeting.events({
       'events.0.date': date,
       'events.0.notes': notes
     }})
+
   }
 })
 // helpers required for all changes to events page being reflected in the database
