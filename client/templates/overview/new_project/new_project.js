@@ -141,7 +141,7 @@ var scafold = function(doc){
 		createdAt: new Date(),
 		project_finished: false,
 		client_id: doc.client_id,
-		owner_id: '123',
+		owner_id: Meteor.userId(),
 		contract_amount: doc.contract_amount,
 		events: []}
 
