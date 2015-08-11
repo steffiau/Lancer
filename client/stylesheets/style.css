@@ -185,7 +185,6 @@ header h1 {
   height: auto;
   position: absolute;
   right: 0;
-  background-color: #EEEEEE;
 }
 
 #left-nav {
@@ -231,5 +230,13 @@ header h1 {
   -moz-border-radius: 99em;
   border-radius: 99em;
   border: 5px solid #eee;
+}
+
+body {
+  background-color: #EEEEEE;
+}
+
+.overview-project:hover {
+    background-color: #DDDDDD;
 }
 

@@ -8,10 +8,17 @@ Template.allProjects.helpers({
   },
 });
 
+Template.allProjects.events({
+  "click .overview-project": function(e) {
+    var projectId = $(e.target).parent().attr('id');
+    Session.set('projectId', projectId);
+    Session.set('onPage', 'projectView');
+  }
+});
+
 Template.projectListing.helpers({
   timeline: function(){
-    var project = Projects.findOne();
-    var events = project.events
+    var events = this.events
     return _.sortBy(events, 'date');
   },
 });
@@ -39,14 +46,11 @@ Template.overviewTimelineItem.events({
   },
 
   "mouseenter .overview-node": function(e) {
-    console.log("mouseentered!");
-    console.log(e);
     $(e.target).css("background-color", "#6BBD5D");
     $(e.target).parent().parent().prev().css("display", "inline-block");
   },
 
   "mouseleave .overview-node": function(e) {
-    console.log("mouseleft!");
     $(e.target).css("background-color", "#75ce66");
     $(e.target).parent().parent().prev().css("display", "none");
   }

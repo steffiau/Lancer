@@ -1,3 +1,7 @@
+Meteor.startup(function(){
+  Session.set('onPage', 'active-projects');
+});
+
 Template.layout.events = {
   'click .nav-button': function(e){
     e.preventDefaut;

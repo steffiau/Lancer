@@ -7,13 +7,13 @@
           <li>
             <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
           </li>
-          <li role="presentation" class="navbar-text nav-button">{{> loginButtons}}</li>
+          <li role="presentation" class="navbar-text">{{> loginButtons}}</li>
         {{#if currentUser}}
           <li role="presentation" class="navbar-text nav-button" id="active-projects"><a href="#">Active Projects</a></li>
+          <li role="presentation" class="navbar-text nav-button" id="add-new-project"><a href="#">Add New Project</a></li>
           <li role="presentation" class="navbar-text nav-button" id="clients"><a href="#">Clients</a></li>
           <li role="presentation" class="navbar-text nav-button" id="archive"><a href="#">Archive</a></li>
           <li role="presentation" class="navbar-text nav-button" id="status"><a href="#">Status</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="add-new-project"><a href="#">Add New Project</a></li>
         {{/if}}
         </ul>
       </nav>
@@ -24,12 +24,19 @@
     <div class="container">
       {{#if currentUser}}
         <div>
+          {{# if pageIs 'projectView'}}
+            {{> projectView}}
+          {{/if}}
+
+          {{# if pageIs 'active-projects'}}
+            {{> allProjects}}
+          {{/if}}
+
           {{#if pageIs 'add-new-project'}}
-            <p>add-new-project template renders here</p>
-          {{else}}
-            {{> allProjects }}
+            {{> newProject}}
           {{/if}}
         </div>
+
       {{else}}
         <h2>Lancer</h2>
         <p class="lead">Your best helper for a freelancer.</p>
