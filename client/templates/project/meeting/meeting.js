@@ -47,8 +47,10 @@ Template.meeting.events({
       'events.0.title': title,
       'events.0.location': location,
       'events.0.date': date,
-      'events.0.notes': notes
-    }})
+
+      'events.0.notes': notes}})
+    console.log(this.title)
+    console.log(this.notes)
 
   }
 })
