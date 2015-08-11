@@ -17,3 +17,4 @@ accounts-google
 percolate:google-api
 service-configuration
 raix:handlebar-helpers
+cfs:standard-packages
