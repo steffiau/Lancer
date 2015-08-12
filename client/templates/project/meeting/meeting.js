@@ -34,12 +34,19 @@ Template.meeting.events({
     var location = document.getElementById("single-event-location").innerText
     var date = document.getElementById("single-event-date").innerText
     var notes = document.getElementById("single-event-notes").innerText
-    Projects.update({_id: currentProject},{$set: {
-      'events.0.title': title,
-      'events.0.location': location,
-      'events.0.date': date,
-
-      'events.0.notes': notes}})
+		var index = Session.get("event_index");
+		var obj = {};
+		var titleMod = 'events.' + index + '.title';
+		var dateMod = 'events.' + index + '.date';
+		var notesMod = 'events.' + index + '.notes';
+		var locationMod = 'events.' + index + '.location';
+		obj[titleMod] = title;
+		obj[dateMod] = date;
+		obj[notesMod] = notes;
+		obj[locationMod] = location;
+    Projects.update({_id: currentProject},{$set: 
+			obj
+      })
     console.log(this.title)
     console.log(this.notes)
 
