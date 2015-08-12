@@ -10,14 +10,14 @@
         </div>
         <div class="col-xs-6 text-right">
           <h1>INVOICE</h1>
-          <h1><small>***Invoice Number***</small></h1>
+          <h1><small>{{invoice.invoice_number}}</small></h1>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-5">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>From: <a href="#">***UserName***</a></h4>
+              <h4>From: <a href="#">{{user_email}}</a></h4>
             </div>
             <div class="panel-body">
               <p>
@@ -29,11 +29,11 @@
         <div class="col-xs-5 col-xs-offset-2 text-right">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>To : <a href="#">***Client.Name***</a></h4>
+              <h4>To : <a href="#">{{client.name}}</a></h4>
             </div>
             <div class="panel-body">
               <p>
-                ***Client.Details***
+                {{client.company}}
               </p>
             </div>
           </div>
