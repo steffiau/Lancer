@@ -141,7 +141,7 @@ var scafold = function(doc){
 		createdAt: new Date(),
 		project_finished: false,
 		client_id: doc.client_id,
-		owner_id: '123',
+		owner_id: Meteor.userId(),
 		contract_amount: doc.contract_amount,
 		events: []}
 
@@ -224,7 +224,7 @@ var scafold = function(doc){
 		amount = amount.toPrecision(3);
 		var invoice_no = date;
 		return { amount: Number(amount),
-			date: date,
+			date: moment(date).add(1,'h').toDate(), 
 			title:'Invoice',
 			invoice_no: invoice_no,
 			type:'invoice',
