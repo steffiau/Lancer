@@ -9,3 +9,9 @@ Template.timeline.helpers({
     return _.sortBy(indexed_events, 'date');
   }
 })
+
+Template.timeline.events({
+  "click .project-title": function() {
+    Session.set("template", "Project");
+  }
+})
