@@ -13,11 +13,12 @@ Template.projectView.helpers({
 
 Template.projectView.events({
 	'click #archiveProject': function(){
-		alert('aaa');
 		Projects.update({'_id':Session.get('projectId')
 		},{$set:{ project_finished: true,
 				project_finishedAt: moment().toISOString()}
 		});
+		alert("Successfully Archived Project!");
+		Router.go('/');
 
 	},
 	'click #deleteNode': function(){

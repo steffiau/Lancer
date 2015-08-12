@@ -16,3 +16,4 @@ accounts-google
 percolate:google-api
 service-configuration
 raix:handlebar-helpers
+autopublish
