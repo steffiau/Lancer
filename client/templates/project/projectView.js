@@ -10,3 +10,12 @@ Template.projectView.helpers({
     return Session.get("template")
   }
 });
+
+Template.projectView.events({
+  'click #archieveProject': function(){
+  Projects.update({'_id':Session.get('projectId')
+        },{$set:{ project_finished: true }
+          , $set:{
+          project_finishedAt: moment().toISOString()}});
+  }
+});
