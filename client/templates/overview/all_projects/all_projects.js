@@ -11,9 +11,7 @@ Template.allProjects.helpers({
 Template.allProjects.events({
   "click .overview-project": function(e) {
     var projectId = e.currentTarget.parentElement.dataset.project_id
-    console.log(projectId)
-    Session.set('projectId', projectId);
-    Router.go("/project")
+    Router.go("/project/" + projectId)
   }
 });
 
