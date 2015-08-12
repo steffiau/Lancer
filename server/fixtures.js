@@ -118,16 +118,30 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
         date:"2015-09-18",
         type: "invoice",
         invoice_number: "20150918",
-        amount: 700.00,
-        completed: false
+        completed: false,
+        items: [
+          {
+            service: "Logo Mockup",
+            description: "",
+            qty: 1,
+            amount: 700
+          }
+        ]
       },
 
       {
         date:"2015-09-30",
         type: "invoice",
         invoice_number: "20150930",
-        amount: 700.00,
-        completed: false
+        completed: false,
+        items: [
+          {
+            service: "Logo Development",
+            description: "",
+            qty: 1,
+            amount: 700
+          }
+        ]
       },
     ]
   })
@@ -144,28 +158,46 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
   	contract_amount : 900,
   	events : [
     	{
-    		amount : 180,
     		date : "2015-08-14",
-    		title : "",
-    		invoice_no : "2015-08-14",
+    		invoice_no : "20150814",
     		type : "invoice",
-    		completed : false
+    		completed : false,
+        items: [
+          {
+            service: "Initial Planning",
+            description: "",
+            qty: 1,
+            amount: 300
+          }
+        ]
     	},
     	{
-    		amount : 360,
     		date : "2015-08-17",
-    		title : "",
-    		invoice_no : "2015-08-17",
+    		invoice_no : "20150817",
     		type : "invoice",
-    		completed : false
+    		completed : false,
+        items: [
+          {
+            service: "Software Development",
+            description: "",
+            qty: 1,
+            amount: 300
+          }
+        ]
     	},
     	{
-    		amount : 360,
     		date : "2015-08-20",
-    		title : "",
-    		invoice_no : "2015-08-20",
+    		invoice_no : "20150820",
     		type : "invoice",
-    		completed : false
+    		completed : false,
+        items: [
+          {
+            service: "Deployment",
+            description: "",
+            qty: 1,
+            amount: 300
+          }
+        ]
     	},
     	{
     		title : "Event1",
