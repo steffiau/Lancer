@@ -12,7 +12,7 @@ Template.projectView.helpers({
 });
 
 Template.projectView.events({
-  'click #archieveProject': function(){
+  'click #archiveProject': function(){
   Projects.update({'_id':Session.get('projectId')
         },{$set:{ project_finished: true }
           , $set:{
