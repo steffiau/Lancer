@@ -1,7 +1,7 @@
 // defines an FS File STORE called projectFilesStore
 // will come up in mongoDB as cfs.projectFiles.filerecord
 var projectFilesStore = new FS.Store.FileSystem("projectFiles",{
-  path: "Lancer/lib/projectfiles"});
+  path: "/lib/projectfiles"});
 
 // defines a new FS COLLECTION named called projectFiles
 var projectFiles = new FS.Collection('projectFiles', {
@@ -39,8 +39,10 @@ Template.uploadForm.events({
     var file = $("#file").get(0).files[0];
     var fileObj = projectFiles.insert(file);
     var currentEvent = project.events[Session.get("event_index")]
-   
-    console.log(currentEvent)
+    var milestone = Projects.findOne({"events.$": Session.get("event_index")})
+    
+
+
     // Projects.update(
     //   {_id: project},
     //   {$addToSet: {*target: *file}  }
