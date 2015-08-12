@@ -1,10 +1,12 @@
 <template name="timelineItem">
-  <div class="cd-timeline-block">
-    <div class="cd-timeline-img cd-picture">
-    </div>
+  <div class="timeline-item" data-template="{{type}}" data-index="{{index}}">
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img cd-picture">
+      </div>
 
-    <div class="cd-timeline-content">
-      <h2>{{title}}</h2>
+      <div class="cd-timeline-content">
+        <h2>{{type}}  <small>{{details}}</small></h2>
+      </div>
     </div>
   </div>
 </template>

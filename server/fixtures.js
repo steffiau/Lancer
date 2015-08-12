@@ -131,7 +131,6 @@ if (Projects.find().count() === 0) {
 
 
 
-
 Projects.insert({
 	"name" : "Lancer",
 	"description" : "Project Management app for freelancers",
@@ -217,5 +216,8 @@ Projects.insert({
 	}
 	]
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 }
