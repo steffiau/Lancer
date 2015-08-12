@@ -1,10 +1,10 @@
 Template.allProjects.helpers({
   projects: function(){
-    return Projects.find();
+    return Projects.find({project_finished:false});
   },
 
   count: function(){
-    return Projects.find().count();
+    return Projects.find({project_finished:false}).count();
   },
 });
 

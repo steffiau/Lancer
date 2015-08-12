@@ -13,10 +13,12 @@ Template.projectView.helpers({
 
 Template.projectView.events({
 	'click #archiveProject': function(){
+		alert('aaa');
 		Projects.update({'_id':Session.get('projectId')
-		},{$set:{ project_finished: true }
-			, $set:{
-				project_finishedAt: moment().toISOString()}});
+		},{$set:{ project_finished: true,
+				project_finishedAt: moment().toISOString()}
+		});
+
 	},
 	'click #deleteNode': function(){
 		var events = Projects.findOne({'_id':Session.get('projectId')}).events;
