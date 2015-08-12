@@ -1,38 +1,29 @@
-<template name="singleMilestone">
-    {{#with singleMilestone}}
+<template name="milestone">
+    {{#with singleEvent}}
       <ul class="list-group single-event-details">
-        <li class="list-group-item"> <h1 contenteditable>{{title}}   </h1>  </li>
-        <li class="list-group-item"><p>Date:</p><h3 contenteditable>{{date}}</h3></li>
+        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true">{{title}}</h1></li>
+        <li class="list-group-item"><h3 id="single-event-date" contenteditable="true">{{date}}</h3></li>
         <li class="list-group-item">
           <p>Requirements:</p>
-            <ol>
-              {{#each requirements}}
-                {{> requirementItem}}
-              {{/each}}
-            </ol>
+          <ol>
+            {{#each requirements}}
+              {{> requirementItem}}
+            {{/each}}
+          </ol>
+          <form id="new-requirement">
+            <input placeholder="Write a requirement..." />
+            <input type="submit" value="Add">
+          </form>
         </li>
         <li class="list-group-item">
           <form>
             <div name="notes-area">
               <p>Notes</p>
-              <p contenteditable="true">{{notes}}</p>
+              <p contenteditable="true" id="single-event-notes">{{notes}}</p>
             </div>
           </form>
         </li>
-        <li class="list-group-item">  
-         <label class="event-completed">
-           <p>
-             <input type="checkbox" checked="{{milestoneCompleted}}">
-             Completion Status: 
-             {{#if milestoneCompleted}}
-             Finished
-             {{else}}
-              Unfinished
-             {{/if}}    
-           </p>
-         </label>
-       </li>
-       <li class="list-group-item">
+        <li class="list-group-item">
           <p>Comments:</p>
             <ul>
               {{#each comments}}
@@ -44,20 +35,33 @@
             <input type="submit" value="Comment">
           </form>
         </li>
+        <li class="list-group-item">
+         <label class="event-completed">
+           <p>
+            {{#if completed}}
+             <button>Mark not completed</button>
+            {{else}}
+             <button>Mark completed</button>
+            {{/if}}
+            <br>
+            Status:
+            {{#if completed}}
+              completed
+            {{else}}
+              not completed
+            {{/if}}
+           </p>
+         </label>
+       </li>
      </ul> 
-     <button id="save">Save</button>
-     <button id="delete">Delete</button>
     {{/with}}
 </template>
-
 
 <template name="requirementItem">
   <li>
     <h4 contenteditable>{{name}}</h4>
   </li>
-  <input type="checkbox" checked="{{requirementCompleted}}">
 </template>
-
 
 <template name="commentItem">
   <li>

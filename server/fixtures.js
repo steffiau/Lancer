@@ -216,8 +216,4 @@ Projects.insert({
 	}
 	]
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> development
 }
