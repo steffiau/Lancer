@@ -10,6 +10,14 @@ Template.invoice.helpers ({
     var project = Projects.findOne({_id: Session.get("projectId")});
     return project.events[Session.get("event_index")]
   },
+  invoiceitems: function () {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var invoiceitems = project.events[Session.get("event_index")].items;
+    var indexed_items = _.map(invoiceitems, function(value, index){
+      return {value: value, index: index};
+    })
+    return indexed_items;
+  },
   client: function () {
     var project = Projects.findOne({_id: Session.get("projectId")});
     return Clients.findOne({_id: project.client_id})

@@ -8,7 +8,7 @@ Template.meeting.helpers({
 
 Template.meeting.events({
   "click .event-completed button": function(e){
-    var project = Projects.findOne()
+    var project = Projects.findOne({_id: Session.get("projectId")})
     var projectId = project._id
     var events = project.events
     console.log("before change completed is", events[0].completed);
@@ -19,14 +19,14 @@ Template.meeting.events({
        Projects.update({_id: projectId}, {$set:  {'events.0.completed': true }})
     }
     //   Session.set("eventCompleted", !event.target.checked)
-    var project = Projects.findOne()
+    var project = Projects.findOne({_id: Session.get("projectId")})
     var projectId = project._id
     var events = project.events
     console.log("after change completed: ", events[0].completed)
   },
   "blur .single-event-details li": function(e){
 
-    var currentProject = Projects.findOne()._id
+    var currentProject = Session.get("projectId")
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
 
@@ -44,7 +44,7 @@ Template.meeting.events({
 		obj[dateMod] = date;
 		obj[notesMod] = notes;
 		obj[locationMod] = location;
-    Projects.update({_id: currentProject},{$set: 
+    Projects.update({_id: currentProject},{$set:
 			obj
       })
     console.log(this.title)

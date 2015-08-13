@@ -1,9 +1,9 @@
 <template name="invoiceItem">
-  <tr>
-    <td>{{service}}</td>
-    <td><a href="#">{{description}}</a></td>
-    <td class="text-right">{{qty}}</td>
-    <td class="text-right">{{price}}</td>
-    <td class="text-right">{{subtotal}}</td>
+  <tr class="invoice-item-fields" data-index="{{index}}">
+    <td class="invoice-item-service" contenteditable="true" >{{service}}</td>
+    <td class="invoice-item-description" contenteditable="true" >{{description}}</td>
+    <td class="text-right invoice-item-quantity" contenteditable="true" >{{qty}}</td>
+    <td class="text-right invoice-item-price" contenteditable="true" >{{price}}</td>
+    <td class="text-right" >{{subtotal}}</td>
   </tr>
 </template>
