@@ -39,3 +39,5 @@ currentProject = function(){
 clientName = function(clientId){
 	return Clients.findOne({'_id':clientId}).name;
 }
+
+
