@@ -47,3 +47,25 @@ Template.invoice.helpers ({
     return "$" + (subtotal * 1.12).toFixed(2);
   }
 });
+
+Template.invoice.events({
+  "click .add-invoice-item": function(){
+    console.log("hey!")
+    var event_index = Session.get("event_index")
+
+    var obj = {};
+
+    var items_array = "events." + event_index + ".items";
+
+    obj[items_array] = {
+      service: "",
+      description: "",
+      qty: 0,
+      price: 0.00,
+    };
+
+    var projectId = Session.get("projectId");
+
+    Projects.update({_id: projectId}, {$push: obj})
+  }
+})

@@ -1,7 +1,7 @@
 Template.invoiceItem.helpers ({
   subtotal: function() {
     var item = this.value
-    return (item.qty * item.price)
+    return (item.qty * item.price).toFixed(2)
   },
   service: function () {
     return this.value.service;
@@ -13,7 +13,7 @@ Template.invoiceItem.helpers ({
     return this.value.qty;
   },
   price: function () {
-    return this.value.price;
+    return this.value.price
   },
   index: function() {
     return this.index;
@@ -21,6 +21,25 @@ Template.invoiceItem.helpers ({
 })
 
 Template.invoiceItem.events({
+  "click .delete-invoice-item": function(e) {
+    var projectId = Session.get("projectId");
+    var event_index = Session.get("event_index")
+    var item_index = e.currentTarget.parentElement.dataset.index;
+
+    var objRemove = {};
+    var itemRemove = "events." + event_index + ".items." + item_index;
+
+    objRemove[itemRemove] = 1
+
+    Projects.update({_id: projectId}, {$unset: objRemove})
+
+    var objClear = {};
+    var itemClear = "events." + event_index + ".items";
+
+    objClear[itemClear] = null;
+
+    Projects.update({_id: projectId}, {$pull: objClear})
+  },
   "blur .invoice-item-fields": function(e) {
     e.preventDefault
 
