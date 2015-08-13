@@ -11,9 +11,7 @@ Template.meeting.events({
     var project = Projects.findOne()
     var projectId = project._id
     var events = project.events
-    console.log("before change completed is", events[0].completed);
-    if(events[0].completed){
-
+    if(events[Session.get("event_index")].completed){
       Projects.update({_id: projectId}, {$set:  {'events.0.completed': false }})
     } else {
        Projects.update({_id: projectId}, {$set:  {'events.0.completed': true }})
@@ -22,7 +20,7 @@ Template.meeting.events({
     var project = Projects.findOne()
     var projectId = project._id
     var events = project.events
-    console.log("after change completed: ", events[0].completed)
+   
   },
   "blur .single-event-details li": function(e){
 
@@ -46,10 +44,7 @@ Template.meeting.events({
 		obj[locationMod] = location;
     Projects.update({_id: currentProject},{$set: 
 			obj
-      })
-    console.log(this.title)
-    console.log(this.notes)
-
+    }) 
   }
 })
 // helpers required for all changes to events page being reflected in the database
