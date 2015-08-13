@@ -2,14 +2,19 @@
 
  <div id="wrapper">
     <div id="sidebar-wrapper">
+      <br/>
+      <button id="archiveProject" class='btn btn-warning'> Archive This Project </button> 
         {{> timeline}}
     </div>
     <div id="page-content-wrapper">
       <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
+            
               {{#if $.Session.equals "template" "Project"}}
                 {{> project}}
+              {{else}}
+              <button id='deleteNode' class='btn btn-danger'> Delete This Node </button>
               {{/if}}
               {{#if $.Session.equals "template" "Meeting"}}
                 {{> meeting}}

@@ -92,9 +92,9 @@ AutoForm.addHooks('newProjectForm', {
 							var location = eventObj.location;
 							var description = eventObj.title; 
 						} else if (eventObj.type == "invoice"){
-							var title = eventObj.title;
+							var title = eventObj.service;
 							var location = "Home";
-							var description = eventObj.title; 
+							var description = eventObj.description; 
 						} else if (eventObj.type == "milestone"){
 							var title = eventObj.title;
 							var location = "Home";
@@ -177,11 +177,11 @@ var scafold = function(doc){
 			// Handle invoice here
 			if (argv[i].milestone_invoice == true){
 				if (typeof argv[i].invoice_percentage == "undefined"){
-					var invoice_percentage = default_pct // Need to implement calcualtion here
+					var invoice_percentage = default_pct; 
 				} else {
 					var invoice_percentage = argv[i].invoice_percentage;	
 				};
-				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, Project.contract_amount)); // Generate invoice object and push to array
+				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, Project.contract_amount,i)); // Generate invoice object and push to array
 			};
 			// Handle meetings and milestones here
 			events.push(newMeeting(argv[i].milestone_date - 2, i));
@@ -219,16 +219,20 @@ var scafold = function(doc){
 		}
 	};
 
-	function newInvoice(date,pct_amount,total_amount){
+	function newInvoice(date,pct_amount,total_amount,index){
+    //milestone_num is 0 indexed
+		var service = "Milestone" + (index + 1);
+		var description = "Milestone" + (index + 1);
 		var amount = pct_amount * total_amount / 100;
 		amount = amount.toPrecision(3);
 		var invoice_no = date;
-		return { amount: Number(amount),
+		return { 
 			date: moment(date).add(1,'h').toDate(), 
 			title:'Invoice',
 			invoice_no: invoice_no,
 			type:'invoice',
-			completed: false
+			completed: false,
+      items:[{service:service, description:description, qty:1, price: Number(amount)}]
 		};
 	};
 
