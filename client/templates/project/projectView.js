@@ -8,7 +8,7 @@ Template.projectView.helpers({
   },
   template: function(){
     return Session.get("template")
-  }
+  },
 });
 
 Template.projectView.events({
@@ -17,5 +17,12 @@ Template.projectView.events({
         },{$set:{ project_finished: true }
           , $set:{
           project_finishedAt: moment().toISOString()}});
+  },
+
+  'click .nav-button': function(e){
+    e.preventDefaut;
+    var clickedPage = e.currentTarget.id;
+    console.log(clickedPage);
+    Session.set('onPage', clickedPage);
   }
 });

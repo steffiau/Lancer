@@ -1,6 +1,22 @@
 <template name='projectView'>
+  <div id="project-left-nav">
+    <div class="container">
+      <nav role="navigation">
+        <ul class="nav nav-pills nav-stacked">
+<!--           <li role="presentation" class="navbar-text">{{> loginButtons}}</li>
+        {{#if currentUser}} -->
+          <li role="presentation" class="navbar-text nav-button" id="active-projects"><a href="/"><i class="fa fa-home fa-2x"></i></a></li>
+          <li role="presentation" class="navbar-text nav-button" id="add-new-project"><a href="/"><i class="fa fa-plus fa-2x"></i></a></li>
+          <li role="presentation" class="navbar-text nav-button" id="clients"><a href="/"><i class="fa fa-users fa-2x"></i></a></li>
+          <li role="presentation" class="navbar-text nav-button" id="archive"><a href="/"><i class="fa fa-archive fa-2x"></i></a></li>
+          <li role="presentation" class="navbar-text nav-button" id="status"><a href="/"><i class="fa fa-line-chart fa-2x"></i></a></li>
+<!--         {{/if}} -->
+        </ul>
+      </nav>
+    </div>
+  </div>
 
- <div id="wrapper">
+  <div id="wrapper">
     <div id="sidebar-wrapper">
       <br/>
       <button id="archieveProject"> Archieve This Project </button> 
