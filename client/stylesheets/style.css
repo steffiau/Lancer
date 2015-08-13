@@ -240,6 +240,16 @@ body {
   background-color: #DDDDDD;
 }
 
+.overview-project:hover {
+  background-color: #DDDDDD;
+  cursor: pointer;
+}
+
+.progress {
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
 #sidebar-wrapper {
   margin-left: 0px; 
   left: 60px;
