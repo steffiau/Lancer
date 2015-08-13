@@ -1,6 +1,4 @@
-
 // This schema is used to validate new_project forms data and we could consider move it somewhere else in the future.
-
 newProjectSchema = new SimpleSchema({
 	project_name: {
 		type:String
@@ -66,11 +64,10 @@ newProjectSchema = new SimpleSchema({
 		decimal: true,
 		label: "Invoice Percentage in terms of % (Ex. 50 as 50%)",
 		autoform:{
-		placeholder:"Leave this field empty and we will calculate a percentage for you by milestone."
+			placeholder:"Leave this field empty and we will calculate a percentage for you by milestone."
 		}
 	},
 });
-
 AutoForm.addHooks('newProjectForm', {
 	onSubmit: function(doc){
 		this.event.preventDefault();
@@ -87,18 +84,14 @@ AutoForm.addHooks('newProjectForm', {
 						// Google Calendar Here
 						var start_time = moment(eventObj.date).add(1,'d');
 						var end_time = moment(eventObj.date).add(12,'h');
+						var title = eventObj.title;
+						var location = "Home";
+						var description = eventObj.title; 
 						if (eventObj.type == "meeting"){
-							var title = eventObj.title;
 							var location = eventObj.location;
-							var description = eventObj.title; 
 						} else if (eventObj.type == "invoice"){
 							var title = eventObj.service;
-							var location = "Home";
 							var description = eventObj.description; 
-						} else if (eventObj.type == "milestone"){
-							var title = eventObj.title;
-							var location = "Home";
-							var description = eventObj.title; 
 						}
 						writeToGoogleCalendar(start_time, end_time,title,title,location);
 					});
@@ -111,8 +104,6 @@ AutoForm.addHooks('newProjectForm', {
 		};
 	}		
 });
-
-
 function writeToGoogleCalendar(start_time, end_time,summary, description, location){
 	var data = {
 		"end": {
@@ -129,10 +120,7 @@ function writeToGoogleCalendar(start_time, end_time,summary, description, locati
 			data: data});
 	console.log('google request sent');
 }
-
-
 var scafold = function(doc){
-
 	//Initiate Project Object
 	var Project = {name: doc.project_name,
 		description: doc.project_description,
@@ -144,15 +132,13 @@ var scafold = function(doc){
 		owner_id: Meteor.userId(),
 		contract_amount: doc.contract_amount,
 		events: []}
-
-	 if (processMilestone(doc.milestones) == false) {
-		 return false
-	 } else{
-		 return Project
-	 };
-	
-//========================================================
-//=======Under this are my helper methods================
+	if (processMilestone(doc.milestones) == false) {
+		return false
+	} else{
+		return Project
+	};
+	//========================================================
+	//=======Under this are my helper methods================
 	function processMilestone(argv){
 		//takes an js object as input
 		var events = [],
@@ -186,16 +172,13 @@ var scafold = function(doc){
 			// Handle meetings and milestones here
 			events.push(newMeeting(argv[i].milestone_date - 2, i));
 			milestones.push(newMilestone(argv[i].milestone_date, i));
-
 		};
 		var events_array = invoices.concat(events.concat(milestones));
 		Project.events = events_array; // Display all invoices generated
 		console.log(Project);
 	};
-
 	function newMilestone(date, index){
 		var title = "Milestone" + (index + 1);
-		
 		return{
 			title: title,
 			type:'milestone',
@@ -204,9 +187,7 @@ var scafold = function(doc){
 			comments:[],
 			date:date,
 		};
-
 	};
-
 	function newMeeting(date, index){
 		var title = "Event" + (index + 1);
 		return{
@@ -218,9 +199,8 @@ var scafold = function(doc){
 			completed:false
 		}
 	};
-
 	function newInvoice(date,pct_amount,total_amount,index){
-    //milestone_num is 0 indexed
+		//milestone_num is 0 indexed
 		var service = "Milestone" + (index + 1);
 		var description = "Milestone" + (index + 1);
 		var amount = pct_amount * total_amount / 100;
@@ -232,8 +212,7 @@ var scafold = function(doc){
 			invoice_no: invoice_no,
 			type:'invoice',
 			completed: false,
-      items:[{service:service, description:description, qty:1, price: Number(amount)}]
+			items:[{service:service, description:description, qty:1, price: Number(amount)}]
 		};
 	};
-
 }
