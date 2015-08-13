@@ -31,51 +31,38 @@ Template.projectListing.helpers({
 
 
 
+// FOR NODES TIMELINE
 
+// Template.overviewTimelineItem.helpers({
+//   type: function() {
+//     var type = this.type;
+//     return type.charAt(0).toUpperCase() + type.slice(1);
+//   },
+//   details: function() {
+//     if (this.title) {
+//       var title = this.title;
+//       return "(" + title + ")";
+//     } else {
+//       var amount = this.amount;
+//       return "($" + amount + ")";
+//     }
+//   }
+// });
 
+// Template.overviewTimelineItem.events({
+//   "click .timeline-item": function(e) {
+//     var template_type = e.currentTarget.dataset.template;
+//     Session.set("template", template_type)
+//   },
 
+//   "mouseenter .overview-node": function(e) {
+//     $(e.target).css("background-color", "#6BBD5D");
+//     $(e.target).parent().parent().prev().css("display", "inline-block");
+//   },
 
-
-
-
-
-
-
-
-
-
-// To BE DELETED
-
-Template.overviewTimelineItem.helpers({
-  type: function() {
-    var type = this.type;
-    return type.charAt(0).toUpperCase() + type.slice(1);
-  },
-  details: function() {
-    if (this.title) {
-      var title = this.title;
-      return "(" + title + ")";
-    } else {
-      var amount = this.amount;
-      return "($" + amount + ")";
-    }
-  }
-});
-
-Template.overviewTimelineItem.events({
-  "click .timeline-item": function(e) {
-    var template_type = e.currentTarget.dataset.template;
-    Session.set("template", template_type)
-  },
-
-  "mouseenter .overview-node": function(e) {
-    $(e.target).css("background-color", "#6BBD5D");
-    $(e.target).parent().parent().prev().css("display", "inline-block");
-  },
-
-  "mouseleave .overview-node": function(e) {
-    $(e.target).css("background-color", "#75ce66");
-    $(e.target).parent().parent().prev().css("display", "none");
-  }
-});
+//   "mouseleave .overview-node": function(e) {
+//     $(e.target).css("background-color", "#75ce66");
+//     $(e.target).parent().parent().prev().css("display", "none");
+//   }
+// });
 
