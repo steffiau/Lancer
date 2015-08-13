@@ -8,7 +8,7 @@ Template.meeting.helpers({
 
 Template.meeting.events({
   "click .event-completed button": function(e){
-    var project = Projects.findOne();
+    var project = Projects.findOne({_id: Session.get("projectId")});
     var projectId = Session.get("projectId")
     var events = project.events;
     var object = {};
@@ -23,9 +23,7 @@ Template.meeting.events({
        Projects.update({_id: projectId}, {$set:  object})
     }
     //   Session.set("eventCompleted", !event.target.checked)
-    console.log(object)
-    console.log(this)
-    console.log(Session.get("event_index"))   
+   console.log(Session.get("projectId"))  
   },
   "blur .single-event-details li": function(e){
 
