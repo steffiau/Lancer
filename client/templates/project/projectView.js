@@ -26,5 +26,12 @@ Template.projectView.events({
 		var newEvents = events.splice(Session.get('event_index'),1);
 		Projects.update({'_id':Session.get('projectId')},
 				{$set:{events: events}});
-	}
+	},
+    'click .nav-button': function(e){
+    e.preventDefaut;
+    var clickedPage = e.currentTarget.id;
+    console.log(clickedPage);
+    Session.set('onPage', clickedPage);
+  }
+
 });

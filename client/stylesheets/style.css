@@ -26,6 +26,10 @@ header h1 {
   font-size: 1.125rem;
 }
 
+body {
+  background-color: #EEEEEE;
+}
+
 #cd-timeline {
   position: relative;
   padding: 2em 0;
@@ -232,8 +236,8 @@ header h1 {
   border: 5px solid #eee;
 }
 
-body {
-  background-color: #EEEEEE;
+.overview-project:hover {
+  background-color: #DDDDDD;
 }
 
 .overview-project:hover {
@@ -245,4 +249,28 @@ body {
   margin-bottom: 40px;
   margin-top: 30px;
 }
+
+#sidebar-wrapper {
+  margin-left: 0px; 
+  left: 60px;
+}
+
+#project-left-nav {
+  position: fixed;
+  display: block;
+  width: 60px;
+  height: 100%;
+  position: fixed;
+  background: white;
+}
+
+#page-content-wrapper {
+  margin-left: 40px;
+  width: auto;
+}
+
+#project-left-nav .nav {
+  margin-left: -10px;
+}
+
 
