@@ -35,6 +35,10 @@
           {{#if pageIs 'add-new-project'}}
             {{> newProject}}
           {{/if}}
+
+          {{#if pageIs 'archive'}}
+            {{> archivedProjects}}
+          {{/if}}
         </div>
 
       {{else}}
