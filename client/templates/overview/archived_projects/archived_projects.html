@@ -1,10 +1,4 @@
 <template name='archivedProjects'>
-aaa
-{{# each archived_projects}}
-{{> archived_project}}
-{{/each}}
+{{> reactiveTable collection=archived_projects settings=settings}}
 </template> 
 
-<template name='archived_project'>
-{{name}}
-</template> 
