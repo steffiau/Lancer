@@ -144,7 +144,7 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
         ]
       },
     ]
-  })
+  });
 
   Projects.insert({
   	name : "Lancer",
