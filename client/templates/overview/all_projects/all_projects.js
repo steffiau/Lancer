@@ -2,7 +2,6 @@ Template.allProjects.helpers({
   projects: function(){
     return Projects.find();
   },
-
   count: function(){
     return Projects.find().count();
   },
@@ -15,12 +14,37 @@ Template.allProjects.events({
   }
 });
 
-Template.projectListing.helpers({
+Template.projectListing.helpers({ 
   timeline: function(){
     var events = this.events
     return _.sortBy(events, 'date');
   },
+  comPercent: function(){
+    var totalEvents = this.events;
+    var comEvents = totalEvents.filter(function( event ) {
+      return event.completed == true;
+    });
+
+    return Math.floor((comEvents.length / totalEvents.length) * 100);
+  }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// To BE DELETED
 
 Template.overviewTimelineItem.helpers({
   type: function() {
