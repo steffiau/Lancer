@@ -10,5 +10,11 @@ Meteor.publish('clients', function() {
 	return Clients.find({owner_id:id});
 });
 
+Meteor.publish('projectFiles', function() {
+  var id = this.userId;
+  return projectFiles.find()
+});
+
+
 
 

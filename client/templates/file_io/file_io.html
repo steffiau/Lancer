@@ -1,7 +1,28 @@
-<template name="uploadForm">
+<template name="uploadForm"> 
   <h1> File I/O </h1>
   <form> 
     <input  type="file" id="file">
     <input type="submit" value="upload">
   </form>
+
+<ul>
+{{#each attachments}}
+<li>{{this.original.name}}: </li>
+{{/each}}
+</ul>
+
+<!-- 
+<ul>
+{{#each uploads}}
+{{name}}
+<li>{{name}}: {{url}} DL LINK></li>
+{{/each}}
+</ul>
+ -->
+
+
+
+
 </template>
+
+
