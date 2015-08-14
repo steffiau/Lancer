@@ -27,11 +27,15 @@ Template.projectView.events({
 		Projects.update({'_id':Session.get('projectId')},
 				{$set:{events: events}});
 	},
-    'click .nav-button': function(e){
+  'click .nav-button': function(e){
     e.preventDefaut;
     var clickedPage = e.currentTarget.id;
     console.log(clickedPage);
     Session.set('onPage', clickedPage);
+  },
+  "click #createEvent": function (){
+    console.log("new event")
+    Session.set("template", "createEvent")
   }
 
 });
