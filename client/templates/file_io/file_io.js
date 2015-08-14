@@ -23,21 +23,16 @@ Template.uploadForm.helpers({
   },
   uploads: function(){
    return projectFiles.find();
-   
  },
  downloadURL: function(){
-   var project = Projects.findOne({_id: Session.get("projectId")});
-   var currentEvent = project.events[Session.get("event_index")]
-   
-  // "https://s3-us-west-2.amazonaws.com/lancerlhl/projectFiles/"
-
-  
-}
+   return "https://s3-us-west-2.amazonaws.com/lancerlhl/projectFiles/"
+ }
 });
 
 // template helpers for the upload form
 Template.uploadForm.events({
-  "click h1": function(e){
+  "submit form": function(e){
+    e.preventDefault();
     var project = Projects.findOne({_id: Session.get("projectId")});
     var projectId =  Session.get("projectId");
     var file = $("#file").get(0).files[0];
