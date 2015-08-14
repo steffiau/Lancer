@@ -6,10 +6,10 @@ var projectFilesStoreS3 = new FS.Store.S3("projectFilesS3", {
   accessKeyId: "AKIAJXIHI56WTNHWCZUA", //required if environment variables are not set
   secretAccessKey: "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", //required if environment variables are not set
   bucket: "lancerlhl", //required
-  // ACL: "public", //optional, default is 'private', but you can allow public or secure access routed through your app URL
+  ACL: "public-read", //optional, default is 'private', but you can allow public or secure access routed through your app URL
   // folder: "files/", //optional, which folder (key prefix) in the bucket to use 
   // The rest are generic store options supported by all storage adapters
-  maxTries: 999 //optional, default 5
+  maxTries: 20 //optional, default 5
 });
 
 
@@ -18,7 +18,7 @@ var projectFilesStoreS3 = new FS.Store.S3("projectFilesS3", {
 
 // defines a new FS COLLECTION named called projectFiles
 var projectFiles = new FS.Collection('projectFiles', {
-  stores: [projectFilesStoreS3]
+  stores: [projectFilesStore, projectFilesStoreS3]
 });
 
 projectFiles.allow({
