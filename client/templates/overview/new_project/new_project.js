@@ -26,12 +26,6 @@ newProjectSchema = new SimpleSchema({
 		label:"Project Due Date",
 		min: new Date(),
 	},
-	client_id:{
-		type:String,   // This definitely needs to be changed when we have client side of things done.
-		autoform:{
-			placeholder:"Client_id here, need to work on this "	
-		}
-	},
 	contract_amount:{
 		type:Number,
 		min:1,
@@ -71,10 +65,13 @@ newProjectSchema = new SimpleSchema({
 AutoForm.addHooks('newProjectForm', {
 	onSubmit: function(doc){
 		this.event.preventDefault();
+
 		//var error = new Error("aaaaaaa");
 		//console.log(error);		// How to throw error
 		if (project = scafold(doc)){
 			// if scafold success, write to db
+		client_id = {client_id: location.search.split('client=')[1]};
+			_.extend(project, client_id);
 			Projects.insert(project, function(err,id){
 				// once inserted, now populate google calenar
 				if (id) {
@@ -95,6 +92,7 @@ AutoForm.addHooks('newProjectForm', {
 						}
 						writeToGoogleCalendar(start_time, end_time,title,title,location);
 					});
+					Router.go('/project/' + id);
 				};
 			});	
 		}else{
