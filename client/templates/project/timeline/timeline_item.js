@@ -8,8 +8,11 @@ Template.timelineItem.helpers({
       var title = this.value.title;
       return "(" + title + ")";
     } else {
-      var amount = this.value.amount;
-      return "($" + amount + ")";
+      var items = this.value.items;
+      var total = _.reduce(items, function(sum, item){
+        return sum + (item.qty * item.price);
+      }, 0);
+      return "($" + (total *  1.12).toFixed(2) + ")";
     }
   },
   index: function() {

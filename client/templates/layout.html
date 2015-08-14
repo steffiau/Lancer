@@ -1,26 +1,33 @@
-<!-- nav bar goes here, because it's always on the page -->
 <template name="layout">
-  <div id="left-nav">
-    <div class="container">
-      <nav role="navigation">
-        <ul class="nav nav-pills nav-stacked">
-          <li>
-            <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
-          </li>
-          <li role="presentation" class="navbar-text">{{> loginButtons}}</li>
-        {{#if currentUser}}
-          <li role="presentation" class="navbar-text nav-button" id="active-projects"><a href="#">Active Projects</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="add-new-project"><a href="#">Add New Project</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="clients"><a href="#">Clients</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="archive"><a href="#">Archive</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="status"><a href="#">Status</a></li>
-        {{/if}}
-        </ul>
-      </nav>
+  <div class="col.md.3" id="left-nav">
+    <div class="row">
+      <div id="time">07:35 PM</div>
+      <div id="date">THUR, AUG 20</div>
+    </div>
+    {{#if currentUser}}
+    <div class="row">
+      <div class="create-button" id="add-new-project"><i class="fa fa-plus" id="create-plus"></i><span id="add-project-text">CREATE NEW PROJECT</span></div>
+    </div>
+
+    <div class="row">
+      <div class="menu-button" id="active-projects">Active Projects</div>
+    </div>
+
+    <div class="row">
+      <div class="menu-button" id="clients">Clients</div>
+    </div>
+
+    <div class="row">
+      <div class="menu-button" id="archive">Archive</div>
+    </div>
+    {{/if}}
+    <div class="row">
+      <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
+      <div>{{> loginButtons}}</div>
     </div>
   </div>
 
-  <div id="right-panel">
+  <div class="col.md.9" id="right-panel">
     <div class="container">
       {{#if currentUser}}
         <div>
@@ -38,6 +45,9 @@
 
           {{#if pageIs 'archive'}}
             {{> archivedProjects}}
+          {{/if}}
+          {{#if pageIs 'clients'}}
+            {{> allClients}}
           {{/if}}
         </div>
 

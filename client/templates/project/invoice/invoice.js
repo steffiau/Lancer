@@ -10,8 +10,62 @@ Template.invoice.helpers ({
     var project = Projects.findOne({_id: Session.get("projectId")});
     return project.events[Session.get("event_index")]
   },
+  invoiceitems: function () {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var invoiceitems = project.events[Session.get("event_index")].items;
+    var indexed_items = _.map(invoiceitems, function(value, index){
+      return {value: value, index: index};
+    })
+    return indexed_items;
+  },
   client: function () {
     var project = Projects.findOne({_id: Session.get("projectId")});
     return Clients.findOne({_id: project.client_id})
+  },
+  subtotal: function () {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var invoice = project.events[Session.get("event_index")]
+    var subtotal = _.reduce(invoice.items, function(sum, num) {
+      return sum + (num.qty * num.price);
+    }, 0);
+    return "$" + subtotal.toFixed(2);
+  },
+  tax: function () {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var invoice = project.events[Session.get("event_index")]
+    var subtotal = _.reduce(invoice.items, function(sum, num) {
+      return sum + (num.qty * num.price);
+    }, 0);
+    return "$" + (subtotal * 0.12).toFixed(2);
+  },
+  grandtotal: function () {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var invoice = project.events[Session.get("event_index")]
+    var subtotal = _.reduce(invoice.items, function(sum, num) {
+      return sum + (num.qty * num.price);
+    }, 0);
+    return "$" + (subtotal * 1.12).toFixed(2);
   }
 });
+
+Template.invoice.events({
+  "click .add-invoice-item": function(){
+    console.log("hey!")
+    var event_index = Session.get("event_index")
+
+    var obj = {};
+
+    var items_array = "events." + event_index + ".items";
+
+    obj[items_array] = {
+      service: "",
+      description: "",
+      qty: 0,
+      price: 0.00,
+    };
+
+    var projectId = Session.get("projectId");
+
+    Projects.update({_id: projectId}, {$push: obj})
+  }
+})

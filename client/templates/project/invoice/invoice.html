@@ -61,24 +61,27 @@
           </tr>
         </thead>
         <tbody>
-          {{>invoiceItem}}
+          {{#each invoiceitems}}
+            {{>invoiceItem}}
+          {{/each}}
         </tbody>
+        <div class="add-invoice-item"><i class="fa fa-plus-circle"></i></div>
       </table>
       <div class="row text-right">
         <div class="col-xs-2 col-xs-offset-8">
           <p>
             <strong>
             Sub Total : <br>
-            TAX : <br>
+            GST : <br>
             Total : <br>
             </strong>
           </p>
         </div>
         <div class="col-xs-2">
           <strong>
-          {{invoice.amount}}<br>
-          N/A <br>
-          {{invoice.amount}}<br>
+          {{subtotal}}<br>
+          {{tax}} <br>
+          {{grandtotal}}<br>
           </strong>
         </div>
       </div>

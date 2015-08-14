@@ -8,30 +8,37 @@ Template.meeting.helpers({
 
 Template.meeting.events({
   "click .event-completed button": function(e){
-    var project = Projects.findOne()
-    var projectId = project._id
-    var events = project.events
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var projectId = Session.get("projectId")
+    var events = project.events;
+    var object = {};
+    var index = Session.get("event_index");
+    var completedMod = 'events.' + index + '.completed';
+
     if(events[Session.get("event_index")].completed){
-      Projects.update({_id: projectId}, {$set:  {'events.0.completed': false }})
+      object[completedMod] = false
+      Projects.update({_id: projectId}, {$set: object})
     } else {
-       Projects.update({_id: projectId}, {$set:  {'events.0.completed': true }})
+      object[completedMod] = true
+       Projects.update({_id: projectId}, {$set:  object})
     }
+
     //   Session.set("eventCompleted", !event.target.checked)
-    var project = Projects.findOne()
+    var project = Projects.findOne({_id: Session.get("projectId")})
     var projectId = project._id
     var events = project.events
-   
   },
   "blur .single-event-details li": function(e){
 
-    var currentProject = Projects.findOne()._id
+    var currentProject = Session.get("projectId")
+
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
 
-    var title = document.getElementById("single-event-title").innerText
-    var location = document.getElementById("single-event-location").innerText
-    var date = document.getElementById("single-event-date").innerText
-    var notes = document.getElementById("single-event-notes").innerText
+    var title = $("#single-event-title").text();
+    var location = $("#single-event-location").text();
+    var date = $("#single-event-date").text();
+    var notes = $("#single-event-notes").text();
 		var index = Session.get("event_index");
 		var obj = {};
 		var titleMod = 'events.' + index + '.title';
@@ -42,11 +49,12 @@ Template.meeting.events({
 		obj[dateMod] = date;
 		obj[notesMod] = notes;
 		obj[locationMod] = location;
-    Projects.update({_id: currentProject},{$set: 
+    Projects.update({_id: currentProject},{$set:
 			obj
-    }) 
+    })
   }
-})
+});
+
 // helpers required for all changes to events page being reflected in the database
 
 

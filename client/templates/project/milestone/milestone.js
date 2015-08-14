@@ -8,7 +8,9 @@ Template.milestone.helpers({
     if(Session.get("milestoneCompleted")){
       return true
     }
-  },  
+  }, 
+  
+   
 });
 
 Template.milestone.events({

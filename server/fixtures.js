@@ -124,7 +124,7 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
             service: "Logo Mockup",
             description: "",
             qty: 1,
-            amount: 700
+            price: 700
           }
         ]
       },
@@ -139,7 +139,7 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
             service: "Logo Development",
             description: "",
             qty: 1,
-            amount: 700
+            price: 700
           }
         ]
       },
@@ -167,7 +167,7 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
             service: "Initial Planning",
             description: "",
             qty: 1,
-            amount: 300
+            price: 300
           }
         ]
     	},
@@ -181,7 +181,7 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
             service: "Software Development",
             description: "",
             qty: 1,
-            amount: 300
+            price: 300
           }
         ]
     	},
@@ -195,7 +195,7 @@ if (Projects.find().count() === 0 && Meteor.users.find().count() === 1) {
             service: "Deployment",
             description: "",
             qty: 1,
-            amount: 300
+            price: 300
           }
         ]
     	},

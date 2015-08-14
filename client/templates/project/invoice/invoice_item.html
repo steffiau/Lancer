@@ -1,9 +1,12 @@
 <template name="invoiceItem">
-  <tr>
-    <td>***Milestone.Name****</td>
-    <td><a href="#">***User.Entered.Description***</a></td>
-    <td class="text-right">-</td>
-    <td class="text-right">***Invoice.Amount***</td>
-    <td class="text-right">***Invoice.Amount***</td>
-  </tr>
+  <tr class="invoice-item-fields" data-index="{{index}}">
+    <td class="invoice-item-service" contenteditable="true" value="{{service}}"><div>{{service}}</div></td>
+    <td class="invoice-item-description" contenteditable="true" value="{{description}}"><div>{{description}}</div></td>
+    <td class="text-right invoice-item-quantity" contenteditable="true" value="{{qty}}"><div>{{qty}}</div></td>
+    <td class="text-right invoice-item-price" contenteditable="true" value="{{price}}"><div>{{price}}</div></td>
+    <td class="text-right" >{{subtotal}}</td>
+    <td class="text-right delete-invoice-item" ><i class="fa fa-times-circle"></i></td>
+ </tr>
+
+
 </template>

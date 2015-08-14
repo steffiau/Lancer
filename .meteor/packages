@@ -22,3 +22,5 @@ cfs:filesystem
 cfs:s3
 aslagle:reactive-table
 
+autopublish
+email
