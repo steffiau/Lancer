@@ -71,9 +71,18 @@ AutoForm.addHooks('newProjectForm', {
 		if (project = scafold(doc)){
 			// if scafold success, write to db
 		client_id = {client_id: location.search.split('client=')[1]};
-			_.extend(project, client_id);
+			_.extend(project, client_id); // Push client id field into project
 			Projects.insert(project, function(err,id){
-				// once inserted, now populate google calenar
+				// once inserted, now populate events and then update the newly created document in database
+				var events = 	processMilestone(doc.milestones,id);
+				console.log(events);
+				Projects.update({_id: id},{
+								$set:{events: events}	
+				});
+
+				
+				
+				// When this is done, create google projects
 				if (id) {
 					var events = Projects.findOne({_id: id}).events;
 					events.forEach(function(eventObj){
@@ -130,15 +139,13 @@ var scafold = function(doc){
 		owner_id: Meteor.userId(),
 		contract_amount: doc.contract_amount,
 		events: []}
-	if (processMilestone(doc.milestones) == false) {
-		return false
-	} else{
 		return Project
 	};
 	//========================================================
 	//=======Under this are my helper methods================
-	function processMilestone(argv){
+	function processMilestone(argv,project_id){
 		//takes an js object as input
+		var id4 = project_id.substr(-4,4);
 		var events = [],
 		milestones = [],
 		invoices = [];
@@ -165,15 +172,14 @@ var scafold = function(doc){
 				} else {
 					var invoice_percentage = argv[i].invoice_percentage;	
 				};
-				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, Project.contract_amount,i)); // Generate invoice object and push to array
+				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, argv.contract_amount,i,id4)); // Generate invoice object and push to array
 			};
 			// Handle meetings and milestones here
 			events.push(newMeeting(argv[i].milestone_date - 2, i));
 			milestones.push(newMilestone(argv[i].milestone_date, i));
 		};
-		var events_array = invoices.concat(events.concat(milestones));
-		Project.events = events_array; // Display all invoices generated
-		console.log(Project);
+		return  invoices.concat(events.concat(milestones));// Return all the events so that I can just push them to the newly generated project
+
 	};
 	function newMilestone(date, index){
 		var title = "Milestone" + (index + 1);
@@ -197,13 +203,13 @@ var scafold = function(doc){
 			completed:false
 		}
 	};
-	function newInvoice(date,pct_amount,total_amount,index){
+	function newInvoice(date,pct_amount,total_amount,index,id4){
 		//milestone_num is 0 indexed
 		var service = "Milestone" + (index + 1);
 		var description = "Milestone" + (index + 1);
 		var amount = pct_amount * total_amount / 100;
 		amount = amount.toPrecision(3);
-		var invoice_no = date;
+		var invoice_no = moment(date).format("YYYYMMDD") + "-" + id4;
 		return { 
 			date: moment(date).add(1,'h').toDate(), 
 			title:'Invoice',
@@ -213,4 +219,4 @@ var scafold = function(doc){
 			items:[{service:service, description:description, qty:1, price: Number(amount)}]
 		};
 	};
-}
+

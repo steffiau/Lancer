@@ -9,6 +9,7 @@ Template.archivedProjects.helpers({
 			{key: "project_finishedAt", label: "Finished at"},
 			{key: "client_id", label: "Client Name" ,fn: function(value,object){return clientName(value);}},
 			{key: "contract_amount", label: "$$$"}]
+			{key: "_id", label:"U
 		};
 	}
 });
