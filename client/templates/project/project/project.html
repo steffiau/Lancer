@@ -3,5 +3,26 @@
   <ul class="list-group single-event-details">
     <li class="list-group-item"> <h2 id="single-event-title" contenteditable="true">{{project.description}}   </h2>  </li>
     <li class="list-group-item"> <h3 contenteditable="true" id="single-event-date">{{project.start_date}} to {{project.due_date}}</h3>  </li>
+    <li class="list-group-item">
+      <br>
+      <p>Collaborators:</p>
+      <ul>
+        {{#each collabUser}}
+        <li>{{profile.name}}</li>
+        {{/each}}
+      </ul>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Add user  <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <form id="add-project-user">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email of user">
+            </form>
+          </li>
+        </ul>
+      </div>
+    </li>
  </ul>
 </template>

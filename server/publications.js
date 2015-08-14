@@ -15,6 +15,10 @@ Meteor.publish('projectFiles', function() {
   return projectFiles.find()
 });
 
+Meteor.publish('allUsers', function() {
+  return Meteor.users.find();
+});
+
 
 
 
