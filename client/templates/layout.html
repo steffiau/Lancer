@@ -1,23 +1,33 @@
 <!-- nav bar goes here, because it's always on the page -->
 <template name="layout">
   <div id="left-nav">
-    <div class="container">
+ <!--    <div class="container"> -->
       <nav role="navigation">
         <ul class="nav nav-pills nav-stacked">
           <li>
-            <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
+            <div id="time">07:35 PM</div>
+            <div id="date">THUR, AUG 20</div>
+
           </li>
-          <li role="presentation" class="navbar-text">{{> loginButtons}}</li>
         {{#if currentUser}}
-          <li role="presentation" class="navbar-text nav-button" id="active-projects"><a href="#">Active Projects</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="add-new-project"><a href="#">Add New Project</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="clients"><a href="#">Clients</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="archive"><a href="#">Archive</a></li>
-          <li role="presentation" class="navbar-text nav-button" id="status"><a href="#">Status</a></li>
+          <div id="new-project-button">
+            <li role="presentation" class="navbar-text nav-button" id="add-new-project">CREATE NEW PROJECT</li>
+          </div>
+
+          <li role="presentation" class="navbar-text nav-button" id="active-projects">Active Projects</li>
+
+          <li role="presentation" class="navbar-text nav-button" id="clients">Clients</li>
+
+          <li role="presentation" class="navbar-text nav-button" id="archive">Archive</li>
         {{/if}}
+        <li>
+          <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
+          <div>{{> loginButtons}}</div>
+        </li>
         </ul>
+
       </nav>
-    </div>
+<!--     </div> -->
   </div>
 
   <div id="right-panel">

@@ -1,4 +1,3 @@
-
 .cd-container {
   width: 90%;
   max-width: 1170px;
@@ -185,29 +184,70 @@ body {
 }
 
 #right-panel {
-  width: 80%;
+  width: 79%;
   height: auto;
   position: absolute;
   right: 0;
 }
 
 #left-nav {
+  font-family: "Lato", sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  color: white;
   position: fixed;
   display: block;
-  width: 20%;
+  width: 21%;
   height: 100%;
   position: fixed;
-  background: white;
+  background: #2b3d51;
+  overflow: scroll;
 }
+
+#time {
+  margin-top: 1em;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-align: center
+}
+
+#date {
+  margin-bottom: 1em;
+  font-size: .85em;
+  font-weight: 400;
+  text-align: center;
+}
+
+div #new-project-button #add-new-project {
+  font-size: .6em;
+  padding: 15px;
+  background-color: #4697ce;
+  width: 100%;
+  margin-bottom: 25px;
+  margin-top: 15px;
+  border-bottom: none;
+}
+
+li #add-new-project {
+  margin: 0;
+}
+
+.navbar-text {
+  margin-left: 20px;
+  padding-left: .8em;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
 
 .nav-stacked > li {
     float: none;
-    width: 20%;
 }
 
 @media (min-width: 768px) {
   .navbar-text {
-    margin-left: 0; 
+    margin-left: 0;
   }
 }
 
@@ -251,7 +291,7 @@ body {
 }
 
 #sidebar-wrapper {
-  margin-left: 0px; 
+  margin-left: 0px;
   left: 60px;
 }
 
