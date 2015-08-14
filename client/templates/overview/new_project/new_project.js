@@ -114,7 +114,7 @@ function writeToGoogleCalendar(start_time, end_time,summary, description, locati
 		"description":description,
 		"location":location}
 	console.log(data)
-		GoogleApi.post('calendar/v3/calendars/primary/events?key=' + process.env['GOOGLE_PUBLIC_API_KEY'],{
+		GoogleApi.post('calendar/v3/calendars/primary/events?key=' + Meteor.settings.public.GooglePublicAPIKey,{
 			data: data});
 	console.log('google request sent');
 }
