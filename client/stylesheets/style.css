@@ -218,37 +218,20 @@ body {
   text-align: center;
 }
 
-div #new-project-button #add-new-project {
-  font-size: .6em;
-  padding: 15px;
-  background-color: #4697ce;
-  width: 100%;
-  margin-bottom: 25px;
-  margin-top: 15px;
-  border-bottom: none;
-}
-
-li #add-new-project {
-  margin: 0;
-}
-
 .navbar-text {
-  margin-left: 20px;
-  padding-left: .8em;
+  margin-left: 40px;
+  margin-right: 40px;
   padding-bottom: 20px;
   padding-top: 20px;
   border-bottom: 1px solid #eeeeee;
 }
 
-
 .nav-stacked > li {
     float: none;
 }
 
-@media (min-width: 768px) {
-  .navbar-text {
-    margin-left: 0;
-  }
+div #help {
+  margin-left: 40px;
 }
 
 #login-buttons {

@@ -10,9 +10,7 @@
 
           </li>
         {{#if currentUser}}
-          <div id="new-project-button">
-            <li role="presentation" class="navbar-text nav-button" id="add-new-project">CREATE NEW PROJECT</li>
-          </div>
+          <li role="presentation" class="navbar-text nav-button create-project-button" id="add-new-project" style="background-color: #4697ce; margin-right: 0; font-size: .6em; border-bottom: none;">CREATE NEW PROJECT</li>
 
           <li role="presentation" class="navbar-text nav-button" id="active-projects">Active Projects</li>
 
@@ -24,6 +22,7 @@
           <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
           <div>{{> loginButtons}}</div>
         </li>
+
         </ul>
 
       </nav>
