@@ -222,11 +222,12 @@ body {
 }
 
 .menu-button{
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 65px;
+  margin-right: 65px;
   padding-bottom: 20px;
   padding-top: 20px;
   border-bottom: 1px solid #5d6b7a;
+  cursor: pointer;
 }
 
 .create-button {
@@ -235,6 +236,7 @@ body {
   font-size: .6em;
   border-bottom: none;
   margin-bottom: .8em;
+  cursor: pointer;
 }
 
 .create-button #create-plus {
