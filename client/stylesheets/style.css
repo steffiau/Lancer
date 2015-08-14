@@ -184,10 +184,13 @@ body {
 }
 
 #right-panel {
-  width: 79%;
+  width: 77%;
   height: auto;
+  float:right;
   position: absolute;
   right: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 #left-nav {
@@ -197,11 +200,11 @@ body {
   color: white;
   position: fixed;
   display: block;
-  width: 21%;
+  width: 22%;
   height: 100%;
   position: fixed;
   background: #2b3d51;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 #time {
@@ -212,27 +215,36 @@ body {
 }
 
 #date {
-  margin-bottom: 1em;
+  margin-bottom: 1.3em;
   font-size: .85em;
   font-weight: 400;
   text-align: center;
 }
 
-.navbar-text {
+.menu-button{
   margin-left: 40px;
   margin-right: 40px;
   padding-bottom: 20px;
   padding-top: 20px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #5d6b7a;
 }
 
-.nav-stacked > li {
-    float: none;
+.create-button {
+  background-color: #4697ce;
+  margin-right: 0;
+  font-size: .6em;
+  border-bottom: none;
+  margin-bottom: .8em;
 }
 
-div #help {
-  margin-left: 40px;
+.create-button #create-plus {
+  background-color: #3686bb;
+  font-size: 1.6em;
+  padding: 15px;
+  padding-left: 30px;
+  margin-right: 20px;
 }
+
 
 #login-buttons {
   margin-left: 15px;
@@ -249,7 +261,7 @@ div #help {
   display: block;
   width: 150px;
   height: 150px;
-  margin: 3em auto;
+  margin: 2em auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

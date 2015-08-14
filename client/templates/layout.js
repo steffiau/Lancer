@@ -3,13 +3,13 @@ Meteor.startup(function(){
 });
 
 Template.layout.events = {
-  'click .nav-button': function(e){
+  'click .menu-button': function(e){
     e.preventDefault;
     var clickedPage = e.currentTarget.id;
     console.log(clickedPage);
     Session.set('onPage', clickedPage);
   },
-  'click #add-new-project': function(e){
+  'click .create-button': function(e){
     e.preventDefault;
     var clickedPage = e.currentTarget.id;
     console.log(clickedPage);
