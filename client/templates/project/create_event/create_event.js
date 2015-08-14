@@ -1,5 +1,5 @@
 newEventSchema = new SimpleSchema({
- choose: {
+ type: {
     type: String,
     allowedValues: [
        "Meeting",
@@ -17,11 +17,53 @@ newEventSchema = new SimpleSchema({
   }
 });
 
-AutoForm.addHooks('newEventForm') {
+AutoForm.addHooks('newEventForm', {
   onSubmit: function (doc){
     this.event.preventDefault();
-    console.log(doc)
-    var project = Project.findOne({_id: Session.get("projectId")});
-
+    var newEvent = makeEvent(doc);
+    Projects.update(
+      {_id: Session.get("projectId")},
+      {$push: { events: newEvent}}
+    );
   }
+});
+
+var makeEvent = function(doc){
+  var newEvent = {};
+  if (doc.type === "Meeting") {
+    newEvent = {
+      title: "New Meeting",
+      location: "",
+      date: moment(doc.due_date).format("dddd, MMMM Do"),
+      notes: "",
+      completed: false,
+      type: "meeting"
+    };
+  }
+  if (doc.type === "Milestone") {
+    newEvent = {
+      title: "New Milestone",
+      type: "milestone",
+      date: moment(doc.due_date).format("dddd, MMMM Do"),
+      completed:false,
+      requirements:[],
+    };
+  }
+  if (doc.type === "Invoice") {
+    newEvent = {
+      date: moment(doc.due_date).format("YYYY-MM-DD"),
+      type: "invoice",
+      invoice_number: moment(doc.due_date).format("YYYYMMDD") + "-" + Session.get("projectId").slice(-4).toUpperCase(),
+      completed: false,
+      items: [
+        {
+          service: "Service Title",
+          description: "Description Service",
+          qty: 0,
+          price: 0.00
+        }
+      ]
+    }
+  }
+  return newEvent;
 }
