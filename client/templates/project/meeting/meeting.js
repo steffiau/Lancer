@@ -22,19 +22,18 @@ Template.meeting.events({
       object[completedMod] = true
        Projects.update({_id: projectId}, {$set:  object})
     }
-    //   Session.set("eventCompleted", !event.target.checked)
-   console.log(Session.get("projectId"))  
+    //Session.set("eventCompleted", !event.target.checked)
+   
   },
   "blur .single-event-details li": function(e){
-
     var currentProject = Projects.findOne()._id;
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
 
-    var title = document.getElementById("single-event-title").innerText;
-    var location = document.getElementById("single-event-location").innerText;
-    var date = document.getElementById("single-event-date").innerText;
-    var notes = document.getElementById("single-event-notes").innerText;
+    var title = $("#single-event-title").text();
+    var location = $("#single-event-location").text();
+    var date = $("#single-event-date").text();
+    var notes = $("#single-event-notes").text();
 		var index = Session.get("event_index");
 		var obj = {};
 		var titleMod = 'events.' + index + '.title';
@@ -49,7 +48,8 @@ Template.meeting.events({
 			obj
     }) 
   }
-})
+});
+
 // helpers required for all changes to events page being reflected in the database
 
 
