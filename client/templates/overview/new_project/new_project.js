@@ -114,7 +114,7 @@ function writeToGoogleCalendar(start_time, end_time,summary, description, locati
 		"description":description,
 		"location":location}
 	console.log(data)
-		GoogleApi.post('calendar/v3/calendars/primary/events?key=AIzaSyDyFVciOLzGriMnI8UTicaHzx-KseU6JBY',{
+		GoogleApi.post('calendar/v3/calendars/primary/events?key=' + process.env.GOOGLE_PUBLIC_API_KEY,{
 			data: data});
 	console.log('google request sent');
 }
