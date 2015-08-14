@@ -1,3 +1,4 @@
 .DS_Store
 client/.DS_Store
 *.swp
+server/env.js
