@@ -1,5 +1,6 @@
 <template name="layout">
-  <div class="col.md.3" id="left-nav">
+<div id="main-view">
+  <div id="left-nav">
     <div class="row">
       <div id="time">{{time}}</div>
       <div id="date">{{date}}</div>
@@ -27,10 +28,11 @@
     </div>
   </div>
 
-  <div class="col.md.9" id="right-panel">
-    <div class="container">
+  <div id="right-panel">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
       {{#if currentUser}}
-        <div>
           {{# if pageIs 'projectView'}}
             {{> projectView}}
           {{/if}}
@@ -49,12 +51,13 @@
           {{#if pageIs 'clients'}}
             {{> allClients}}
           {{/if}}
-        </div>
-
       {{else}}
         <h2>Lancer</h2>
         <p class="lead">Your best helper for a freelancer.</p>
       {{/if}}
     </div>
+    </div>
   </div>
+  </div>
+</div>
 </template>
