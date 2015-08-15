@@ -1,0 +1,30 @@
+<template name='customAccounts'>
+	{{#if currentUser}}
+		{{>loggedIn}}
+	{{else}}
+		{{>notLoggedIn}}
+	{{/if}}
+</template> 
+
+<template name='loggedIn'>
+	Hi {{ currentUser.profile.name}},
+	<a id='logout' href='#'> Logout </a>
+</template> 
+
+<template name="notLoggedIn">
+	{{> logIn}}
+	{{> signUp}}
+</template> 
+<template name="logIn">
+<form id="login-form" action="action">
+	<div class='col-md-9'>
+		<label for='login-email'> Email </label> 
+		<input type="email" class='form-control' id="login-email" /><br/>
+		<label for='login-pasword'> Password </label> 
+		<input type="password" class="form-control" id="login-password" /><br/>
+		<input class="btn btn-primary" type="submit" id="login-button" value="Sign in" />
+	</div>
+</form> 
+</template> 
+<template name="signUp">
+</template> 
