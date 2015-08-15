@@ -15,10 +15,20 @@ Meteor.publish('projectFiles', function() {
   return projectFiles.find()
 });
 
+
+
 Meteor.publish('allUsers', function() {
   return Meteor.users.find();
 });
 
 
+
+
+
+
+Meteor.publish('messages', function(){
+  var id = this.userId;
+  return Messages.find();
+});
 
 

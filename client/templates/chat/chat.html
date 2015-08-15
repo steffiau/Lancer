@@ -1,0 +1,17 @@
+<template name="messages">
+  <div><h1> Chat with your homies! </h1></div>
+  <ul>
+    {{#each messages}}
+      <li> {{sender}}: {{message}} </li>
+    {{/each}}
+    
+ </ul>
+  {{> messageBox}}
+</template>
+
+<template name="messageBox">
+  <form>
+    <input id="newMessage" name="newMessage" type="text">
+  </form>
+</template>
+
