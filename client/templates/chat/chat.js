@@ -23,7 +23,7 @@ Template.messages.events({
     //   projectId: projectId
     // })
     console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date)
-
+    
 
   }
 });
