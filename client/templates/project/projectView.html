@@ -19,14 +19,15 @@
   <div id="wrapper">
     <div id="sidebar-wrapper">
       <br/>
-      <button id="archiveProject" class='btn btn-warning'> Archive This Project </button> 
+      <button id="archiveProject" class='btn btn-warning'> Archive This Project </button>
+      <button id="createEvent" class='btn btn-success'> Create An Event</button>
         {{> timeline}}
     </div>
     <div id="page-content-wrapper">
       <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
-            
+
               {{#if $.Session.equals "template" "Project"}}
                 {{> project}}
               {{else}}
@@ -40,6 +41,9 @@
               {{/if}}
               {{#if $.Session.equals "template" "Milestone"}}
                 {{> milestone}}
+              {{/if}}
+              {{#if $.Session.equals "template" "createEvent"}}
+                {{> createEvent}}
               {{/if}}
             </div>
         </div>
