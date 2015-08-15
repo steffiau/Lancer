@@ -58,15 +58,15 @@
 </template>
 
 <template name="requirementItem">
-  <li>
-    <h4 contenteditable>{{name}}</h4>
+  <li data-index="{{index}}">
+    <h4 contenteditable="true">{{object.name}}</h4><i id="delete-req" class="fa fa-times-circle"></i>
   </li>
 </template>
 
 <template name="commentItem">
   <li>
     <p>{{user_name}}</p>
-    <h5>{{text}}</h5>
+    <h5>{{text}}   <i class="fa fa-times-circle"></i></h5>
   </li>
 </template>
 
