@@ -21,5 +21,11 @@ Template.layout.helpers({
   pageIs: function(page){
     return Session.get('onPage') == page;
   },
+  time: function(){
+    return moment(TimeSync.serverTime(null, 1000)).format("hh:mm A");
+  },
+  date: function(){
+    return moment(TimeSync.serverTime(null, 1000)).format("ddd, MMM DD").toUpperCase()
+  }
 });
 
