@@ -9,7 +9,7 @@ Template.messages.helpers({
 
 Template.messages.events({
   "submit form": function(e){
-    e.preventDefault;
+    e.preventDefault();
     console.log('clicked')
     var projectId = Session.get("projectId")
     var username = currentUser().profile.name;
