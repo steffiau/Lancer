@@ -28,7 +28,7 @@ Meteor.publish('allUsers', function() {
 
 Meteor.publish('messages', function(){
   var id = this.userId;
-  return messages.find();
+  return Messages.find();
 });
 
 
