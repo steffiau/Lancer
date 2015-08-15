@@ -3,7 +3,7 @@
 Template.messages.helpers({
   messages: function(){
     var id = currentUserId();
-    return Messages.find({_id: Session.get("projectId")});
+    return Messages.find({projectId: Session.get("projectId")});
   }
 });
 
@@ -15,15 +15,15 @@ Template.messages.events({
     var username = currentUser().profile.name;
     var message = $("#newMessage").val();
     var senderId = currentUserId();
-    var date = moment().format('h:mm:ss a'); 
-    // Messages.insert({
-    //   sender: username,
-    //   date: date,
-    //   message: message,
-    //   projectId: projectId
-    // })
-    console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date)
-    
+    var date_time = moment().format('MMMM Do YYYY, h:mm:ss a') 
+    Messages.insert({
+      sender: username,
+      date: date_time,
+      message: message,
+      projectId: projectId
+    });
+    console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
+
 
   }
 });
