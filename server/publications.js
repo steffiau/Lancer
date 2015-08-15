@@ -15,6 +15,12 @@ Meteor.publish('projectFiles', function() {
   return projectFiles.find()
 });
 
+Meteor.publish('messages', function(){
+  var id = this.userId;
+  return messages.find();
+});
+
+
 
 
 

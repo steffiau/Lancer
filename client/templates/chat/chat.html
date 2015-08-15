@@ -1,0 +1,16 @@
+<template name="messages">
+  <div><h1> messages should go here </h1></div>
+  {{> messageBox}}
+  <ul>
+    {{#each messages}}
+      <li> {{message}} </li>
+    {{/each}}
+ </ul>
+
+</template>
+
+<template name="messageBox">
+  <form>
+    <input id="newMessage" name="newMessage" type="text">
+  </form>
+</template>
