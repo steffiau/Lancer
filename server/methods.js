@@ -13,8 +13,5 @@ Meteor.methods({
 			text: text
 		});
 	},
-	getGoogleAPIKey: function(){
-		return process.env["GOOGLE_PUBLIC_API_KEY"];
-	}
 });
 
