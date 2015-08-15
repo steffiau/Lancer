@@ -3,12 +3,12 @@
 Template.messages.helpers({
   messages: function(){
     var id = currentUserId();
-    return Messages.find({projectId: Session.get("projectId")});
+    return Messages.find({projectId: Session.get("projectId")},{$orderby: {"this.date": -1}});
   }
 });
 
 Template.messages.events({
-  "click h1": function(e){
+  "submit form": function(e){
     e.preventDefault;
     console.log('clicked')
     var projectId = Session.get("projectId")
