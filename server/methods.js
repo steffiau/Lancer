@@ -13,5 +13,20 @@ Meteor.methods({
 			html: html
 		});
 	},
+	getStripeSecret: function(code){
+
+		jQuery.ajax({
+			type: "POST",
+			url:"https://connect.stripe.com/oauth/token",
+			data: {client_secret: process.env["STRIPE_SECRET_KEY"],
+				code: code,
+				grant_type: code},
+			dataType: "json",
+			success: function(data){
+				console.log('--------------------------');
+				console.log(data);
+			}
+		});
+	}
 });
 
