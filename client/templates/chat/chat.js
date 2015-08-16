@@ -11,19 +11,32 @@ Template.messages.events({
   "submit form": function(e){
     e.preventDefault();
     console.log('clicked')
-    var projectId = Session.get("projectId")
+    var projectId = Session.get("projectId");
     var username = currentUser().profile.name;
+    var userId = currentUserId();
     var message = $("#newMessage").val();
     var senderId = currentUserId();
     var date_time = moment().format('MMMM Do YYYY, h:mm:ss a') 
     Messages.insert({
       sender: username,
+      userId: userId,
       date: date_time,
       message: message,
       projectId: projectId
     });
-    console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
-
-
+    // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
+    $("#newMessage").val('');
   }
 });
+
+
+Template.message.helpers({
+  checkLocalUser: function(){
+    if(this.userId === currentUserId()){
+      return "myMessage"
+    } else {
+      return "collabMessage"
+    }
+  }
+});
+
