@@ -13,8 +13,13 @@ Template.logIn.events({
 		Meteor.loginWithPassword(email, password, function(err){
 			if(err){
 				alert(err);
-
 			}
 		});
-		}
+	},
+	"click #login-with-google": function(e){
+		e.preventDefault();
+		if (Accounts.loginServicesConfigured()){
+			Meteor.loginWithGoogle({});
+		};
+	}
 });
