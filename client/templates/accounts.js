@@ -23,3 +23,33 @@ Template.logIn.events({
 		};
 	}
 });
+
+Template.signUp.events({
+	"click #signup-button": function(e){
+		e.preventDefault();
+		if ($('#signup-password1').val() != $('#signup-password2').val()){
+			// Two password doesn't match
+			alert("Password don't match, try again");
+			$("#signup-password1").val("");
+			$("#signup-password2").val("");
+			return false
+		} else {
+			Accounts.createUser({
+				email: $("#signup-email").val(),
+				password: $("#signup-password1").val()},function(error){
+					if(error){ alert("Error: " + error);}		
+				});
+		}
+	}
+});
+
+Template.notLoggedIn.helpers({
+	signup: function(){
+		if (Session.get("signup") == true){
+		return true;
+		} else{
+		return false;
+		}
+	}
+
+});

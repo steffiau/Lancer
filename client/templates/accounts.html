@@ -12,20 +12,36 @@
 </template> 
 
 <template name="notLoggedIn">
-	{{> logIn}}
+{{# if signup }}
 	{{> signUp}}
+	{{ else }}
+	{{> logIn}}
+	{{/if}}
 </template> 
 <template name="logIn">
-<form id="login-form" action="action">
-	<div class='col-md-9'>
-		<label for='login-email'> Email </label> 
-		<input type="email" class='form-control' id="login-email" /><br/>
-		<label for='login-pasword'> Password </label> 
-		<input type="password" class="form-control" id="login-password" /><br/>
-		<input class="btn btn-primary" type="submit" id="login-button" value="Sign in" /> 
-		<button id='login-with-google' class='btn btn-primary'> login with google </button> 
-	</div>
-</form> 
+	<form id="login-form" action="action">
+		<div class='col-md-9'>
+			<label for='login-email'> Email </label> 
+			<input type="email" class='form-control' id="login-email" /><br/>
+			<label for='login-pasword'> Password </label> 
+			<input type="password" class="form-control" id="login-password" /><br/>
+			<input class="btn btn-primary" type="submit" id="login-button" value="Sign in" /> 
+			<button id='login-with-google' class='btn btn-primary'> login with google </button> 
+		<a href="#" onclick="Session.set('signup',true);" >Sign Up </a> 
+		</div>
+	</form> 
 </template> 
 <template name="signUp">
+	<form id="signup-form" action="action">
+		<div class='col-md-9'>
+			<label for='signup-email'> Email </label> 
+			<input type="email" class='form-control' id="signup-email" /><br/>
+			<label for='signup-pasword1'> Password </label> 
+			<input type="password" class="form-control" id="signup-password1" /><br/>
+			<label for='signup-pasword2'> Confirm Password </label> 
+			<input type="password" class="form-control" id="signup-password2" /><br/>
+			<input class="btn btn-primary" type="submit" id="signup-button" value="Sign Up" /> 
+		<a href="#" onclick="Session.set('signup',false);" >Return to login </a> 
+		</div>
+	</form> 
 </template> 
