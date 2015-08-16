@@ -27,6 +27,12 @@ Template.projectView.events({
 		Projects.update({'_id':Session.get('projectId')},
 				{$set:{events: events}});
 	},
+	'click #sendInvoiceEmail': function(e){
+		e.preventDefault();
+		console.log("Sending Email!");
+		var html = Blaze.toHTML(function(){ return Template.invoice;});
+		Meteor.call("sendEmail","lmd0209@msn.com", currentUser().profile.email, "Project Invoice", html);
+	},
   'click .mini-menu-button': function(e){
     var clickedPage = e.currentTarget.id;
     console.log(clickedPage);

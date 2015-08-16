@@ -1,7 +1,6 @@
 Template.invoice.helpers ({
   user_email: function () {
-    var user = Meteor.user();
-    return user.emails[0].address
+    return currentUser().profile.email;
   },
   project: function () {
     return Projects.findOne({_id: Session.get("projectId")});
