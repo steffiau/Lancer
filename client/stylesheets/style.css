@@ -21,6 +21,13 @@ body {
   background-color: #FFFFFF;
 }
 
+#project-title {
+  text-align: center;
+  background-color: #2B3D51;
+  padding: .6em;
+  color: white;
+}
+
 .cd-container {
   width: 90%;
   max-width: 1170px;
@@ -38,7 +45,6 @@ body {
 
 #cd-timeline {
   position: relative;
-  padding: 2em 0;
   margin-top: 2em;
   margin-bottom: 2em;
 }
@@ -149,6 +155,7 @@ body {
 
 #sidebar-wrapper {
     width: 350px;
+    background-color: #EEEEEE;
 }
 
 #page-content-wrapper {
@@ -188,6 +195,22 @@ body {
   height: 4px;
   width: 100%;
   background: #d7e4ed;
+}
+
+.delete-timeline-item {
+  display: inline;
+  float: right;
+  color: #EEEEEE;
+}
+
+.delete-timeline-item:hover {
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+.timeline-item-details {
+  display: inline;
+  float: left;
 }
 
 #login-buttons {
@@ -373,7 +396,7 @@ body {
 }
 
 .overview-project h2 {
-  font-weight: 575;
+  font-weight: 600;
   font-size: 2.2em;
   color: #2b3d51;
 }
@@ -398,18 +421,12 @@ body {
   padding: 0;
 }
 
-.delete-timeline-item {
-  display: inline;
-  float: right;
-}
-
-.timeline-item-details {
-  display: inline;
-  float: left;
-}
-
 .current-task span {
   font-weight: 300;
   padding-right: 20px;
+}
+
+.current-task-details h3 {
+  font-size: 1.5em;
 }
 

@@ -75,7 +75,6 @@ AutoForm.addHooks('newProjectForm', {
 			Projects.insert(project, function(err,id){
 				// once inserted, now populate events and then update the newly created document in database
 				var events = 	processMilestone(doc.milestones,id);
-				console.log(events);
 				Projects.update({_id: id},{
 								$set:{events: events}
 				});
@@ -122,7 +121,6 @@ function writeToGoogleCalendar(start_time, end_time,summary, description, locati
 		"summary": summary,
 		"description":description,
 		"location":location}
-	console.log(data)
 		GoogleApi.post('calendar/v3/calendars/primary/events?key=' + Meteor.settings.public.GooglePublicAPIKey,{
 			data: data});
 	console.log('google request sent');
@@ -176,7 +174,7 @@ var scafold = function(doc){
 				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, argv.contract_amount,i,id4)); // Generate invoice object and push to array
 			};
 			// Handle meetings and milestones here
-			events.push(newMeeting(argv[i].milestone_date - 2, i));
+			events.push(newMeeting(argv[i].milestone_date, i));
 			milestones.push(newMilestone(argv[i].milestone_date, i));
 		};
 		return  invoices.concat(events.concat(milestones));// Return all the events so that I can just push them to the newly generated project

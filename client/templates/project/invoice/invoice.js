@@ -49,7 +49,6 @@ Template.invoice.helpers ({
 
 Template.invoice.events({
   "click .add-invoice-item": function(){
-    console.log("hey!")
     var event_index = Session.get("event_index")
 
     var obj = {};

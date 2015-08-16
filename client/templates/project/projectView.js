@@ -3,9 +3,6 @@ Template.projectView.onCreated( function() {
 });
 
 Template.projectView.helpers({
-	projects: function(){
-		return Projects.find();
-	},
 	template: function(){
 		return Session.get("template")
 	}

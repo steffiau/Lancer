@@ -1,7 +1,7 @@
 <template name="timeline">
 
   <div class="col-md-12 cd-bkgd">
-    <h3 class="project-title">Project Timeline</h3>
+    <h3 id="project-title">{{title}}</h3>
     <section id="cd-timeline" class="cd-container">
       {{#each timeline }}
         {{> timelineItem}}
