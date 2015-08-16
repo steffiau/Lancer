@@ -3,20 +3,21 @@ ul {
 }
 
 #chatBox{
- background-color: yellow;
+ background-color: lightgrey;
  height: 400px;
  width: 300px;
  position: fixed;
  bottom: 0;
  right:0;
- overflow-y: scroll;
+ overflow-y: auto;
  overflow-x: hidden;
  z-index: 1;
 }
 
 #allMessages {
 position: absolute;
-bottom: 0px;
+bottom: 5px;
+
 }
 
 #messageInput {
@@ -28,16 +29,27 @@ bottom: 0px;
 
 
 
-.singleMessage{
+div.singleMessage{
   word-wrap: break-word;
+  height: 80px;
+  width: 100px;
+  top:2px;
 }
 
 .myMessage {
-  color: green; 
-  
+  color: white; 
+  position: absolute;
+  word-wrap: break-word;
+  background-color: green;
+   left: 200px;
 }
 
 .collabMessage{
-  color: blue;
+  color: white;
+  left: 10px;
+  position: absolute;
+  background-color: blue;
+   word-wrap: break-word;
+  
 }
 
