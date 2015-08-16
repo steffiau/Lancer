@@ -1,8 +1,8 @@
 <template name="milestone">
     {{#with singleEvent}}
       <ul class="list-group single-event-details">
-        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true">{{title}}</h1></li>
-        <li class="list-group-item"><h3 id="single-event-date" contenteditable="true">{{date}}</h3></li>
+        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true" value="{{title}}"><div>{{title}}</div></h1></li>
+        <li class="list-group-item"><h3 id="single-event-date" contenteditable="true" value="{{date}}"><div>{{date}}</div></h3></li>
         <li class="list-group-item">
           <p>Requirements:</p>
           <ol>
@@ -53,7 +53,7 @@
            </p>
          </label>
        </li>
-     </ul> 
+     </ul>
     {{/with}}
 </template>
 
