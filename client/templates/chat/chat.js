@@ -29,7 +29,8 @@ Template.messages.events({
     $("#newMessage").val('');
   },
   "click #toggleChat": function(){
-    $("#chatBox").toggleClass("off")
+    $("#chatBox").toggleClass("off");
+    
   }
 
 });

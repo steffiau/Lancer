@@ -3,29 +3,33 @@ ul {
 }
 
 #chatBox{
- background-color: lightgrey;
+ background-color: #2B3D51;
  height: 400px;
  width: 300px;
  position: fixed;
  bottom: 0;
  right:0;
  overflow-y: auto;
- overflow-x: hidden;
+ overflow-x:hidden;
  z-index: 1;
- 
+ border-radius: 10px;
+ opacity: 0.9;
 
 }
 
+#newMessage {
+  border-radius: 10px;
+}
+
 #chatBox.off{
-  transition:2s;
   display:none;
 }
 
 
 #allMessages {
-position: absolute;
-bottom: 5px;
-
+  position: absolute;
+  bottom: 5px;
+  
 }
 
 #messageInput {
@@ -37,27 +41,37 @@ bottom: 5px;
 
 
 
-div.singleMessage{
-  word-wrap: break-word;
+.singleMessage{
   height: 80px;
-  width: 100px;
+  width: 120px;
   top:2px;
+  word-wrap:break-word;
+  margin-top: 1px;
+  
+
 }
 
 .myMessage {
   color: white; 
   position: absolute;
-  word-wrap: break-word;
-  background-color: green;
-   left: 200px;
+  word-wrap:break-word;
+  background-color: #3686BB;
+  left: 200px;
+  border-radius: 10px;
+  padding: 3px;
 }
 
 .collabMessage {
   color: white;
   left: 10px;
   position: absolute;
-  background-color: blue;
+  background-color: #4697CE;
   word-wrap: break-word;
+  border-radius: 10px;
+  padding: 4px;
+  bottom: 5px
+  top: 5px;
+
   
 }
 
