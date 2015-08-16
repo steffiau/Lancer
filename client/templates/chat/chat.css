@@ -12,7 +12,15 @@ ul {
  overflow-y: auto;
  overflow-x: hidden;
  z-index: 1;
+ 
+
 }
+
+#chatBox.off{
+  transition:2s;
+  display:none;
+}
+
 
 #allMessages {
 position: absolute;
@@ -44,12 +52,12 @@ div.singleMessage{
    left: 200px;
 }
 
-.collabMessage{
+.collabMessage {
   color: white;
   left: 10px;
   position: absolute;
   background-color: blue;
-   word-wrap: break-word;
+  word-wrap: break-word;
   
 }
 

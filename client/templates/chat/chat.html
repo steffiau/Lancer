@@ -1,5 +1,5 @@
 <template name="messages">
-  <div id="chatBox"> 
+  <div id="chatBox" class="{{chatToggle}}"> 
     <div id="allMessages">
       {{#each messages}}
 
@@ -9,7 +9,9 @@
    <div id="messageInput">
     {{> messageBox}}
    </div>
+
   </div>
+<button id="toggleChat"> Chat </button>
 </template>
 
 <template name="messageBox">

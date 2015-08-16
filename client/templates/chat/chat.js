@@ -24,13 +24,14 @@ Template.messages.events({
       projectId: projectId,
       collaborators: collaborators()
     }
-
     Meteor.call("insertMessage", completeMessage)
-
     // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
     $("#newMessage").val('');
-
+  },
+  "click #toggleChat": function(){
+    $("#chatBox").toggleClass("off")
   }
+
 });
 
 // helpers for message template (a single message)
