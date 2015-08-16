@@ -1,41 +1,40 @@
 <template name="allProjects">
-  <div class="template-title"><h1><span class="template-title-text">Active Projects</span><span class="badge">{{count}}</span></h1></div>
-  <!-- each project: -->
+
+  <div class="template-title">
+    <h1><span class="template-title-text">Active Projects</span><span class="badge">{{count}}</span></h1>
+  </div>
   {{#each projects}}
     {{> projectListing}}
   {{/each}}
+
 </template>
 
+
+
 <template name="projectListing">
-  <!-- project name, status/current node -->
+
   <div data-project_id="{{_id}}">
-    <div class="col-md-11 cd-bkgd overview-project">
-      <h3 class="lead">{{name}} <small>- {{description}}</small></h3>
+    <div class="col-md-12 overview-project">
+      <h2>{{name}}:  <small>{{description}}</small></h2>
       <div class="progress">
         <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{comPercent}}%">
         </div>
       </div>
-<!--       <section id="overview-cd-timeline" class="cd-container">
-        {{#each timeline}}
-          {{> overviewTimelineItem}}
-        {{/each}}
-      </section> -->
+      {{>projectLatestDetails}}
     </div>
   </div>
+
 </template>
 
 
-<!-- FOR NODES TIMELINE -->
-<!-- <template name="overviewTimelineItem">
-  <div class="overview-cd-timeline-content">
-    <h4>{{type}}  <small>{{details}}</small></h4>
-  </div>
-  <div class="overview-timeline-item" data-template="{{type}}">
-    <div class="cd-timeline-block">
-
-
-      <div class="cd-timeline-img cd-picture overview-node">
-      </div>
+<template name="projectLatestDetails">
+  {{#with currentTask}}
+  <div class="current-task">
+    <h2>Current Task: <span>{{title}} ({{type}})</span> </h2>
+    <div class="current-task-details">
+      <h3>Due Date: <span>{{date}}</span>  Location: <span>{{location}}</span></h3>
     </div>
   </div>
-</template> -->
+  {{/with}}
+</template>
+

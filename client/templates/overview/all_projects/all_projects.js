@@ -14,7 +14,7 @@ Template.allProjects.events({
   }
 });
 
-Template.projectListing.helpers({ 
+Template.projectListing.helpers({
   timeline: function(){
     var events = this.events
     return _.sortBy(events, 'date');
@@ -28,6 +28,18 @@ Template.projectListing.helpers({
     return Math.floor((comEvents.length / totalEvents.length) * 100);
   }
 });
+
+Template.projectLatestDetails.helpers({
+  currentTask: function(){
+    active_events = _.map(this.events, function(event){
+      if (event.completed == false) {
+        return event;
+      }
+    });
+    console.log(_.sortBy(_.compact(active_events), 'date')[0])
+    return _.sortBy(_.compact(active_events), 'date')[0]
+  }
+})
 
 
 
