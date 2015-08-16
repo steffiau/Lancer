@@ -30,27 +30,30 @@
   <div class="col.md.9" id="right-panel">
     <div class="container">
       {{#if currentUser}}
-        <div>
-          {{# if pageIs 'projectView'}}
-            {{> projectView}}
-          {{/if}}
+				{{# if firstTimeLogin }}
+					{{> userSetting }}
+				{{else}}
+					<div>
+						{{# if pageIs 'projectView'}}
+							{{> projectView}}
+						{{/if}}
 
-          {{# if pageIs 'active-projects'}}
-            {{> allProjects}}
-          {{/if}}
+						{{# if pageIs 'active-projects'}}
+							{{> allProjects}}
+						{{/if}}
 
-          {{#if pageIs 'add-new-project'}}
-            {{> newProject}}
-          {{/if}}
+						{{#if pageIs 'add-new-project'}}
+							{{> newProject}}
+						{{/if}}
 
-          {{#if pageIs 'archive'}}
-            {{> archivedProjects}}
-          {{/if}}
-          {{#if pageIs 'clients'}}
-            {{> allClients}}
-          {{/if}}
-        </div>
-
+						{{#if pageIs 'archive'}}
+							{{> archivedProjects}}
+						{{/if}}
+						{{#if pageIs 'clients'}}
+							{{> allClients}}
+						{{/if}}
+					</div>
+				{{/if}}
       {{else}}
         <h2>Lancer</h2>
         <p class="lead">Your best helper for a freelancer.</p>

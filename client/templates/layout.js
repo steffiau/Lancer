@@ -26,6 +26,10 @@ Template.layout.helpers({
   },
   date: function(){
     return moment(TimeSync.serverTime(null, 1000)).format("ddd, MMM DD").toUpperCase()
-  }
+  },
+	firstTimeLogin: function(){
+		//return true; // just leave this one here for development
+		return _.isUndefined(currentUser().profile.infoComplete);
+	}
 });
 
