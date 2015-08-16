@@ -31,7 +31,8 @@ Template.projectView.events({
 		e.preventDefault();
 		console.log("Sending Email!");
 		var html = Blaze.toHTML(function(){ return Template.invoice;});
-		Meteor.call("sendEmail","lmd0209@msn.com", currentUser().profile.email, "Project Invoice", html);
+		var invoiceTitle = currentProject().events[Session.get('event_index')].items[0].service;
+		Meteor.call("sendEmail",currentClient().email, currentUser().profile.email, invoiceTitle + "Invoice", html);
 	},
   'click .mini-menu-button': function(e){
     var clickedPage = e.currentTarget.id;

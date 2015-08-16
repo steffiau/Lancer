@@ -70,8 +70,10 @@ AutoForm.addHooks('newProjectForm', {
 		//console.log(error);		// How to throw error
 		if (project = scafold(doc)){
 			// if scafold success, write to db
-		client_id = {client_id: location.search.split('client=')[1]};
+		client_id = {'client_id': window.location.search.split('client_id=')[1]};
 			_.extend(project, client_id); // Push client id field into project
+			console.log(project.toString());
+			console.log(project);
 			Projects.insert(project, function(err,id){
 				// once inserted, now populate events and then update the newly created document in database
 				var events = 	processMilestone(doc.milestones,id);
