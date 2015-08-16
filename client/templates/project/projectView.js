@@ -27,8 +27,7 @@ Template.projectView.events({
 		Projects.update({'_id':Session.get('projectId')},
 				{$set:{events: events}});
 	},
-  'click .nav-button': function(e){
-    e.preventDefaut;
+  'click .mini-menu-button': function(e){
     var clickedPage = e.currentTarget.id;
     console.log(clickedPage);
     Session.set('onPage', clickedPage);
