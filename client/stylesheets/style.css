@@ -310,4 +310,14 @@ body {
   margin-left: -10px;
 }
 
+.delete-timeline-item {
+  display: inline;
+  float: right;
+}
+
+.timeline-item-details {
+  display: inline;
+  float: left;
+}
+
 
