@@ -7,7 +7,10 @@ Template.timeline.helpers({
       return {value: value, index: index, date: value.date}
     });
     return _.sortBy(indexed_events, 'date');
-  }
+  },
+  title: function(){
+    return currentProject().name
+  },
 })
 
 Template.timeline.events({
