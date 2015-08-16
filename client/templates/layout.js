@@ -29,6 +29,7 @@ Template.layout.helpers({
   },
 	firstTimeLogin: function(){
 		//return true; // just leave this one here for development
+		return true;
 		return _.isUndefined(currentUser().profile.infoComplete);
 	}
 });
