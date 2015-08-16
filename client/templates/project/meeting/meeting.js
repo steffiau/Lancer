@@ -30,10 +30,10 @@ Template.meeting.events({
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
 
-    var title = $("#single-event-title").text();
-    var location = $("#single-event-location").text();
-    var date = $("#single-event-date").text();
-    var notes = $("#single-event-notes").text();
+    var title = $("#single-event-title").innerText();
+    var location = $("#single-event-location").innerText();
+    var date = $("#single-event-date").innerText();
+    var notes = $("#single-event-notes").innetText();
 		var index = Session.get("event_index");
 		var obj = {};
 		var titleMod = 'events.' + index + '.title';

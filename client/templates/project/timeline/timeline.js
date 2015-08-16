@@ -14,7 +14,7 @@ Template.timeline.helpers({
 })
 
 Template.timeline.events({
-  "click .project-title": function() {
+  "click #project-title": function() {
     Session.set("template", "Project");
   }
 })
