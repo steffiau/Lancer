@@ -11,10 +11,11 @@ ul {
 }
 
 .myMessage {
-  color: black;
+  color: green; 
+ 
 }
 
 .collabMessage{
-  color: orange;
+  color: blue;
 }
 
