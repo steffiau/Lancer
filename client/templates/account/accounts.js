@@ -37,7 +37,7 @@ Template.signUp.events({
 			Accounts.createUser({
 				email: $("#signup-email").val(),
 				password: $("#signup-password1").val()},function(error){
-					if(error){ alert("Error: " + error);}		
+					if(error){ alert("Error: " + error);}else{Session.set("signup",false)}		
 				});
 		}
 	}
