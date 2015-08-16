@@ -4,13 +4,27 @@ Template.milestone.helpers({
     var project = Projects.findOne({_id: Session.get("projectId")});
     return project.events[Session.get("event_index")]
   },
-  milestoneCompleted: function () {
+  milestoneCompleted: function() {
     if(Session.get("milestoneCompleted")){
       return true
     }
-  }, 
-  
-   
+  },
+  requirements: function() {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var reqItems = project.events[Session.get("event_index")].requirements;
+    var indexedReqItems = _.map(reqItems, function(value, index){
+      return {object: value, index: index};
+    });
+    return indexedReqItems;
+  },
+  comments: function() {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var comItems = project.events[Session.get("event_index")].comments;
+    var indexedComItems = _.map(comItems, function(value, index){
+      return {object: value, index: index};
+    });
+    return indexedComItems;
+  }
 });
 
 Template.milestone.events({
@@ -57,10 +71,10 @@ Template.milestone.events({
     obj[notesMod] = notes;
     Projects.update({_id: currentProject},{$set: obj })
   },
-  "submit #new-requirement": function (event) {
-    event.preventDefault();
+  "submit #new-requirement": function(e) {
+    e.preventDefault();
 
-    var newText = event.currentTarget[0].value;
+    var newText = e.currentTarget[0].value;
     console.log(newText);
     // Get value from form element
     var newRequirement = {
@@ -73,15 +87,15 @@ Template.milestone.events({
     obj[reqMod] = newRequirement;
 
     Projects.update({ _id : Session.get("projectId")}, {
-      $addToSet: obj
+      $push: obj
     });
 
-    event.currentTarget[0].value = "";
+    e.currentTarget[0].value = "";
   },
-  "submit #new-comment": function (event) {
-    event.preventDefault();
+  "submit #new-comment": function(e) {
+    e.preventDefault();
 
-    var newText = event.currentTarget[0].value;
+    var newText = e.currentTarget[0].value;
     console.log(newText);
     var username = Meteor.user().profile.name;
     // Get value from form element
@@ -99,6 +113,38 @@ Template.milestone.events({
       $addToSet: obj
     });
 
-    event.currentTarget[0].value = "";
+    e.currentTarget[0].value = "";
   },
+  "click #delete-req": function(e) {
+    var projectId = Session.get("projectId");
+    var index = Session.get("event_index");
+    var reqIndex = e.currentTarget.parentElement.dataset.index;
+
+    var objRemove = {};
+    var reqItem = "events." + index + ".requirements." + reqIndex;
+    objRemove[reqItem] = 1;
+    Projects.update({_id: projectId}, {$unset: objRemove})
+
+    var objClear = {};
+    var reqArray = "events." + index + ".requirements";
+    objClear[reqArray] = null;
+    Projects.update({_id: projectId}, {$pull: objClear})
+  },
+  "click #delete-com": function(e) {
+    var projectId = Session.get("projectId");
+    var index = Session.get("event_index");
+    console.log(e);
+    var comIndex = e.currentTarget.parentElement.parentElement.dataset.index;
+
+    var objRemove = {};
+    var comItem = "events." + index + ".comments." + comIndex;
+    console.log(comItem);
+    objRemove[comItem] = 1;
+    Projects.update({_id: projectId}, {$unset: objRemove})
+
+    var objClear = {};
+    var comArray = "events." + index + ".comments";
+    objClear[comArray] = null;
+    Projects.update({_id: projectId}, {$pull: objClear})
+  }
 });
