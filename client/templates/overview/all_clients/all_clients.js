@@ -26,5 +26,8 @@ Template.allClients.events({
 	// }
 	// event.preventDefault();
 	//alert('Go to detail client Page');
-	 }
+	 },
+ "click #newClientButton": function(e) {
+		Session.set("onPage","newClient");
+ }
 });

@@ -7,11 +7,14 @@ Template.timeline.helpers({
       return {value: value, index: index, date: value.date}
     });
     return _.sortBy(indexed_events, 'date');
-  }
+  },
+  title: function(){
+    return currentProject().name
+  },
 })
 
 Template.timeline.events({
-  "click .project-title": function() {
+  "click #project-title": function() {
     Session.set("template", "Project");
   }
 })

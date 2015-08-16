@@ -24,42 +24,47 @@
       {{/if}}
 
     <div class="row">
-      <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
+			<div id="profile-pic" style="background-image: url('{{ currentUser.profile.picture }}')"></div>
       <div>{{> customAccounts}}</div>
     </div>
   </div>
 
-    <div id="right-panel">
-     <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12" id="main-content-viewer">
-            {{#if currentUser}}
-                {{# if pageIs 'projectView'}}
-                  {{> projectView}}
-                {{/if}}
+  <div class="col.md.9" id="right-panel">
+    <div class="container">
+      {{#if currentUser}}
+				{{# if firstTimeLogin }}
+					{{> userSetting }}
+				{{else}}
+					<div>
+						{{# if pageIs 'projectView'}}
+							{{> projectView}}
+						{{/if}}
 
-                {{# if pageIs 'active-projects'}}
-                  {{> allProjects}}
-                {{/if}}
+						{{# if pageIs 'active-projects'}}
+							{{> allProjects}}
+						{{/if}}
 
-                {{#if pageIs 'add-new-project'}}
-                  {{> newProject}}
-                {{/if}}
+						{{#if pageIs 'add-new-project'}}
+							{{> newProject}}
+						{{/if}}
 
-                {{#if pageIs 'archive'}}
-                  {{> archivedProjects}}
-                {{/if}}
-                {{#if pageIs 'clients'}}
-                  {{> allClients}}
-                {{/if}}
-            {{else}}
-              <h2>Lancer</h2>
-              <p class="lead">Your best helper for a freelancer.</p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
+						{{#if pageIs 'archive'}}
+							{{> archivedProjects}}
+						{{/if}}
+						{{#if pageIs 'clients'}}
+							{{> allClients}}
+						{{/if}}
+						{{#if pageIs 'newClient'}}
+							{{> newClient}}
+						{{/if}}
+					</div>
+				{{/if}}
+      {{else}}
+        <h2>Lancer</h2>
+        <p class="lead">Your best helper for a freelancer.</p>
+      {{/if}}
     </div>
   </div>
+</div>
 
 </template>

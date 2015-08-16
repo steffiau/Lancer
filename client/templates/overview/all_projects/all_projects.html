@@ -28,13 +28,13 @@
 
 
 <template name="projectLatestDetails">
-  {{#with currentTask}}
   <div class="current-task">
-    <h2>Current Task: <span>{{title}} ({{type}})</span> </h2>
+    <h2>Current Task: <span>{{currentTask.title}} ({{currentTask.type}})</span> </h2>
     <div class="current-task-details">
-      <h3>Due Date: <span>{{date}}</span>  Location: <span>{{location}}</span></h3>
+
+      <h3><strong>Due Date: </strong><span>{{date}}</span>  <strong>Location:</strong> <span>{{currentTask.location}}</span></h3>
     </div>
   </div>
-  {{/with}}
+
 </template>
 

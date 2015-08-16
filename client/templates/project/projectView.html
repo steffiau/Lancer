@@ -24,10 +24,9 @@
 
     <div id="wrapper">
       <div id="sidebar-wrapper">
-        <br/>
-        <button id="archiveProject" class='btn btn-warning'> Archive This Project </button>
-        <button id="createEvent" class='btn btn-success'> Create An Event</button>
           {{> timeline}}
+          <button id="archiveProject" class='btn btn-warning'> Archive This Project </button>
+        <button id="createEvent" class='btn btn-success'> Create An Event</button>
       </div>
       <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -43,6 +42,7 @@
                   {{> meeting}}
                 {{/if}}
                 {{#if $.Session.equals "template" "Invoice"}}
+								<button class="btn btn-primary" id="sendInvoiceEmail"> Send Invoice Email </button>
                   {{> invoice}}
                 {{/if}}
                 {{#if $.Session.equals "template" "Milestone"}}
@@ -55,6 +55,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 

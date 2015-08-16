@@ -3,9 +3,6 @@ Template.projectView.onCreated( function() {
 });
 
 Template.projectView.helpers({
-	projects: function(){
-		return Projects.find();
-	},
 	template: function(){
 		return Session.get("template")
 	}
@@ -26,6 +23,12 @@ Template.projectView.events({
 		var newEvents = events.splice(Session.get('event_index'),1);
 		Projects.update({'_id':Session.get('projectId')},
 				{$set:{events: events}});
+	},
+	'click #sendInvoiceEmail': function(e){
+		e.preventDefault();
+		console.log("Sending Email!");
+		var html = Blaze.toHTML(function(){ return Template.invoice;});
+		Meteor.call("sendEmail","lmd0209@msn.com", currentUser().profile.email, "Project Invoice", html);
 	},
   'click .mini-menu-button': function(e){
     var clickedPage = e.currentTarget.id;
