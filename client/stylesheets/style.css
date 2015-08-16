@@ -5,21 +5,6 @@ p, div {
   font-family: "Lato", sans-serif;
 }
 
-.cd-container {
-  width: 90%;
-  max-width: 1170px;
-  margin: 0 auto;
-}
-.cd-container::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.cd-bkgd {
-  background-color:#EEEEEE;
-}
-
 header {
   height: 200px;
   line-height: 200px;
@@ -34,6 +19,21 @@ header h1 {
 
 body {
   background-color: #FFFFFF;
+}
+
+.cd-container {
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.cd-bkgd {
+  background-color:#EEEEEE;
 }
 
 #cd-timeline {
@@ -144,11 +144,11 @@ body {
 }
 
 #wrapper {
-    padding-left: 300px;
+    padding-left: 350px;
 }
 
 #sidebar-wrapper {
-    width: 300px;
+    width: 350px;
 }
 
 #page-content-wrapper {

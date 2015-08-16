@@ -22,11 +22,6 @@ Template.meeting.events({
       object[completedMod] = true
        Projects.update({_id: projectId}, {$set:  object})
     }
-
-    //   Session.set("eventCompleted", !event.target.checked)
-    var project = Projects.findOne({_id: Session.get("projectId")})
-    var projectId = project._id
-    var events = project.events
   },
   "blur .single-event-details li": function(e){
 

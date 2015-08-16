@@ -77,11 +77,11 @@ AutoForm.addHooks('newProjectForm', {
 				var events = 	processMilestone(doc.milestones,id);
 				console.log(events);
 				Projects.update({_id: id},{
-								$set:{events: events}	
+								$set:{events: events}
 				});
 
-				
-				
+
+
 				// When this is done, create google projects
 				if (id) {
 					var events = Projects.findOne({_id: id}).events;
@@ -92,24 +92,24 @@ AutoForm.addHooks('newProjectForm', {
 						var end_time = moment(eventObj.date).add(12,'h');
 						var title = eventObj.title;
 						var location = "Home";
-						var description = eventObj.title; 
+						var description = eventObj.title;
 						if (eventObj.type == "meeting"){
 							var location = eventObj.location;
 						} else if (eventObj.type == "invoice"){
 							var title = eventObj.service;
-							var description = eventObj.description; 
+							var description = eventObj.description;
 						}
 						writeToGoogleCalendar(start_time, end_time,title,title,location);
 					});
 					Router.go('/project/' + id);
 				};
-			});	
+			});
 		}else{
 			var error = new Error("Scafold failed, please check data");
 			alert("Failed");
 			return false;
 		};
-	}		
+	}
 });
 function writeToGoogleCalendar(start_time, end_time,summary, description, location){
 	var data = {
@@ -133,7 +133,7 @@ var scafold = function(doc){
 		description: doc.project_description,
 		start_date: doc.project_start_date,
 		due_date: doc.project_due_date,
-		createdAt: new Date(),
+		createdAt: moment().toISOString(),
 		project_finished: false,
 		client_id: doc.client_id,
 		owner_id: Meteor.userId(),
@@ -154,8 +154,9 @@ var scafold = function(doc){
 		argv.forEach(function(milestone){
 			if (milestone.milestone_invoice == true && !isNaN(milestone.invoice_percentage)){ amount_sum += milestone.invoice_percentage;
 			} else if (milestone.milestone_invoice == true && isNaN(milestone.invoice_percentage)) {
-				// When user do not specify percentage	
+				// When user do not specify percentage
 				empty_count ++;
+				milestone.milestone_date = moment(milestone.milestone_date).toISOString();
 			};
 		});
 		if (amount_sum !== 100 && empty_count == 0){
@@ -168,9 +169,9 @@ var scafold = function(doc){
 			// Handle invoice here
 			if (argv[i].milestone_invoice == true){
 				if (typeof argv[i].invoice_percentage == "undefined"){
-					var invoice_percentage = default_pct; 
+					var invoice_percentage = default_pct;
 				} else {
-					var invoice_percentage = argv[i].invoice_percentage;	
+					var invoice_percentage = argv[i].invoice_percentage;
 				};
 				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, argv.contract_amount,i,id4)); // Generate invoice object and push to array
 			};
@@ -189,7 +190,7 @@ var scafold = function(doc){
 			requirement:[],
 			completed:false,
 			comments:[],
-			date:date,
+			date:moment(date).toISOString(),
 		};
 	};
 	function newMeeting(date, index){
@@ -199,7 +200,7 @@ var scafold = function(doc){
 			type:'meeting',
 			notes: '',
 			location:'',
-			date:moment(date).subtract(2,'d').toDate(),
+			date:moment(date).subtract(2,'d').toISOString(),
 			completed:false
 		}
 	};
@@ -210,8 +211,8 @@ var scafold = function(doc){
 		var amount = pct_amount * total_amount / 100;
 		amount = amount.toPrecision(3);
 		var invoice_no = moment(date).format("YYYYMMDD") + "-" + id4;
-		return { 
-			date: moment(date).add(1,'h').toDate(), 
+		return {
+			date: moment(date).add(1,'h').toISOString(),
 			title:'Invoice',
 			invoice_no: invoice_no,
 			type:'invoice',
