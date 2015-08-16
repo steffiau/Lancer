@@ -1,60 +1,65 @@
 <template name="layout">
-  <div class="col.md.3" id="left-nav">
-    <div class="row">
-      <div id="time">{{time}}</div>
-      <div id="date">{{date}}</div>
-    </div>
-    {{#if currentUser}}
-    <div class="row">
-      <div class="create-button" id="add-new-project"><i class="fa fa-plus" id="create-plus"></i><span id="add-project-text">CREATE NEW PROJECT</span></div>
-    </div>
 
-    <div class="row">
-      <div class="menu-button" id="active-projects">Active Projects</div>
-    </div>
+  <div id="main-view">
+    <div id="left-nav">
+      <div class="row">
+        <div id="time">{{time}}</div>
+        <div id="date">{{date}}</div>
+      </div>
+      {{#if currentUser}}
+      <div class="row">
+        <div class="create-button" id="add-new-project"><i class="fa fa-plus" id="create-plus"></i><span id="add-project-text">CREATE NEW PROJECT</span></div>
+      </div>
 
-    <div class="row">
-      <div class="menu-button" id="clients">Clients</div>
-    </div>
+      <div class="row">
+        <div class="menu-button" id="active-projects">Active Projects</div>
+      </div>
+      <div class="row">
+        <div class="menu-button" id="clients">Clients</div>
+      </div>
 
-    <div class="row">
-      <div class="menu-button" id="archive">Archive</div>
-    </div>
-    {{/if}}
+      <div class="row">
+        <div class="menu-button" id="archive">Archive</div>
+      </div>
+      {{/if}}
+
     <div class="row">
       <div id="profile-pic" style="background-image: url('https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg')"></div>
       <div>{{> customAccounts}}</div>
     </div>
   </div>
 
-  <div class="col.md.9" id="right-panel">
-    <div class="container">
-      {{#if currentUser}}
-        <div>
-          {{# if pageIs 'projectView'}}
-            {{> projectView}}
-          {{/if}}
+    <div id="right-panel">
+     <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12" id="main-content-viewer">
+            {{#if currentUser}}
+                {{# if pageIs 'projectView'}}
+                  {{> projectView}}
+                {{/if}}
 
-          {{# if pageIs 'active-projects'}}
-            {{> allProjects}}
-          {{/if}}
+                {{# if pageIs 'active-projects'}}
+                  {{> allProjects}}
+                {{/if}}
 
-          {{#if pageIs 'add-new-project'}}
-            {{> newProject}}
-          {{/if}}
+                {{#if pageIs 'add-new-project'}}
+                  {{> newProject}}
+                {{/if}}
 
-          {{#if pageIs 'archive'}}
-            {{> archivedProjects}}
-          {{/if}}
-          {{#if pageIs 'clients'}}
-            {{> allClients}}
-          {{/if}}
+                {{#if pageIs 'archive'}}
+                  {{> archivedProjects}}
+                {{/if}}
+                {{#if pageIs 'clients'}}
+                  {{> allClients}}
+                {{/if}}
+            {{else}}
+              <h2>Lancer</h2>
+              <p class="lead">Your best helper for a freelancer.</p>
+            {{/if}}
+          </div>
         </div>
-
-      {{else}}
-        <h2>Lancer</h2>
-        <p class="lead">Your best helper for a freelancer.</p>
-      {{/if}}
+      </div>
     </div>
   </div>
+
 </template>
