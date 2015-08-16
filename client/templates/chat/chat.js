@@ -10,7 +10,6 @@ Template.messages.helpers({
 Template.messages.events({
   "submit form": function(e){
     e.preventDefault();
-  
     var projectId = Session.get("projectId");
     var username = currentUser().profile.name;
     var userId = currentUserId();
@@ -22,10 +21,11 @@ Template.messages.events({
       sender: username,
       userId: userId,
       date: date_time,
-      message: message,
+      message: message, 
       projectId: projectId,
       collaborators: collaborators()
     });
+    console.log(collaborators())
     // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
     $("#newMessage").val('');
 
