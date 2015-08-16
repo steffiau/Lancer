@@ -64,9 +64,9 @@
 </template>
 
 <template name="commentItem">
-  <li>
-    <p>{{user_name}}</p>
-    <h5>{{text}}   <i class="fa fa-times-circle"></i></h5>
+  <li data-index="{{index}}">
+    <p>{{object.user_name}}</p>
+    <h5>{{object.text}}   <i id="delete-com" class="fa fa-times-circle"></i></h5>
   </li>
 </template>
 

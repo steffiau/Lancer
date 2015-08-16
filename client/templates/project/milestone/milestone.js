@@ -17,6 +17,14 @@ Template.milestone.helpers({
     });
     return indexedReqItems;
   },
+  comments: function() {
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    var comItems = project.events[Session.get("event_index")].comments;
+    var indexedComItems = _.map(comItems, function(value, index){
+      return {object: value, index: index};
+    });
+    return indexedComItems;
+  }
 });
 
 Template.milestone.events({
@@ -120,6 +128,23 @@ Template.milestone.events({
     var objClear = {};
     var reqArray = "events." + index + ".requirements";
     objClear[reqArray] = null;
+    Projects.update({_id: projectId}, {$pull: objClear})
+  },
+  "click #delete-com": function(e) {
+    var projectId = Session.get("projectId");
+    var index = Session.get("event_index");
+    console.log(e);
+    var comIndex = e.currentTarget.parentElement.parentElement.dataset.index;
+
+    var objRemove = {};
+    var comItem = "events." + index + ".comments." + comIndex;
+    console.log(comItem);
+    objRemove[comItem] = 1;
+    Projects.update({_id: projectId}, {$unset: objRemove})
+
+    var objClear = {};
+    var comArray = "events." + index + ".comments";
+    objClear[comArray] = null;
     Projects.update({_id: projectId}, {$pull: objClear})
   }
 });
