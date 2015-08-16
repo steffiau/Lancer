@@ -52,14 +52,9 @@ Template.milestone.events({
     console.log("after change completed: ", events[5].completed)
   },
   "blur .single-event-details li": function(e){
-
-    var currentProject = Projects.findOne()._id
-    // variables below grab changes to the event-details by the user
-    // these are meant to be sent to mongo to update on server-side
-
-    var title = document.getElementById("single-event-title").innerText
-    var date = document.getElementById("single-event-date").innerText
-    var notes = document.getElementById("single-event-notes").innerText
+    var title = $("#single-event-title").text();
+    var date = $("#single-event-date").text();
+    var notes = $("single-event-notes").text();
 
     var index = Session.get("event_index");
     var obj = {};
@@ -69,7 +64,7 @@ Template.milestone.events({
     obj[titleMod] = title;
     obj[dateMod] = date;
     obj[notesMod] = notes;
-    Projects.update({_id: currentProject},{$set: obj })
+    Projects.update({_id: Session.get("projectId")},{$set: obj })
   },
   "submit #new-requirement": function(e) {
     e.preventDefault();
