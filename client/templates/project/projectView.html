@@ -1,51 +1,58 @@
 <template name='projectView'>
-  <div id="project-left-nav">
-    <div class="container">
-      <nav role="navigation">
-        <ul class="nav nav-pills nav-stacked">
-<!--           <li role="presentation" class="navbar-text">{{> loginButtons}}</li>
-        {{#if currentUser}} -->
-          <li role="presentation" class="navbar-text nav-button" id="active-projects"><a href="/"><i class="fa fa-home fa-2x"></i></a></li>
-          <li role="presentation" class="navbar-text nav-button" id="add-new-project"><a href="/"><i class="fa fa-plus fa-2x"></i></a></li>
-          <li role="presentation" class="navbar-text nav-button" id="clients"><a href="/"><i class="fa fa-users fa-2x"></i></a></li>
-          <li role="presentation" class="navbar-text nav-button" id="archive"><a href="/"><i class="fa fa-archive fa-2x"></i></a></li>
-          <li role="presentation" class="navbar-text nav-button" id="status"><a href="/"><i class="fa fa-line-chart fa-2x"></i></a></li>
-<!--         {{/if}} -->
-        </ul>
-      </nav>
-    </div>
-  </div>
+  <div id="project-view">
+    <div id="mini-left-nav">
+      <div class="row">
+        <div class="mini-menu-button" id="active-projects"><a href="/"><i class="fa fa-home fa-2x"></i></a></div>
+      </div>
 
-  <div id="wrapper">
-    <div id="sidebar-wrapper">
-      <br/>
-      <button id="archiveProject" class='btn btn-warning'> Archive This Project </button>
-      <button id="createEvent" class='btn btn-success'> Create An Event</button>
-        {{> timeline}}
-    </div>
-    <div id="page-content-wrapper">
-      <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12">
+       <div class="row">
+        <div class="mini-menu-button" id="add-new-project"><a href="/"><i class="fa fa-plus fa-2x"></i></a></div>
+      </div>
 
-              {{#if $.Session.equals "template" "Project"}}
-                {{> project}}
-              {{else}}
-              <button id='deleteNode' class='btn btn-danger'> Delete This Node </button>
-              {{/if}}
-              {{#if $.Session.equals "template" "Meeting"}}
-                {{> meeting}}
-              {{/if}}
-              {{#if $.Session.equals "template" "Invoice"}}
-                {{> invoice}}
-              {{/if}}
-              {{#if $.Session.equals "template" "Milestone"}}
-                {{> milestone}}
-              {{/if}}
-              {{#if $.Session.equals "template" "createEvent"}}
-                {{> createEvent}}
-              {{/if}}
-            </div>
+      <div class="row">
+        <div class="mini-menu-button" id="clients"><a href="/"><i class="fa fa-users fa-2x"></i></a></div>
+      </div>
+
+      <div class="row">
+        <div class="mini-menu-button" id="archive"><a href="/"><i class="fa fa-line-chart fa-2x"></i></a></div>
+      </div>
+
+      <div>
+        <img id="mini-profile-pic" src="https://lh3.googleusercontent.com/-pu74gOTKoAo/UrUU6aQ0h6I/AAAAAAAAABE/k6OwAkApfCY/funny-Doge-elections-poster-cartoon.jpg">
+      </div>
+    </div>
+
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <br/>
+        <button id="archiveProject" class='btn btn-warning'> Archive This Project </button>
+        <button id="createEvent" class='btn btn-success'> Create An Event</button>
+          {{> timeline}}
+      </div>
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+
+                {{#if $.Session.equals "template" "Project"}}
+                  {{> project}}
+                {{else}}
+                <button id='deleteNode' class='btn btn-danger'> Delete This Node </button>
+                {{/if}}
+                {{#if $.Session.equals "template" "Meeting"}}
+                  {{> meeting}}
+                {{/if}}
+                {{#if $.Session.equals "template" "Invoice"}}
+                  {{> invoice}}
+                {{/if}}
+                {{#if $.Session.equals "template" "Milestone"}}
+                  {{> milestone}}
+                {{/if}}
+                {{#if $.Session.equals "template" "createEvent"}}
+                  {{> createEvent}}
+                {{/if}}
+              </div>
+          </div>
         </div>
       </div>
     </div>

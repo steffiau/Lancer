@@ -26,5 +26,11 @@ Template.timelineItem.events({
     var event_index = e.currentTarget.dataset.index;
     Session.set("template", template_type);
     Session.set("event_index", event_index);
-  }
+  },
+  'click .delete-timeline-item': function(){
+    var events = Projects.findOne({'_id':Session.get('projectId')}).events;
+    var newEvents = events.splice(Session.get('event_index'),1);
+    Projects.update({'_id':Session.get('projectId')},
+        {$set:{events: events}});
+  },
 })

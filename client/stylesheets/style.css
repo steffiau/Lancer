@@ -1,3 +1,10 @@
+h1, h2, h3, h4, h5 {
+  font-family: "Lato", sans-serif;
+}
+p, div {
+  font-family: "Lato", sans-serif;
+}
+
 .cd-container {
   width: 90%;
   max-width: 1170px;
@@ -26,7 +33,7 @@ header h1 {
 }
 
 body {
-  background-color: #EEEEEE;
+  background-color: #FFFFFF;
 }
 
 #cd-timeline {
@@ -131,7 +138,7 @@ body {
 }
 
 #page-content-wrapper {
-    width: 100%;
+
     position: absolute;
     padding: 15px;
 }
@@ -183,15 +190,84 @@ body {
   background: #d7e4ed;
 }
 
-#right-panel {
-  width: 77%;
-  height: auto;
-  float:right;
-  position: absolute;
-  right: 0;
-  overflow-x: scroll;
-  overflow-y: hidden;
+#login-buttons {
+  margin-left: 15px;
+/*  position: fixed;
+  bottom: 50px;*/
 }
+
+#login-dropdown-list {
+/*  top: -80px;*/
+  width: 220px;
+}
+
+#profile-pic {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 2em auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 99em;
+  -moz-border-radius: 99em;
+  border-radius: 99em;
+  border: 5px solid #eee;
+}
+
+/* PROJECT VIEW LAYOUT */
+#project-view {
+  width: 100%;
+  height: 100%;
+}
+
+/* MINI LEFT NAV */
+
+#mini-left-nav {
+  width: 80px;
+  height: 100%;
+  padding-top: 40px;
+  text-align: center;
+  position: fixed;
+  color: white;
+  background-color: #2b3d51;
+}
+
+.mini-menu-button {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.mini-menu-button a {
+  color: white;
+}
+
+#mini-profile-pic {
+  display: block;
+  position: absolute;
+  margin-left: 15px;
+  bottom: 6%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Main - Active Projects View */
+
+#sidebar-wrapper {
+  margin-left: 0px;
+  left: 80px;
+}
+
+
+#page-content-wrapper {
+  margin-left: 80px;
+  width: auto;
+  background-color: white;
+}
+
+/* Main Page Left Nav */
 
 #left-nav {
   font-family: "Lato", sans-serif;
@@ -200,11 +276,11 @@ body {
   color: white;
   position: fixed;
   display: block;
-  width: 22%;
+  width: 320px;
   height: 100%;
-  position: fixed;
   background: #2b3d51;
   overflow: hidden;
+  z-index: 1000;
 }
 
 #time {
@@ -247,67 +323,93 @@ body {
   margin-right: 20px;
 }
 
+/* MAIN PAGE CONTENT RIGHT PANEL */
 
-#login-buttons {
-  margin-left: 15px;
-/*  position: fixed;
-  bottom: 50px;*/
+#right-panel {
+  width: 100%;
+  height: 100%;
+  padding-top: 37px;
+  padding-left: 340px;
+  padding-right: 30px;
+  position: relative;
+  overflow-x: scroll;
+  background-color: white;
 }
 
-#login-dropdown-list {
-/*  top: -80px;*/
-  width: 220px;
+/* MAIN PAGE ACTIVE PROJECTS TEMPLATE */
+
+.template-title {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #b5bbc2;
+  margin-bottom: 10px;
 }
 
-#profile-pic {
-  display: block;
-  width: 150px;
-  height: 150px;
-  margin: 2em auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-border-radius: 99em;
-  -moz-border-radius: 99em;
-  border-radius: 99em;
-  border: 5px solid #eee;
+.template-title-text {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 1.6em;
+  color: #2b3d51;
+  padding-right: 27px;
+}
+
+.badge {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+  font-size: .8em;
+  background-color: #2b3d51;
+  padding-top: 11px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+/* projectListing Template Styles */
+
+.overview-project {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #b5bbc2;
+}
+
+.overview-project h2 {
+  font-weight: 575;
+  font-size: 2.2em;
+  color: #2b3d51;
+}
+
+.overview-project small {
+  color: #2b3d51;
 }
 
 .overview-project:hover {
-  background-color: #DDDDDD;
-}
-
-.overview-project:hover {
-  background-color: #DDDDDD;
+  background-color: #f7fcfa;
   cursor: pointer;
 }
 
 .progress {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-top: 30px;
 }
 
-#sidebar-wrapper {
-  margin-left: 0px;
-  left: 60px;
+.current-task h2, h3{
+  color: #838383;
+  font-size: 1.8em;
+  padding: 0;
 }
 
-#project-left-nav {
-  position: fixed;
-  display: block;
-  width: 60px;
-  height: 100%;
-  position: fixed;
-  background: white;
+.delete-timeline-item {
+  display: inline;
+  float: right;
 }
 
-#page-content-wrapper {
-  margin-left: 40px;
-  width: auto;
+.timeline-item-details {
+  display: inline;
+  float: left;
 }
 
-#project-left-nav .nav {
-  margin-left: -10px;
+.current-task span {
+  font-weight: 300;
+  padding-right: 20px;
 }
-
 
