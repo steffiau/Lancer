@@ -23,11 +23,8 @@ Meteor.publish('allUsers', function() {
 
 
 
-
-
-
-Meteor.publish('messages', function(projectId){
-  return Messages.find();
+Meteor.publish('messages', function(){
+  return Messages.find()
 });
 
 

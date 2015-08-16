@@ -10,22 +10,25 @@ Template.messages.helpers({
 Template.messages.events({
   "submit form": function(e){
     e.preventDefault();
-    console.log('clicked')
+  
     var projectId = Session.get("projectId");
     var username = currentUser().profile.name;
     var userId = currentUserId();
     var message = $("#newMessage").val();
     var senderId = currentUserId();
     var date_time = moment().format('MMMM Do YYYY, h:mm:ss a') 
+    console.log(collaborators())
     Messages.insert({
       sender: username,
       userId: userId,
       date: date_time,
       message: message,
-      projectId: projectId
+      projectId: projectId,
+      collaborators: collaborators()
     });
     // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
     $("#newMessage").val('');
+
   }
 });
 
