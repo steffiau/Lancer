@@ -495,3 +495,19 @@ header h1 {
     transition: all 0.5s ease;
 }
 
+
+.fa-check {
+  margin: 6px;
+  color: rgba(0,0,0,0);
+}
+
+.fa-check:hover {
+  color: rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.timeline-completed {
+  background-color: #dddddd;
+  color: white;
+}
+

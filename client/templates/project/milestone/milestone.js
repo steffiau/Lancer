@@ -28,29 +28,27 @@ Template.milestone.helpers({
 });
 
 Template.milestone.events({
-  "click .event-completed button": function(e){
-    var project = Projects.findOne({_id: Session.get("projectId")});
-    var projectId = project._id;
-    var events = project.events;
-    var index = Session.get("event_index");
-    console.log("before change completed is", events[5].completed);
+  // "click .event-completed button": function(e){
+  //   var project = Projects.findOne({_id: Session.get("projectId")});
+  //   var projectId = Session.get("projectId");
+  //   var events = project.events;
+  //   var index = Session.get("event_index");
 
-    var obj = {};
-    var completeMod = 'events.' + index + '.completed';
+  //   var obj = {};
+  //   var completeMod = 'events.' + index + '.completed';
 
-    if(events[index].completed){
-      obj[completeMod] = false;
-      Projects.update({_id: projectId}, {$set: obj });
-    } else {
-      obj[completeMod] = true;
-      Projects.update({_id: projectId}, {$set: obj });
-    }
-    //   Session.set("eventCompleted", !event.target.checked)
-    var project = Projects.findOne({_id: Session.get("projectId")});
-    var projectId = project._id;
-    var events = project.events;
-    console.log("after change completed: ", events[5].completed)
-  },
+  //   if(events[index].completed){
+  //     obj[completeMod] = false;
+  //     Projects.update({_id: projectId}, {$set: obj });
+  //   } else {
+  //     obj[completeMod] = true;
+  //     Projects.update({_id: projectId}, {$set: obj });
+  //   }
+  //   //   Session.set("eventCompleted", !event.target.checked)
+  //   var project = Projects.findOne({_id: Session.get("projectId")});
+  //   var projectId = project._id;
+  //   var events = project.events;
+  // },
   "blur .single-event-details li": function(e){
     var title = $("#single-event-title").text();
     var date = $("#single-event-date").text();
