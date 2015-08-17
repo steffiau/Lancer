@@ -2,36 +2,36 @@ ul {
 list-style-type: none;
 }
 
-#chatBox{
-background-color: #2B3D51;
-height: 480px;
-width: 350px;
-position: fixed;
-bottom: 0px;
-right:0;
-overflow-y: scroll;
-z-index: 1;
-border-radius: 10px;
-opacity: 0.9;
-padding:10px;
+#chatBox {
+  border-color:white;
+  border-width: 1px;
+  background-color: #2B3D51;
+  height: 480px;
+  width: 350px;
+  position: fixed;
+  bottom: 0px;
+  right:0;
+  overflow-y: scroll;
+  z-index: 1;
+  border-radius: 10px;
+  opacity: 0.9;
+  padding:10px;
 }
 
 #newMessage {
-border-radius: 10px;
+  border-radius: 10px;
 }
 
 #chatBox.off{
-display:none;
+  display:none;
 }
 
 
 #allMessages {
-position: absolute;
-bottom:15px;
-width:315px;
+  position: absolute;
+  bottom:15px;
+  width:315px;
 }
-
-
 
 #messageInput {
   position: fixed;
@@ -43,8 +43,6 @@ width:315px;
   clear:both;
   padding-top: 20px;
 }
-
-
 
 .singleMessage{
   max-width: 200px;
