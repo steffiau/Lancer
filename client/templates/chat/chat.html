@@ -1,19 +1,25 @@
 <template name="messages">
-  <div><h1> Chat with your homies! </h1></div>
-  <div id="allMessages">
-    {{#each messages}}
-     {{> message}}
-    {{/each}}
- </div>
-  {{> messageBox}}
+  <div id="chatBox" class="{{chatToggle}}"> 
+    <div id="allMessages">
+      {{#each messages}}
+     {{> message}} 
+      {{/each}}
+    </div>
+
+    <div id="messageInput" >
+      {{> messageBox}}
+    </div>
+
+  </div>
+  <button id="toggleChat"> Chat </button>
 </template>
 
 <template name="messageBox">
-  <form>
-    <input id="newMessage" name="newMessage" type="text">
+  <form >
+    <input size="40" id="newMessage" name="newMessage" type="text">
   </form>
 </template>
 
 <template name="message">
-   <div class="{{checkLocalUser}}">{{sender}}: {{message}} </div>
+ <div class="singleMessage {{checkLocalUser}}" >{{sender}} <br> {{message}} </div>
 </template>
