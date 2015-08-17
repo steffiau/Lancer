@@ -6,3 +6,5 @@ Template.newProjectModal.onRendered( function() {
     inline: true,
   });
 });
+
+
