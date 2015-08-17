@@ -138,7 +138,8 @@ var scafold = function(doc){
 		client_id: doc.client_id,
 		owner_id: Meteor.userId(),
 		contract_amount: doc.contract_amount,
-		events: []}
+		events: [],
+		collabs: []}
 		return Project
 	};
 	//========================================================
