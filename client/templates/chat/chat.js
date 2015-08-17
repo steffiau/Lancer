@@ -26,10 +26,20 @@ Template.messages.events({
     }
     Meteor.call("insertMessage", completeMessage)
     // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
-    $("#newMessage").val('');
+//     $("#newMessage").val('');
+//     var height = 0;
+//     $('div .singleMessage').each(function(i, value){
+//     height += parseInt($(this).height());
+// });
+
+// height += '';
+
+// $('#allMessages').animate({scrollTop: height});
+  // $("#allMessages").scrollTop(9999)
+  $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
   },
   "click #toggleChat": function(){
-    $("#chatBox").toggleClass("off");
+    $("#allMessages").toggleClass("off");
     
   }
 
