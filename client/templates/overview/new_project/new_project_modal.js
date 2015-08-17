@@ -1,3 +1,6 @@
+
+
+
 Template.newProjectModal.onRendered( function() {
   this.$('#start-date-picker').datetimepicker({
     inline: true,
@@ -5,6 +8,11 @@ Template.newProjectModal.onRendered( function() {
   this.$('#end-date-picker').datetimepicker({
     inline: true,
   });
+  this.$("#main-wrapper").scroll(function (e){
+  console.log('hey!');
 });
+});
+
+
 
 
