@@ -72,6 +72,7 @@ Template.milestone.events({
     // Get value from form element
     var newRequirement = {
       name: newText,
+      checked: false
     }
 
     var index = Session.get("event_index");
