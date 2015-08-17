@@ -34,7 +34,8 @@
 
                 {{#if $.Session.equals "template" "Project"}}
                   {{> project}}
-                {{else}}
+                <!-- {{else}}
+                <button id='deleteNode' class='btn btn-danger'> Delete This Node </button> -->
                 {{/if}}
                 {{#if $.Session.equals "template" "Meeting"}}
                   {{> meeting}}

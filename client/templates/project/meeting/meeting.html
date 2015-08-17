@@ -4,42 +4,74 @@
 <!-- notes (notes must have a textfield that saves) -->
 
 <template name="meeting">
-  {{>uploadForm}}
-
-
-  {{#with singleEvent}}
-  <ul class="list-group single-event-details">
-
-    <li class="list-group-item"> <h1 id="single-event-title" contenteditable="true" value="{{title}}"><div>{{title}}</div></h1>  </li>
-    <li class="list-group-item"> <h3 contenteditable="true" id="single-event-date" value="{{date}}"><div>{{date}}</div></h3>  </li>
-    <li class="list-group-item"> <h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>{{location}}</div></h3>  </li>
-    <li class="list-group-item">
-      <h4> Notes </h4>
-      <p contenteditable="true" id="single-event-notes" value="{{notes}}"><div>{{notes}}</div></p>
-
+  <div class="event">
+    <h1>Meeting</h1>
+    <hr>
+    {{#with singleEvent}}
+    <ul class="list-group single-event-details">
+    <li class="list-group-item"> 
+      <h1 id="single-event-title" contenteditable="true" value="{{title}}"><div><strong>{{title}}</strong></div></h1>
     </li>
-    <li class="list-group-item">
-     <label class="event-completed">
-       <p>
-        {{#if completed}}
-          <button>Mark not completed</button>
-         {{else}}
-          <button>Mark completed</button>
-         {{/if}}
-         <br>
-         Status:
-         {{#if completed}}
-         completed
-         {{else}}
-         not completed
-         {{/if}}
-       </p>
-     </label>
-   </li>
- </ul>
-{{/with}}
 
-{{> messages}}
+    <li>
+      <table>
+        <tr>
+          <td class="td-name"><h3><strong>Date: </strong></h3></td>
+          <td class="td-content"><h3 contenteditable="true" id="single-event-date" value="{{date}}"><div>{{date}}</div></h3></td>
+        </tr>
+        <tr>
+          <td class="td-name"><h3><strong>Location: </strong></h3></td>
+          <td class="td-content"><h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>
+            {{#if location}}
+              {{location}}
+            {{else}}
+              Input location
+            {{/if}}
+          </div></h3></td>
+        </tr>
+        <tr>
+          <td class="td-name"><h3><strong> Notes: </strong></h3></td>
+          <td class="td-content"><h4 contenteditable="true" id="single-event-notes" value="{{notes}}"><div>{{notes}}</div></h4></td>
+        </tr>
+      </table>
+    </li>
+      
+<!--       <li class="list-group-item"> 
+        <h3 contenteditable="true" id="single-event-date" value="{{date}}"><div>{{date}}</div></h3>  
+      </li> -->
+<!--       <li class="list-group-item"> 
+        <h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>{{location}}</div></h3>  
+      </li> -->
+<!--       <li class="list-group-item">
+        <h3><strong> Notes: </strong></h3>
+        <p contenteditable="true" id="single-event-notes" value="{{notes}}"><div>{{notes}}</div></p>
+      </li> -->
+
+      {{>uploadForm}}
+
+      <li class="list-group-item">
+        <label class="event-completed">
+          <p>
+          {{#if completed}}
+            <button>Mark not completed</button>
+           {{else}}
+            <button>Mark completed</button>
+           {{/if}}
+           <br>
+           Status:
+           {{#if completed}}
+           completed
+           {{else}}
+           not completed
+           {{/if}}
+          </p>
+        </label>
+      </li>
+    </ul>
+    {{/with}}
+
+    {{> messages}}
+  </div>
 </template>
 
 

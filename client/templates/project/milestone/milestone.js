@@ -54,7 +54,7 @@ Template.milestone.events({
   "blur .single-event-details li": function(e){
     var title = $("#single-event-title").text();
     var date = $("#single-event-date").text();
-    var notes = $("single-event-notes").text();
+    var notes = $("#single-event-notes").text();
 
     var index = Session.get("event_index");
     var obj = {};
@@ -64,7 +64,7 @@ Template.milestone.events({
     obj[titleMod] = title;
     obj[dateMod] = date;
     obj[notesMod] = notes;
-    Projects.update({_id: Session.get("projectId")},{$set: obj })
+    Projects.update({_id: Session.get("projectId")},{$set: obj });
   },
   "submit #new-requirement": function(e) {
     e.preventDefault();
@@ -110,7 +110,7 @@ Template.milestone.events({
 
     e.currentTarget[0].value = "";
   },
-  "click #delete-req": function(e) {
+  "click .delete-req": function(e) {
     var projectId = Session.get("projectId");
     var index = Session.get("event_index");
     var reqIndex = e.currentTarget.parentElement.dataset.index;
@@ -125,7 +125,7 @@ Template.milestone.events({
     objClear[reqArray] = null;
     Projects.update({_id: projectId}, {$pull: objClear})
   },
-  "click #delete-com": function(e) {
+  "click .delete-com": function(e) {
     var projectId = Session.get("projectId");
     var index = Session.get("event_index");
     console.log(e);
