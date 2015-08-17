@@ -54,7 +54,7 @@ Template.milestone.events({
   "blur .single-event-details li": function(e){
     var title = $("#single-event-title").text();
     var date = $("#single-event-date").text();
-    var notes = $("single-event-notes").text();
+    var notes = $("#single-event-notes").text();
 
     var index = Session.get("event_index");
     var obj = {};
@@ -64,7 +64,7 @@ Template.milestone.events({
     obj[titleMod] = title;
     obj[dateMod] = date;
     obj[notesMod] = notes;
-    Projects.update({_id: Session.get("projectId")},{$set: obj })
+    Projects.update({_id: Session.get("projectId")},{$set: obj });
   },
   "submit #new-requirement": function(e) {
     e.preventDefault();
