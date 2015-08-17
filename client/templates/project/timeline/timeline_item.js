@@ -56,5 +56,11 @@ Template.timelineItem.events({
     var project = Projects.findOne({_id: Session.get("projectId")});
     var projectId = project._id;
     var events = project.events;
-  }
+  },
+  // "mouseenter .cd-timeline-img": function() {
+  //   $(".cd-timeline-img i").addClass("timeline-hover");
+  // },
+  // "mouseleave .cd-timeline-img": function() {
+  //   $(".cd-timeline-img i").removeClass("timeline-hover");
+  // }
 })
