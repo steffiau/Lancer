@@ -2,12 +2,12 @@
 Meteor.publish('projects', function() {
 	var id = this.userId;
   // return Projects.find({});
-  return Projects.find({ $or: [{owner_id:id}, {collabId:id}] });
+  return Projects.find({ $or: [{owner_id:id}, {collab_id:id}] });
 });
 Meteor.publish('clients', function() {
 	var id = this.userId;
   // return Clients.find({});
-	return Clients.find({ $or: [{owner_id:id}, {collabId:id}] });
+	return Clients.find({ $or: [{owner_id:id}, {collab_id:id}] });
 });
 
 Meteor.publish('projectFiles', function() {
@@ -24,8 +24,8 @@ Meteor.publish('allUsers', function() {
 
 
 Meteor.publish('messages', function(){
-  var id = this.userId
-  if(this.userId){
+  var id = currentUserId()
+  if(id){
     return Messages.find({$or: [{userId: id}, {collaborators: id}]})
   }
 });
