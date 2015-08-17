@@ -51,19 +51,30 @@ Template.milestone.events({
     var events = project.events;
     console.log("after change completed: ", events[5].completed)
   },
+  "blur #single-event-notes": function(e){
+    var notes = e.target.innerText;
+    console.log(e)
+    // e.target.innerHTML = notes;
+    var index = Session.get("event_index");
+    var obj = {};
+    var notesMod = 'events.' + index + '.notes';
+    obj[notesMod] = notes;
+    Projects.update({_id: Session.get("projectId")},{$set: obj });
+  },
   "blur .single-event-details li": function(e){
     var title = $("#single-event-title").text();
     var date = $("#single-event-date").text();
-    var notes = $("#single-event-notes").text();
-
+    // var notes = $("#single-event-notes").text();
+    // console.log(e)
+    // $("#single-event-notes").html("" + notes)
     var index = Session.get("event_index");
     var obj = {};
     var titleMod = 'events.' + index + '.title';
     var dateMod = 'events.' + index + '.date';
-    var notesMod = 'events.' + index + '.notes';
+    // var notesMod = 'events.' + index + '.notes';
     obj[titleMod] = title;
     obj[dateMod] = date;
-    obj[notesMod] = notes;
+    // obj[notesMod] = notes;
     Projects.update({_id: Session.get("projectId")},{$set: obj });
   },
   "submit #new-requirement": function(e) {
