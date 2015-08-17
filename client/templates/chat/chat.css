@@ -15,13 +15,13 @@ div#chatBox {
   overflow: none;
 
   z-index: 1;
-  border-radius: 10px;
+  border-radius: 5px;
   opacity: 0.9;
   padding:10px;
 }
 
 #newMessage {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 #chatBox.off{
@@ -47,7 +47,7 @@ div#chatBox {
   background-color: #2B3D51;
   position: fixed;
   bottom: 458px;
-  border-radius: 10px;
+  border-radius: 5px;
   right: 0px;
   color:white;
   text-align: center;
@@ -91,7 +91,7 @@ div#allMessages div.singleMessage{
 
   max-width: 200px;
   word-wrap:break-word;
-  border-radius: 10px;
+  border-radius: 5px;
   color:white;
   padding: 10px 10px 10px 2px;
   display: inline;
