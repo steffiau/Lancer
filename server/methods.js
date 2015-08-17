@@ -21,6 +21,7 @@ Meteor.methods({
 		if (res.statusCode === 200){
 			return res;
 		}
+		
 	}
 });
 
