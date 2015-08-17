@@ -16,7 +16,6 @@ Template.projectView.events({
 		});
 		alert("Successfully Archived Project!");
 		Router.go('/');
-
 	},
 	'click #deleteNode': function(){
 		var events = Projects.findOne({'_id':Session.get('projectId')}).events;
@@ -35,6 +34,9 @@ Template.projectView.events({
     var clickedPage = e.currentTarget.id;
     console.log(clickedPage);
     Session.set('onPage', clickedPage);
+  },
+  'click #mini-profile-pic': function(){
+    Session.set('onPage', 'userSetting');
   },
   "click #createEvent": function (){
     console.log("new event")

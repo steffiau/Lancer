@@ -25,7 +25,7 @@
 
       <div class="row">
   			<div id="profile-pic" style="background-image: url('{{ currentUser.profile.picture }}')"></div>
-        <div>{{> customAccounts}}</div>
+        <div id="account-greeting">{{> customAccounts}}</div>
       </div>
     </div>
 
@@ -59,6 +59,9 @@
         						{{#if pageIs 'newClient'}}
         							{{> newClient}}
         						{{/if}}
+                    {{#if pageIs 'userSetting'}}
+                      {{> userSetting}}
+                    {{/if}}
         				{{/if}}
               {{else}}
                 <h2>Lancer</h2>
