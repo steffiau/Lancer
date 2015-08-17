@@ -1,4 +1,74 @@
-.modal-dialog {
-  width: 95%;
-  min-height: 95%;
+.modal {
+  width: 100%;
+  height: 100%;
 }
+
+.modal-dialog {
+  padding: 35px;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  margin: 0;
+}
+
+.modal-content {
+  height: 100%;
+  width: 100%;
+  background-color: #1ccaa9;
+  overflow: scroll;
+}
+
+#modal-close {
+  position: absolute;
+  right: 0.5%;
+  top: 0.5%;
+  font-size: 2.2em;
+  color: #eeeeee;
+  z-index: 1000;
+}
+
+#modal-close:hover {
+  color:#e74c3c;
+}
+
+#modal-intro {
+  color: white;
+  font-size: 3em;
+  text-align: center;
+  padding-top: 22%;
+  opacity: 0.2;
+}
+
+#modal-intro:focus {
+  color: red;
+}
+
+.basic-modal-question {
+  color: white;
+  font-size: 2em;
+  text-align: left;
+  padding-top: 10%;
+  padding-left: 20%;
+  padding-right: 20%;
+  opacity: 0.2;
+}
+
+.basic-modal-question:focus {
+  opacity: 1;
+}
+
+.question-text {
+  padding-bottom: 40px;
+}
+
+.modal-short-text-response {
+  padding-left: 15px;
+  border-left: 3px dashed grey;
+  min-height: 80px;
+}
+
+.modal-short-text-response:focus {
+  outline: none;
+}
+
+

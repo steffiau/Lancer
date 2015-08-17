@@ -490,3 +490,8 @@ header h1 {
     transition: all 0.5s ease;
 }
 
+#main-view {
+  width: 100%;
+  height: 100%;
+}
+

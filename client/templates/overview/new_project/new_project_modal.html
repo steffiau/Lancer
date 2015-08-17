@@ -1,21 +1,49 @@
 <template name="newProjectModal">
   <div class="modal fade">
       <div class="modal-dialog">
+       <i class="fa fa-times-circle" id="modal-close" data-dismiss="modal"></i>
           <div class="modal-content">
 
-              <div class="modal-header">
-                  <h4 class="modal-title">Modal example</h4>
+              <div id="modal-intro">
+                Congrats on the job!
               </div>
 
-              <div class="modal-body">
-                  <p>A modal example.</p>
+              <div class="basic-modal-question">
+                  <div class="question-text">
+                    What's the name of your project?
+                  </div>
+                  <div class="modal-short-text-response" id="project-name" contenteditable="true"></div>
               </div>
 
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <div class="basic-modal-question">
+                  <div class="question-text">
+                    Describe your project in a few words.
+                  </div>
+                  <div class="modal-short-text-response" id="project-name" contenteditable="true"></div>
               </div>
 
+              <div class="basic-modal-question">
+                <div class="question-text">When does it start?</div>
+                  <div class="form-group">
+                      <div id="start-date-picker"></div>
+                  </div>
+              </div>
+
+              <div class="basic-modal-question">
+                  <div class="question-text">When is it due?</div>
+                   <div class="form-group">
+                      <div id="end-date-picker"></div>
+                  </div>
+              </div>
+
+              <div class="basic-modal-question">
+                <div class="question-text">
+                  How much is the contract?
+                </div>
+                <div class="modal-short-text-response" id="project-name" contenteditable="true"></div>
+              </div>
           </div>
+
       </div>
   </div>
 </template>
