@@ -44,5 +44,5 @@ clientName = function(clientId){
 }
 
 collaborators = function(projectId){
-  return Projects.findOne({"_id": Session.get("projectId")}).collab_id;
+  return Projects.findOne({"_id": Session.get("projectId")}).collabId;
 };

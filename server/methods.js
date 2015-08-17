@@ -13,8 +13,19 @@ Meteor.methods({
 			html: html
 		});
 	},
+
 	insertMessage: function(message){
 		Messages.insert(message);
 	},	
+	
+	getStripeSecret: function(auth_code){
+		var res = Meteor.http.call("POST","https://connect.stripe.com/oauth/token",{params:{client_secret:process.env["STRIPE_SECRET_KEY"],
+			code: auth_code,
+			grant_type:"authorization_code",
+			client_id: process.env["STRIPE_CLIENT_ID"]}});
+		if (res.statusCode === 200){
+			return res;
+		}	
+	}
 });
 

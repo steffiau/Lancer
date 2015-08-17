@@ -1,9 +1,24 @@
 
+Deps.autorun(function(){
+  if(Meteor.userId()){
+   Session.set("chatToggleStatus", "off")
+   Session.set("chatButtonStatus", "closed")
+  }
+});
 
 Template.messages.helpers({
   messages: function(){
     var id = currentUserId();
     return Messages.find({projectId: Session.get("projectId")},{$orderby: {"this.date": -1}});
+  },
+  projectName: function(){
+    return currentProject().name;
+  },
+  chatToggleStatus: function(){
+   return Session.get("chatToggleStatus")
+  },
+  chatButtonStatus: function(){
+    return Session.get("chatButtonStatus")
   }
 });
 // events for messages template (where all messages appear)
@@ -26,18 +41,25 @@ Template.messages.events({
     }
     Meteor.call("insertMessage", completeMessage)
     // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
-     $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
+    $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
     $("#newMessage").val('');
 
 
- 
+
   },
   "click #toggleChat": function(){
-    $("#chatBox").toggleClass("off");
-    
-    
+    // this logic toggles the status of the chatbox as hidden or not based on a user's click event
+    if(Session.get("chatToggleStatus") === "off"){
+      Session.set("chatToggleStatus", "")
+    } else {
+     Session.set("chatToggleStatus", "off")
+    }
+    if(Session.get("chatButtonStatus") === "closed"){
+      Session.set("chatButtonStatus", "")
+    } else {
+      Session.set("chatButtonStatus", "closed")
+    }
   }
-
 });
 
 // helpers for message template (a single message)

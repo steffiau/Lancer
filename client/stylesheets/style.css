@@ -491,6 +491,11 @@ header h1 {
   font-size: 1.5em;
 }
 
+.emoji {
+  max-width: 25px;
+  max-height: 25px;
+}
+
 /* Main Page Styles */
 #main-wrapper {
     padding-left: 260px;
@@ -505,3 +510,17 @@ header h1 {
   text-align: center;
 }
 
+.fa-check {
+  margin: 6px;
+  color: rgba(0,0,0,0);
+}
+
+.fa-check:hover {
+  color: rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.timeline-completed {
+  background-color: #dddddd;
+  color: white;
+}

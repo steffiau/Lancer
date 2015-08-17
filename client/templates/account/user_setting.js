@@ -27,6 +27,9 @@ userSettingSchema = new SimpleSchema({
 Template.userSetting.helpers({
 	userProfile: function(){
 	return currentUser().profile
+	},
+	stripeClientId: function(){
+	return Meteor.settings.public["StripeClientId"];
 	}
 });
 
@@ -38,3 +41,9 @@ AutoForm.addHooks('userSetting',{
 	Meteor.users.update({_id:currentUser()._id},{$set: {profile: doc}});
 	}		
 });
+
+//Template.userSetting.events({
+//"click #stripeConnect": function(event){
+//event.preventDefault();
+//}		
+//});
