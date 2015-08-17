@@ -110,7 +110,7 @@ Template.milestone.events({
 
     e.currentTarget[0].value = "";
   },
-  "click #delete-req": function(e) {
+  "click .delete-req": function(e) {
     var projectId = Session.get("projectId");
     var index = Session.get("event_index");
     var reqIndex = e.currentTarget.parentElement.dataset.index;
@@ -125,7 +125,7 @@ Template.milestone.events({
     objClear[reqArray] = null;
     Projects.update({_id: projectId}, {$pull: objClear})
   },
-  "click #delete-com": function(e) {
+  "click .delete-com": function(e) {
     var projectId = Session.get("projectId");
     var index = Session.get("event_index");
     console.log(e);

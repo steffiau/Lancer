@@ -1,29 +1,32 @@
 <template name="milestone">
+  <div class="event">
+    <h1>Milestone</h1>
+    <hr>
     {{#with singleEvent}}
       <ul class="list-group single-event-details">
-        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true">{{title}}</h1></li>
-        <li class="list-group-item"><h3 id="single-event-date" contenteditable="true">{{date}}</h3></li>
-        <li class="list-group-item">
-          <p>Requirements:</p>
-          <ol>
+        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true"><strong>{{title}}</strong></h1></li>
+        <li class="list-group-item"><h3><strong>Due date:  </strong><span id="single-event-date" contenteditable="true">{{date}}</span></h3></li>
+        <li class="list-group-item" id="req-list">
+          <h3><strong>Requirements:</strong></h3>
+          <form id="new-requirement">
+            <input class="input-box" placeholder="Write a requirement..." />
+            <input class="input-submit" type="submit" value="Add">
+          </form>
+          <ul>
             {{#each requirements}}
               {{> requirementItem}}
             {{/each}}
-          </ol>
-          <form id="new-requirement">
-            <input placeholder="Write a requirement..." />
-            <input type="submit" value="Add">
-          </form>
+          </ul>
         </li>
         <li class="list-group-item">
           <form>
             <div name="notes-area">
-              <p>Notes</p>
-              <p contenteditable="true" id="single-event-notes">{{notes}}</p>
+              <h3><strong>Notes:</strong></h3>
+              <h4 contenteditable="true" id="single-event-notes">{{notes}}</h4>
             </div>
           </form>
         </li>
-        <li class="list-group-item">
+<!--         <li class="list-group-item">
           <p>Comments:</p>
             <ul>
               {{#each comments}}
@@ -34,7 +37,7 @@
             <input placeholder="Write a comment..." />
             <input type="submit" value="Comment">
           </form>
-        </li>
+        </li> -->
         <li class="list-group-item">
          <label class="event-completed">
            <p>
@@ -55,18 +58,21 @@
        </li>
      </ul> 
     {{/with}}
+  </div>
 </template>
 
 <template name="requirementItem">
-  <li data-index="{{index}}">
-    <h4 contenteditable="true">{{object.name}}</h4><i id="delete-req" class="fa fa-times-circle"></i>
+  <li data-index="{{index}}" class="req-item">
+    <input type="checkbox">
+    <h4 contenteditable="true">{{object.name}}</h4>
+    <i class="fa fa-times-circle delete-req"></i>
   </li>
 </template>
 
 <template name="commentItem">
   <li data-index="{{index}}">
     <p>{{object.user_name}}</p>
-    <h5>{{object.text}}   <i id="delete-com" class="fa fa-times-circle"></i></h5>
+    <h5>{{object.text}}   <i class="fa fa-times-circle delete-com"></i></h5>
   </li>
 </template>
 

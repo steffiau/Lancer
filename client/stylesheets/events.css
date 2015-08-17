@@ -1,0 +1,50 @@
+.event h1, .event h2, .event h3, .event h4, .event h5, .event p, .event div {
+  font-family: "Lato", sans-serif;
+  color: #2b3d51;
+}
+
+.list-group-item {
+  border: none;
+}
+
+#new-requirement {
+  display: block;
+  float: left;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+#req-list h3 {
+  float: left;
+}
+
+#req-list ul {
+  clear: both;
+}
+
+.req-item h4, .req-item i {
+  display: inline;
+  margin: 0 10px;
+}
+
+#single-event-notes {
+  background-color: #eeeeee;
+  min-height: 250px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.input-box {
+  border: 2px solid #2b3d51;
+}
+
+.input-submit {
+  border: 1px solid #2b3d51;
+  background-color: #2b3d51;
+  color: white;
+}
+
+
+/*.req-item input[type=checkbox] {
+  outline: 1px solid #2b3d51;
+}*/
