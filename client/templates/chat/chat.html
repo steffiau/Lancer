@@ -1,6 +1,6 @@
 
 <template name="messages">
-  <div id="chatBox" class="{{chatToggle}}"> 
+  <div id="chatBox" class="{{chatToggleStatus}}"> 
     <div id="allMessages">
       {{#each messages}}
      {{> message}} 
@@ -12,7 +12,7 @@
     </div>
 
   </div>
-  <div id="toggleChat" >Chat about: "{{projectName}}" </div>
+  <div id="toggleChat" class="{{chatButtonStatus}}" >Chat about: "{{projectName}}" </div>
 </template>
 
 <template name="messageBox">
