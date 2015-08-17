@@ -23,48 +23,51 @@
       </div>
       {{/if}}
 
-    <div class="row">
-			<div id="profile-pic" style="background-image: url('{{ currentUser.profile.picture }}')"></div>
-      <div>{{> customAccounts}}</div>
+      <div class="row">
+  			<div id="profile-pic" style="background-image: url('{{ currentUser.profile.picture }}')"></div>
+        <div>{{> customAccounts}}</div>
+      </div>
+    </div>
+
+  <div id="main-wrapper">
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              {{#if currentUser}}
+        				{{# if firstTimeLogin }}
+        					{{> userSetting }}
+        				{{else}}
+        						{{# if pageIs 'projectView'}}
+        							{{> projectView}}
+        						{{/if}}
+
+        						{{# if pageIs 'active-projects'}}
+        							{{> allProjects}}
+        						{{/if}}
+
+        						{{#if pageIs 'add-new-project'}}
+        							{{> newProject}}
+        						{{/if}}
+
+        						{{#if pageIs 'archive'}}
+        							{{> archivedProjects}}
+        						{{/if}}
+        						{{#if pageIs 'clients'}}
+        							{{> allClients}}
+        						{{/if}}
+        						{{#if pageIs 'newClient'}}
+        							{{> newClient}}
+        						{{/if}}
+        				{{/if}}
+              {{else}}
+                <h2>Lancer</h2>
+                <p class="lead">Your best helper for a freelancer.</p>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="col.md.9" id="right-panel">
-    <div class="container">
-      {{#if currentUser}}
-				{{# if firstTimeLogin }}
-					{{> userSetting }}
-				{{else}}
-					<div>
-						{{# if pageIs 'projectView'}}
-							{{> projectView}}
-						{{/if}}
-
-						{{# if pageIs 'active-projects'}}
-							{{> allProjects}}
-						{{/if}}
-
-						{{#if pageIs 'add-new-project'}}
-							{{> newProject}}
-						{{/if}}
-
-						{{#if pageIs 'archive'}}
-							{{> archivedProjects}}
-						{{/if}}
-						{{#if pageIs 'clients'}}
-							{{> allClients}}
-						{{/if}}
-						{{#if pageIs 'newClient'}}
-							{{> newClient}}
-						{{/if}}
-					</div>
-				{{/if}}
-      {{else}}
-        <h2>Lancer</h2>
-        <p class="lead">Your best helper for a freelancer.</p>
-      {{/if}}
-    </div>
-  </div>
-</div>
-
 </template>

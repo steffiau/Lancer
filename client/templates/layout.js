@@ -6,14 +6,13 @@ Template.layout.events = {
   'click .menu-button': function(e){
     e.preventDefault;
     var clickedPage = e.currentTarget.id;
-    console.log(clickedPage);
     Session.set('onPage', clickedPage);
   },
   'click .create-button': function(e){
     e.preventDefault;
     var clickedPage = e.currentTarget.id;
-    console.log(clickedPage);
-    Session.set('onPage', clickedPage);
+    Modal.show("newProjectModal");
+    // Session.set('onPage', clickedPage);
   }
 }
 
