@@ -26,10 +26,15 @@ Template.messages.events({
     }
     Meteor.call("insertMessage", completeMessage)
     // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
+     $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
     $("#newMessage").val('');
+
+
+ 
   },
   "click #toggleChat": function(){
     $("#chatBox").toggleClass("off");
+    
     
   }
 
