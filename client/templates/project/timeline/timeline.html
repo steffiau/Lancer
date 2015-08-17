@@ -2,11 +2,13 @@
 
   <div class="col-md-12 cd-bkgd">
     <h3 id="project-title">{{title}}</h3>
+    <div id="createEvent"><i class="fa fa-plus"></i> Create New Event</div>
     <section id="cd-timeline" class="cd-container">
       {{#each timeline }}
         {{> timelineItem}}
       {{/each}}
     </section>
+    <div id="archiveProject"><i class="fa fa-archive"></i>  Archive This Project </div>
   </div>
 
 </template>

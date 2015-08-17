@@ -25,8 +25,7 @@
     <div id="wrapper">
       <div id="sidebar-wrapper">
           {{> timeline}}
-          <button id="archiveProject" class='btn btn-warning'> Archive This Project </button>
-        <button id="createEvent" class='btn btn-success'> Create An Event</button>
+ <!--        <button id="createEvent" class='btn btn-success'> Create An Event</button> -->
       </div>
       <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -36,13 +35,11 @@
                 {{#if $.Session.equals "template" "Project"}}
                   {{> project}}
                 {{else}}
-                <button id='deleteNode' class='btn btn-danger'> Delete This Node </button>
                 {{/if}}
                 {{#if $.Session.equals "template" "Meeting"}}
                   {{> meeting}}
                 {{/if}}
                 {{#if $.Session.equals "template" "Invoice"}}
-								<button class="btn btn-primary" id="sendInvoiceEmail"> Send Invoice Email </button>
                   {{> invoice}}
                 {{/if}}
                 {{#if $.Session.equals "template" "Milestone"}}

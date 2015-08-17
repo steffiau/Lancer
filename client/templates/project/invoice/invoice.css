@@ -1,0 +1,83 @@
+#invoice-header h1{
+  color:#2B3D51;
+  font-size: 5em;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #b5bbc2;
+}
+
+#invoice-number{
+  color: #2B3D51;
+  padding-right: 30px;
+  font-size: 2em;
+}
+
+#invoice-number strong {
+  padding-right: 10px;
+}
+
+#sendInvoiceEmail {
+  margin-bottom: 10px;
+  transition: all 0.5s ease;
+}
+
+#sendInvoiceEmail i {
+  padding-right: 5px
+}
+
+#sendInvoiceEmail:hover{
+  color: white;
+  background-color: #2B3D51;
+}
+
+#invoice-info {
+  margin-bottom: 20px;
+  color: #2B3D51;
+}
+
+#invoice-table th {
+  background-color: #2B3D51;
+  color: white;
+  text-align: center;
+}
+
+#invoice-totals {
+  float:right;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+#invoice-totals tr td:first-child {
+  padding-right: 10px;
+}
+
+.delete-invoice-item {
+  text-align: center;
+  font-size: 1.3em;
+  background-color: #2B3D51;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.delete-invoice-item:hover {
+  color:#e74c3c;
+}
+
+#invoice-details {
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid #2B3D51;
+}
+
+.add-invoice-item i {
+  padding-right: 10px;
+  transition: all 0.5s ease;
+}
+
+.add-invoice-item:hover {
+  color: white;
+  background-color: #2B3D51;
+}
