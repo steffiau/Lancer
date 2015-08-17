@@ -10,7 +10,6 @@
 #new-requirement {
   display: block;
   float: left;
-  margin-top: 25px;
   margin-left: 20px;
 }
 
@@ -43,6 +42,35 @@
   background-color: #2b3d51;
   color: white;
 }
+
+.event tr {
+  margin: 10px 0;
+}
+
+.event td {
+  vertical-align: top;
+}
+
+.event td.td-name {
+  width: 150px;
+  height: 50px;
+}
+
+.event td.td-content {
+  width: 500px;
+}
+
+.event h3 {
+  margin-top: 0;
+}
+
+.list-group-item {
+  padding: 10px 0px;
+}
+
+/*.list-group-item #single-event-notes {
+  width: 500px;
+}*/
 
 
 /*.req-item input[type=checkbox] {

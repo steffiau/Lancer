@@ -9,15 +9,41 @@
     <hr>
     {{#with singleEvent}}
     <ul class="list-group single-event-details">
+    <li class="list-group-item"> 
+      <h1 id="single-event-title" contenteditable="true" value="{{title}}"><div><strong>{{title}}</strong></div></h1>
+    </li>
+    <table>
+      <tr>
+        <td class="td-name"><h3><strong>Date: </strong></h3></td>
+        <td class="td-content"><h3 contenteditable="true" id="single-event-date" value="{{date}}"><div>{{date}}</div></h3></td>
+      </tr>
+      <tr>
+        <td class="td-name"><h3><strong>Location: </strong></h3></td>
+        <td class="td-content"><h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>
+          {{#if location}}
+            {{location}}
+          {{else}}
+            Input location
+          {{/if}}
+        </div></h3></td>
+      </tr>
+      <tr>
+        <td class="td-name"><h3><strong> Notes: </strong></h3></td>
+        <td class="td-content"><p contenteditable="true" id="single-event-notes" value="{{notes}}"><div>{{notes}}</div></p></td>
+      </tr>
 
-      <li class="list-group-item"> <h1 id="single-event-title" contenteditable="true" value="{{title}}"><div><strong>{{title}}</strong></div></h1></li>
-      <li class="list-group-item"> <h3 contenteditable="true" id="single-event-date" value="{{date}}"><div>{{date}}</div></h3>  </li>
-      <li class="list-group-item"> <h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>{{location}}</div></h3>  </li>
-      <li class="list-group-item">
+    </table>
+      
+<!--       <li class="list-group-item"> 
+        <h3 contenteditable="true" id="single-event-date" value="{{date}}"><div>{{date}}</div></h3>  
+      </li> -->
+<!--       <li class="list-group-item"> 
+        <h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>{{location}}</div></h3>  
+      </li> -->
+<!--       <li class="list-group-item">
         <h3><strong> Notes: </strong></h3>
         <p contenteditable="true" id="single-event-notes" value="{{notes}}"><div>{{notes}}</div></p>
-
-      </li>
+      </li> -->
 
       {{>uploadForm}}
 
