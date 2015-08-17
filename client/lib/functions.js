@@ -26,6 +26,9 @@ currentUser = function(){
 currentUserId = function(){
 	return(Meteor.userId());
 };
+currentClient = function(){
+	return Clients.findOne({'_id': currentProject().client_id});
+};
 findClient = function(project){
 	// Given Project object, return the project's client object
 	clientId = project.client_id;

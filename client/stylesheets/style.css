@@ -43,6 +43,51 @@ body {
   background-color:#EEEEEE;
 }
 
+#createEvent {
+  position: relative;
+  font-size: 1.1em;
+  color: #EEEEEE;
+  text-align: center;
+  width: 100%;
+  background: white;
+  border-radius: 0.25em;
+  padding: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#createEvent i {
+  padding-right: 10px;
+}
+
+#createEvent:hover {
+  background-color: #75CE66;
+  color: white;
+}
+
+#archiveProject {
+  position: relative;
+  font-size: 1.1em;
+  color: #2B3D51;
+  text-align: center;
+  width: 100%;
+  background: white;
+  border-radius: 0.25em;
+  border: 1px solid #2B3D51;
+  padding: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#archiveProject i {
+  padding-right: 10px;
+}
+
+#archiveProject:hover {
+  background-color: #2B3D51;
+  color: white;
+}
+
 #cd-timeline {
   position: relative;
   margin-top: 2em;
@@ -66,6 +111,7 @@ body {
   border-radius: 0.25em;
   padding: 1em;
   box-shadow: 0 3px 0 #d7e4ed;
+  cursor: pointer;
 }
 
 .cd-timeline-content:after {

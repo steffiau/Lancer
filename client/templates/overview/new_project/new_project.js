@@ -70,11 +70,13 @@ AutoForm.addHooks('newProjectForm', {
 		//console.log(error);		// How to throw error
 		if (project = scafold(doc)){
 			// if scafold success, write to db
-		client_id = {client_id: location.search.split('client=')[1]};
+		client_id = {'client_id': window.location.search.split('client_id=')[1]};
 			_.extend(project, client_id); // Push client id field into project
+			console.log(project.toString());
+			console.log(project);
 			Projects.insert(project, function(err,id){
 				// once inserted, now populate events and then update the newly created document in database
-				var events = 	processMilestone(doc.milestones,id);
+				var events = 	processMilestone(doc.milestones,id,doc.contract_amount);
 				Projects.update({_id: id},{
 								$set:{events: events}
 				});
@@ -141,7 +143,7 @@ var scafold = function(doc){
 	};
 	//========================================================
 	//=======Under this are my helper methods================
-	function processMilestone(argv,project_id){
+	function processMilestone(argv,project_id,contract_amount){
 		//takes an js object as input
 		var id4 = project_id.substr(-4,4);
 		var events = [],
@@ -171,7 +173,7 @@ var scafold = function(doc){
 				} else {
 					var invoice_percentage = argv[i].invoice_percentage;
 				};
-				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, argv.contract_amount,i,id4)); // Generate invoice object and push to array
+				invoices.push(newInvoice(argv[i].milestone_date,invoice_percentage, contract_amount, i, id4)); // Generate invoice object and push to array
 			};
 			// Handle meetings and milestones here
 			events.push(newMeeting(argv[i].milestone_date, i));
