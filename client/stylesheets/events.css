@@ -68,6 +68,15 @@
   padding: 10px 0px;
 }
 
+.event i {
+  color: #eeeeee;
+}
+
+.event i:hover {
+  cursor: pointer;
+  color: red;
+}
+
 /*.list-group-item #single-event-notes {
   width: 500px;
 }*/
