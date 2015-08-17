@@ -495,3 +495,6 @@ header h1 {
     transition: all 0.5s ease;
 }
 
+.timeline-completed {
+  background-color: #dddddd;
+}
