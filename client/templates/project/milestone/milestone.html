@@ -4,8 +4,8 @@
     <hr>
     {{#with singleEvent}}
       <ul class="list-group single-event-details">
-        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true"><strong>{{title}}</strong></h1></li>
-        <li class="list-group-item"><h3><strong>Due date:  </strong><span id="single-event-date" contenteditable="true">{{date}}</span></h3></li>
+        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true"  value="{{title}}"><strong><div>{{title}}</div></strong></h1></li>
+        <li class="list-group-item"><h3><strong>Due date:  </strong><span id="single-event-date" contenteditable="true" value="{{date}}"><div>{{date}}</div></span></h3></li>
         <li class="list-group-item" id="req-list">
           <h3><strong>Requirements:</strong></h3>
           <form id="new-requirement">
@@ -25,7 +25,7 @@
                 <h3><strong>Notes:</strong></h3>
               </td>
               <td class="td-content">
-                <h4 contenteditable="true" id="single-event-notes">{{notes}}</h4>
+                <h4 contenteditable="true" id="single-event-notes"  value="{{notes}}"><div>{{notes}}</div></h4>
               </td>
             </tr>
           </table>
@@ -68,7 +68,7 @@
 <template name="requirementItem">
   <li data-index="{{index}}" class="req-item">
     <input type="checkbox">
-    <h4 contenteditable="true">{{object.name}}</h4>
+    <h4 contenteditable="true" value="{{object.name}}">{{object.name}}</h4>
     <i class="fa fa-times-circle delete-req"></i>
   </li>
 </template>
