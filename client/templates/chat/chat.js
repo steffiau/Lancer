@@ -4,6 +4,9 @@ Template.messages.helpers({
   messages: function(){
     var id = currentUserId();
     return Messages.find({projectId: Session.get("projectId")},{$orderby: {"this.date": -1}});
+  },
+  projectName: function(){
+    return currentProject().name;
   }
 });
 // events for messages template (where all messages appear)
@@ -34,7 +37,7 @@ Template.messages.events({
   },
   "click #toggleChat": function(){
     $("#chatBox").toggleClass("off");
-    
+    $("#toggleChat").toggleClass("closed")
     
   }
 

@@ -2,7 +2,7 @@ ul {
 list-style-type: none;
 }
 
-#chatBox {
+div#chatBox {
   border-color:white;
   border-width: 1px;
   background-color: #2B3D51;
@@ -41,11 +41,43 @@ list-style-type: none;
 
 }
 
-#messageInput {
+#toggleChat {
+  width: 350px;
+  height: 22px;
+  background-color: #2B3D51;
   position: fixed;
-  width: 300px;
+  bottom: 458px;
+  border-radius: 10px;
+  right: 0px;
+  color:white;
+  text-align: center;
+  border-color: white;
+  z-index: 3;
+  transition: background-color 0.5s linear;
+  opacity: 0.95;
+  text-overflow: ellipsis;
+}
+
+#toggleChat.closed {
+  display: inline;
+  position:fixed;
   bottom: 0px;
-  right:20px;
+  right: 0px;
+  background-color: #75CE66;
+  height:28px;
+}
+
+#toggleChat:hover {
+  opacity: 0.75;
+  cursor: pointer;
+  background-color: #75CE66;
+}
+
+#messageInput {
+  position: absolute;
+  width: 78%;
+  bottom: 0px;
+  right:77px;
   z-index: 2;
   display:inline;
   clear:both;
@@ -64,8 +96,8 @@ div#allMessages div.singleMessage{
   padding: 10px 10px 10px 2px;
   display: inline;
   clear:both;
-  margin-top: 15px;
-  margin-bottom: 20px;
+  margin-top: 8px;
+  margin-bottom: 25px;
   border-style: solid;
   border-width: 2px;
 }
@@ -83,4 +115,36 @@ div#allMessages div.singleMessage{
   text-align: left;
   border-style: solid;
   float:right;
+}
+
+input[id=newMessage]{
+  border-style: none;
+  background-color:#2A6991;
+  width: 128%;
+  opacity: 0.9;
+  color:white;
+
+} 
+
+input[id=newMessage]:focus{
+  outline:none;
+
+}
+
+
+/*testing out scrollbar webkits*/
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
 }
