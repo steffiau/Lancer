@@ -52,11 +52,11 @@ list-style-type: none;
   padding-top: 20px;
 }
 
-<<<<<<< HEAD
-.singleMessage{
-=======
+
+
+
 div#allMessages div.singleMessage{
->>>>>>> chat
+
   max-width: 200px;
   word-wrap:break-word;
   border-radius: 10px;
