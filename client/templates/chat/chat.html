@@ -2,16 +2,15 @@
   <div id="chatBox" class="{{chatToggle}}"> 
     <div id="allMessages">
       {{#each messages}}
-
-      <div class="singleMessage"> {{> message}} </div>
+       {{> message}} 
       {{/each}}
-   </div>
-   <div id="messageInput">
-    {{> messageBox}}
-   </div>
+    </div>
+    <div id="messageInput">
+      {{> messageBox}}
+    </div>
 
   </div>
-<button id="toggleChat"> Chat </button>
+  <button id="toggleChat"> Chat </button>
 </template>
 
 <template name="messageBox">
@@ -21,5 +20,5 @@
 </template>
 
 <template name="message">
-   <div class="{{checkLocalUser}}" >{{sender}}: {{message}} </div>
+ <div class="singleMessage {{checkLocalUser}}" >{{sender}}: {{message}} </div>
 </template>

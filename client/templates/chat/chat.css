@@ -7,9 +7,9 @@ ul {
  height: 400px;
  width: 300px;
  position: fixed;
- bottom: 0;
+ bottom: 10px;
  right:0;
- overflow-y: auto;
+ overflow-y: scroll;
  overflow-x:hidden;
  z-index: 1;
  border-radius: 10px;
@@ -29,13 +29,12 @@ ul {
 #allMessages {
   position: absolute;
   bottom: 5px;
-  
 }
 
 #messageInput {
   position: absolute;
   width: 300px;
-  bottom: 0;
+  bottom: 0px;
   left:0px;
 }
 
@@ -44,34 +43,24 @@ ul {
 .singleMessage{
   height: 80px;
   width: 120px;
-  top:2px;
   word-wrap:break-word;
-  margin-top: 1px;
-  
-
+  position: relative;
+  border-radius: 10px;
+  color:white;
+  padding: 4px;
+  bottom: 120px
+  top: 10px; 
 }
-
+/*myMessages go on right side of chatbox*/
 .myMessage {
-  color: white; 
-  position: absolute;
-  word-wrap:break-word;
   background-color: #3686BB;
   left: 200px;
-  border-radius: 10px;
-  padding: 3px;
+  text-align:left;
 }
-
+/*collabMessages go on left side of chatbox*/
 .collabMessage {
-  color: white;
   left: 10px;
-  position: absolute;
   background-color: #4697CE;
-  word-wrap: break-word;
-  border-radius: 10px;
-  padding: 4px;
-  bottom: 5px
-  top: 5px;
-
-  
+  text-align: left;
 }
 
