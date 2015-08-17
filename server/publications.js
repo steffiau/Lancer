@@ -23,11 +23,11 @@ Meteor.publish('allUsers', function() {
 
 
 
-
-
-
-Meteor.publish('messages', function(projectId){
-  return Messages.find();
+Meteor.publish('messages', function(){
+  var id = this.userId
+  if(this.userId){
+    return Messages.find({$or: [{userId: id}, {collaborators: id}]})
+  }
 });
 
 

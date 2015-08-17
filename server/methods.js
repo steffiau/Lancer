@@ -13,5 +13,8 @@ Meteor.methods({
 			html: html
 		});
 	},
+	insertMessage: function(message){
+		Messages.insert(message);
+	},	
 });
 

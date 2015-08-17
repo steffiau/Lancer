@@ -17,7 +17,7 @@ var projectFilesStoreS3 = new FS.Store.S3("projectFilesS3", {
 
 
 // defines a new FS COLLECTION named called projectFiles
-var projectFiles = new FS.Collection('projectFiles', {
+ projectFiles = new FS.Collection('projectFiles', {
   stores: [projectFilesStoreS3]
 });
 
