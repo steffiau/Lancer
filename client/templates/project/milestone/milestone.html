@@ -68,7 +68,7 @@
 
 <template name="requirementItem">
   <li data-index="{{index}}" class="req-item">
-    <input type="checkbox">
+    <input type="checkbox" checked="{{object.checkValue}}">
     <h4 contenteditable="true" value="{{object.name}}">{{object.name}}</h4>
     <i class="fa fa-times-circle delete-req"></i>
   </li>

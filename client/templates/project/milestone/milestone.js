@@ -72,6 +72,7 @@ Template.milestone.events({
     // Get value from form element
     var newRequirement = {
       name: newText,
+      checkValue: false
     }
 
     var index = Session.get("event_index");
@@ -139,5 +140,22 @@ Template.milestone.events({
     var comArray = "events." + index + ".comments";
     objClear[comArray] = null;
     Projects.update({_id: projectId}, {$pull: objClear})
+  },
+  "change .req-item input:checkbox": function(e) {
+    var projectId = Session.get("projectId");
+    var index = Session.get("event_index");
+    var reqItems = Projects.findOne({_id: projectId}).events[Session.get("event_index")].requirements;
+    var reqIndex = e.currentTarget.parentElement.dataset.index;
+
+    var obj = {};
+    var reqItemCheckValue = "events." + index + ".requirements." + reqIndex + ".checkValue";
+    
+    if (reqItems[reqIndex].checkValue) {
+      obj[reqItemCheckValue] = false;
+    } else {
+      obj[reqItemCheckValue] = true;
+    };
+
+    Projects.update({_id: projectId}, {$set: obj});
   }
 });
