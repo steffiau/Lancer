@@ -17,9 +17,9 @@ userSettingSchema = new SimpleSchema({
 		type: String,
 		optional: false
 	},
-	birthDay:{
-		type:Date,
-		optional:false
+	phone:{
+		type:string,
+		optional:true
 	}
 
 });
