@@ -21,8 +21,9 @@ Meteor.publish('allUsers', function() {
 });
 
 Meteor.publish('messages', function(){
-  var id =  this.userId;
-  return Messages.find({$or: [{userId: id}, {collaborators: id}]})
+  var id =  this.userId 
+  return Messages.find({},{$or: [{collaborators: id},{userId: id}]})
 });
+
 
 

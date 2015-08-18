@@ -40,7 +40,7 @@ Template.messages.events({
       collaborators: collaborators()
     }
     Meteor.call("insertMessage", completeMessage)
-    // console.log("username: ", username, "projectId: ", projectId, "message: ", message, "senderId: ", senderId, "date: ", date_time);
+    console.log(completeMessage);
     $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
     $("#newMessage").val('');
 
