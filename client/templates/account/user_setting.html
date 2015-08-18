@@ -1,6 +1,8 @@
 <template name="userSetting">
-<h1> Welcome  {{currentUser.profile.email}} </h1>
-<h3> Please fill you information </h3> 
-{{> quickForm id="userSetting" doc=userProfile schema="userSettingSchema"}}
-<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ stripeClientId }}&scope=read_write" ><button class="btn btn-warning" id="stripeConnect"> Connect with Stripe Account </button></a>
+  <h1> Welcome  {{currentUser.profile.email}} </h1>
+  <h3> Please fill in your information </h3> 
+  {{> quickForm id="userSetting" doc=userProfile schema="userSettingSchema"}}
+  <h3>Avatar upload</h3>
+  {{>uploadAvatar}}           
+  <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ stripeClientId }}&scope=read_write" ><button class="btn btn-warning" id="stripeConnect"> Connect with Stripe Account </button></a>
 </template> 

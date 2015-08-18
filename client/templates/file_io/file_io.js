@@ -1,12 +1,12 @@
 // defines an FS File STORE called projectFilesStore
 // will come up in mongoDB as cfs.projectFiles.filerecord
-var projectFilesStore = new FS.Store.FileSystem("projectFiles");
+projectFilesStore = new FS.Store.FileSystem("projectFiles");
 
-var projectFilesStoreS3 = new FS.Store.S3("projectFilesS3");
+projectFilesStoreS3 = new FS.Store.S3("projectFilesS3");
 
 
 // defines a new FS COLLECTION named called projectFiles
-var projectFiles = new FS.Collection('projectFiles', {
+projectFiles = new FS.Collection('projectFiles', {
   stores: [projectFilesStoreS3]
 });
 
