@@ -1,0 +1,11 @@
+.meeting-header {
+  color:#2B3D51;
+  font-size: 5em;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #b5bbc2;
+}
+
+#event table {
+  margin-top: 40px;
+}
