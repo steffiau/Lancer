@@ -348,7 +348,6 @@ header h1 {
 #page-content-wrapper {
   margin-left: 80px;
   width: auto;
-  background-color: white;
 }
 
 /* Main Page Left Nav */
@@ -523,4 +522,34 @@ header h1 {
 .timeline-completed {
   background-color: #dddddd;
   color: white;
+}
+
+#login-form .col-md-9 {
+  margin-left: 11%;
+  margin-top: 20%;
+}
+
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  max-height: 800px;
+  max-width: 1000px; 
+  
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+#landing-title {
+  background-color: transparent;
+  color: white;
+  font-size: 90px;
+}
+
+#landing-text {
+  background-color: transparent;
+  color: white;
+  font-size: 40px;
 }
