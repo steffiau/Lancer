@@ -5,7 +5,11 @@ Template.project.helpers({
 
   collabUser: function(){
     var project = Projects.findOne({ _id : Session.get("projectId") });
-    return Meteor.users.find( { _id: { $in: project.collabId }} );
+    return Meteor.users.find( { _id: { $in: project.collabId }});
+  },
+  dateFormat: function(){
+   var project =  Projects.findOne({ _id : Session.get("projectId") });
+    return moment(project.start_date).format("MMM Do, YYYY")+" to "+ moment(project.due_date).format("MMM Do, YYYY")
   }
 });
 

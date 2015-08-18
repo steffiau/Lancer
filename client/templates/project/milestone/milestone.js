@@ -24,6 +24,9 @@ Template.milestone.helpers({
       return {object: value, index: index};
     });
     return indexedComItems;
+  },
+  dateFormat: function(){
+    return moment(this.date).format("MMM Do, YYYY")
   }
 });
 

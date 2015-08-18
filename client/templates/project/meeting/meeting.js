@@ -3,6 +3,9 @@ Template.meeting.helpers({
   singleEvent: function(){
     var project = Projects.findOne({_id: Session.get("projectId")});
     return project.events[Session.get("event_index")]
+  },
+  dateFormat: function(){
+    return moment(this.date).format("MMM Do, YYYY")
   }
 });
 
