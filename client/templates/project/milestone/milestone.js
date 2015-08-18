@@ -28,42 +28,20 @@ Template.milestone.helpers({
 });
 
 Template.milestone.events({
-  "click .event-completed button": function(e){
-    var project = Projects.findOne({_id: Session.get("projectId")});
-    var projectId = project._id;
-    var events = project.events;
-    var index = Session.get("event_index");
-    console.log("before change completed is", events[5].completed);
-
-    var obj = {};
-    var completeMod = 'events.' + index + '.completed';
-
-    if(events[index].completed){
-      obj[completeMod] = false;
-      Projects.update({_id: projectId}, {$set: obj });
-    } else {
-      obj[completeMod] = true;
-      Projects.update({_id: projectId}, {$set: obj });
-    }
-    //   Session.set("eventCompleted", !event.target.checked)
-    var project = Projects.findOne({_id: Session.get("projectId")});
-    var projectId = project._id;
-    var events = project.events;
-    console.log("after change completed: ", events[5].completed)
-  },
   "blur .single-event-details li": function(e){
     var title = $("#single-event-title").text();
     var date = $("#single-event-date").text();
-    var notes = $("#single-event-notes").text();
-
+    // var notes = $("#single-event-notes").text();
+    // console.log(e)
+    // $("#single-event-notes").html("" + notes)
     var index = Session.get("event_index");
     var obj = {};
     var titleMod = 'events.' + index + '.title';
     var dateMod = 'events.' + index + '.date';
-    var notesMod = 'events.' + index + '.notes';
+    // var notesMod = 'events.' + index + '.notes';
     obj[titleMod] = title;
     obj[dateMod] = date;
-    obj[notesMod] = notes;
+    // obj[notesMod] = notes;
     Projects.update({_id: Session.get("projectId")},{$set: obj });
   },
   "submit #new-requirement": function(e) {
@@ -74,6 +52,7 @@ Template.milestone.events({
     // Get value from form element
     var newRequirement = {
       name: newText,
+      checkValue: false
     }
 
     var index = Session.get("event_index");
@@ -141,5 +120,43 @@ Template.milestone.events({
     var comArray = "events." + index + ".comments";
     objClear[comArray] = null;
     Projects.update({_id: projectId}, {$pull: objClear})
+  },
+  "change .req-item input:checkbox": function(e) {
+    var projectId = Session.get("projectId");
+    var index = Session.get("event_index");
+    var reqItems = Projects.findOne({_id: projectId}).events[Session.get("event_index")].requirements;
+    var reqIndex = e.currentTarget.parentElement.dataset.index;
+
+    var obj = {};
+    var reqItemCheckValue = "events." + index + ".requirements." + reqIndex + ".checkValue";
+    
+    if (reqItems[reqIndex].checkValue) {
+      obj[reqItemCheckValue] = false;
+    } else {
+      obj[reqItemCheckValue] = true;
+    };
+
+    Projects.update({_id: projectId}, {$set: obj});
   }
+    // "click .event-completed button": function(e){
+  //   var project = Projects.findOne({_id: Session.get("projectId")});
+  //   var projectId = Session.get("projectId");
+  //   var events = project.events;
+  //   var index = Session.get("event_index");
+
+  //   var obj = {};
+  //   var completeMod = 'events.' + index + '.completed';
+
+  //   if(events[index].completed){
+  //     obj[completeMod] = false;
+  //     Projects.update({_id: projectId}, {$set: obj });
+  //   } else {
+  //     obj[completeMod] = true;
+  //     Projects.update({_id: projectId}, {$set: obj });
+  //   }
+  //   //   Session.set("eventCompleted", !event.target.checked)
+  //   var project = Projects.findOne({_id: Session.get("projectId")});
+  //   var projectId = project._id;
+  //   var events = project.events;
+  // },
 });
