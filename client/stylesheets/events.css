@@ -21,7 +21,7 @@
   clear: both;
 }
 
-.req-item h4, .req-item i {
+.req-item h4, .req-item i, .collabuser-item h4, .delete-collab {
   display: inline;
   margin: 0 10px;
 }
@@ -68,11 +68,11 @@
   padding: 10px 0px;
 }
 
-.event i {
+.event i, .delete-collab {
   color: #eeeeee;
 }
 
-.event i:hover {
+.event i:hover, .delete-collab:hover {
   cursor: pointer;
   color: red;
 }

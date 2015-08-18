@@ -10,7 +10,7 @@ Template.project.helpers({
 });
 
 Template.project.events({
-  "blur .single-event-details li": function(e){
+  "blur .single-event-details li": function(e) {
     var obj = {};
     obj["description"] = $("#project-desc").text();
 
