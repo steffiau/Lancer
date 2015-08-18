@@ -6,6 +6,8 @@ Template.getStripeUserSecret.helpers({
 			if (!error){
 				var stripe = _.pick(JSON.parse(result.content),"access_token","refresh_token","stripe_publishable_key","stripe_user_id");
 				Meteor.users.update({"_id":currentUser()._id},{$set: {"profile.stripe": stripe }});
+				Session.set("onPage","userSetting")
+				Router.go('/');
 				} else {
 				alert("Failed");
 				};

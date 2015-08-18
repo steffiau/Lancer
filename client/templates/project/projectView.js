@@ -14,7 +14,7 @@ Template.projectView.events({
 		},{$set:{ project_finished: true,
 				project_finishedAt: moment().toISOString()}
 		});
-		alert("Successfully Archived Project!");
+		toastr.success("Successfully Archived Project!");
 		Router.go('/');
 	},
 	'click #deleteNode': function(){

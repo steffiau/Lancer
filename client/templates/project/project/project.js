@@ -12,6 +12,7 @@ Template.project.helpers({
 Template.project.events({
   "blur .single-event-details li": function(e) {
     var obj = {};
+    obj["name"] = $("#project-header").text();
     obj["description"] = $("#project-desc").text();
 
     Projects.update({_id: Session.get("projectId")},{$set: obj })

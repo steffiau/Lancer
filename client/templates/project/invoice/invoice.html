@@ -79,14 +79,16 @@
 
         <div class="col-md-6" id="invoice-payment-details">
           <h3>Payment Details</h3>
-          <p>***User.Entered.Form***</p>
+					<p>Amount: {{ grandtotal }}<br> <br>
+						Currency: Canadian Dollar	
+					</p>
         </div>
 
         <div class="col-md-6" id="invoice-contact-details">
           <h3>Contact Details</h3>
           <p>
-            Email : ***User.Email****<br><br>
-            Mobile : ***User.Phone***<br> <br>
+					Email : {{user_email}}<br><br>
+					Mobile : {{user_phone}}<br> <br>
           </p>
         </div>
 

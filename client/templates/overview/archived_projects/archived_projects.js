@@ -10,7 +10,7 @@ Template.archivedProjects.helpers({
 			{key: "client_id", label: "Client Name" ,fn: function(value,object){return clientName(value);}},
 			{key: "contract_amount", label: "$$$"},
 			{key: "_id", label:"Unarchive Project", fn: function(value,object){ 
-				return new Spacebars.SafeString("<a href='javascript:Projects.update({_id: \"" + value + "\"},{$set:{project_finished: false}});'> Unarchive </a>"); }}]
+				return new Spacebars.SafeString("<a href=\"javascript:Projects.update({_id: \'" + value + "\'},{$set:{project_finished: false}});toastr.success('Successfully unarchived project!');\"> Unarchive </a>"); }}]
 		};
 	}
 });
