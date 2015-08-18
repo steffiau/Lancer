@@ -21,10 +21,13 @@
       <div class="row">
         <div class="menu-button" id="archive">Archive</div>
       </div>
+
+      <div class="row">
+        <div id="profile-pic" style="background-image: url('{{ currentUser.profile.picture }}')"></div>
+      </div>
       {{/if}}
 
       <div class="row">
-  			<div id="profile-pic" style="background-image: url('{{ currentUser.profile.picture }}')"></div>
         <div id="account-greeting">{{> customAccounts}}</div>
       </div>
     </div>
@@ -64,8 +67,11 @@
                     {{/if}}
         				{{/if}}
               {{else}}
-                <h2>Lancer</h2>
-                <p class="lead">Your best helper for a freelancer.</p>
+                <div id="landing">
+                  <h2 id="landing-title">Hammock</h2>
+                  <p class="lead" id="landing-text">Why work? Get a life.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1421284621639-884f4129b61d?q=80&fm=jpg&s=37d08db6cb67738e6f50254c01ded804" id="bg" alt="">
               {{/if}}
             </div>
           </div>
