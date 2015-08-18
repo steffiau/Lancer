@@ -1,10 +1,11 @@
 <template name="timelineItem">
   <div class="timeline-item" data-template="{{type}}" data-index="{{index}}">
     <div class="cd-timeline-block">
-      <div class="cd-timeline-img cd-picture">
+      <div class="cd-timeline-img cd-picture {{#if completed}}timeline-completed{{/if}}">
+        <i class="fa fa-check fa-2x {{#if completed}}timeline-completed{{/if}}"></i>
       </div>
 
-      <div class="cd-timeline-content">
+      <div class="cd-timeline-content {{#if completed}}timeline-completed{{/if}}">
         <h2 class="timeline-item-details">{{type}}  <small>{{details}}</small></h2>
         <span class="delete-timeline-item"><i class="fa fa-times"></i></span>
       </div>

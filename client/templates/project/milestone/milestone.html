@@ -1,11 +1,10 @@
 <template name="milestone">
   <div class="event">
-    <h1>Milestone</h1>
-    <hr>
+    <h1 class="milestone-header">Milestone</h1>
     {{#with singleEvent}}
       <ul class="list-group single-event-details">
-        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true" value="{{title}}"><strong><div>{{title}}</div></strong></h1></li>
-        <li class="list-group-item"><h3><strong>Due date:  </strong><span id="single-event-date" contenteditable="true" value="{{date}}"><span>{{date}}</span></span></h3></li>
+        <li class="list-group-item"><h1 id="single-event-title" contenteditable="true"><strong><div>{{title}}</div></strong></h1></li>
+        <li class="list-group-item"><h3><strong>Due date:  </strong><span id="single-event-date"><span>{{date}}</span></span></h3></li>
         <li class="list-group-item" id="req-list">
           <h3><strong>Requirements:</strong></h3>
           <form id="new-requirement">
@@ -22,27 +21,36 @@
           <table>
             <tr>
               <td class="td-name">
-                <h3><strong>Notes:</strong></h3>
+                <h3><strong>Comments:</strong></h3>
               </td>
               <td class="td-content">
-                <h4 contenteditable="true" id="single-event-notes"  value="{{notes}}"><div>{{notes}}</div></h4>
+                <li>
+                   <ul>
+                    {{#each comments}}
+                      {{> commentItem}}
+                    {{/each}}
+                    <form id="new-comment">
+                      <input class="input-box" placeholder="Write a comment..." />
+                      <input class="input-submit" type="submit" value="Comment">
+                    </form>
+                  </ul>
+                </li>
               </td>
             </tr>
+
           </table>
         </li>
-<!--         <li class="list-group-item">
+        <!-- <li class="list-group-item">
           <p>Comments:</p>
             <ul>
               {{#each comments}}
                 {{> commentItem}}
               {{/each}}
             </ul>
-          <form id="new-comment">
-            <input placeholder="Write a comment..." />
-            <input type="submit" value="Comment">
-          </form>
+
         </li> -->
-        <li class="list-group-item">
+
+<!--         <li class="list-group-item">
          <label class="event-completed">
            <p>
             {{#if completed}}
@@ -59,7 +67,7 @@
             {{/if}}
            </p>
          </label>
-       </li>
+       </li> -->
      </ul>
     {{/with}}
   </div>
@@ -75,8 +83,7 @@
 
 <template name="commentItem">
   <li data-index="{{index}}">
-    <p>{{object.user_name}}</p>
-    <h5>{{object.text}}   <i class="fa fa-times-circle delete-com"></i></h5>
+    <h5>{{object.text}} <small>({{object.user_name}})</small><i class="fa fa-times-circle delete-com"></i></h5>
   </li>
 </template>
 

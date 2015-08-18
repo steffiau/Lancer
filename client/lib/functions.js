@@ -43,4 +43,6 @@ clientName = function(clientId){
 	return Clients.findOne({'_id':clientId}).name;
 }
 
-
+collaborators = function(projectId){
+  return Projects.findOne({"_id": Session.get("projectId")}).collabId;
+};

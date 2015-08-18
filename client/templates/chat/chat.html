@@ -1,19 +1,28 @@
+
 <template name="messages">
-  <div><h1> Chat with your homies! </h1></div>
-  <div id="allMessages">
-    {{#each messages}}
-     {{> message}}
-    {{/each}}
- </div>
-  {{> messageBox}}
+  <div id="chatBox" class="{{chatToggleStatus}}"> 
+    <div id="allMessages">
+      {{#each messages}}
+     {{> message}} 
+      {{/each}}
+    </div>
+
+    <div id="messageInput" >
+      {{> messageBox}}
+    </div>
+
+  </div>
+  <div id="toggleChat" class="{{chatButtonStatus}}" >Chat about: "{{projectName}}" </div>
 </template>
 
 <template name="messageBox">
-  <form>
-    <input id="newMessage" name="newMessage" type="text">
+  <form >
+    <input  id="newMessage" name="newMessage" type="text">
   </form>
 </template>
 
 <template name="message">
-   <div class="{{checkLocalUser}}">{{sender}}: {{message}} </div>
+
+ <div class="singleMessage {{checkLocalUser}}" >{{sender}} <br> {{#emoji}}{{message}}{{/emoji}} </div>
+
 </template>

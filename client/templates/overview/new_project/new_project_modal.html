@@ -4,8 +4,11 @@
        <i class="fa fa-times-circle" id="modal-close" data-dismiss="modal"></i>
           <div class="modal-content">
 
-              <div id="modal-intro">
+              <div class="modal-intro selected-question">
                 Congrats on the job!
+                {{#if selected}}
+                <button class="next-button btn btn-default">Ok!</button>
+                {{/if}}
               </div>
 
               <div class="basic-modal-question">
@@ -13,6 +16,7 @@
                     What's the name of your project?
                   </div>
                   <div class="modal-short-text-response" id="project-name" contenteditable="true"></div>
+                  <button class="next-button btn btn-default">Ok!</button>
               </div>
 
               <div class="basic-modal-question">
@@ -20,6 +24,7 @@
                     Describe your project in a few words.
                   </div>
                   <div class="modal-short-text-response" id="project-description" contenteditable="true"></div>
+                   <button class="next-button btn btn-default">Ok!</button>
               </div>
 
               <div class="basic-modal-question">
@@ -27,6 +32,7 @@
                   <div class="form-group">
                       <div id="start-date-picker"></div>
                   </div>
+                   <button class="next-button btn btn-default">Ok!</button>
               </div>
 
               <div class="basic-modal-question">
@@ -34,14 +40,17 @@
                    <div class="form-group">
                       <div id="end-date-picker"></div>
                   </div>
+                   <button class="next-button btn btn-default">Ok!</button>
               </div>
 
               <div class="basic-modal-question">
                 <div class="question-text">
                   How much is the contract?
                 </div>
-                <div class="modal-short-text-response" id="project-amount" contenteditable="true"></div>
+              <div class="modal-short-text-response" id="project-amount" contenteditable="true"></div>
+              <button class="next-button btn btn-default">Ok!</button>
               </div>
+
           </div>
 
       </div>

@@ -7,22 +7,22 @@ Template.meeting.helpers({
 });
 
 Template.meeting.events({
-  "click .event-completed button": function(e){
-    var project = Projects.findOne({_id: Session.get("projectId")});
-    var projectId = Session.get("projectId")
-    var events = project.events;
-    var object = {};
-    var index = Session.get("event_index");
-    var completedMod = 'events.' + index + '.completed';
+  // "click .event-completed button": function(e){
+  //   var project = Projects.findOne({_id: Session.get("projectId")});
+  //   var projectId = Session.get("projectId")
+  //   var events = project.events;
+  //   var object = {};
+  //   var index = Session.get("event_index");
+  //   var completedMod = 'events.' + index + '.completed';
 
-    if(events[Session.get("event_index")].completed){
-      object[completedMod] = false
-      Projects.update({_id: projectId}, {$set: object})
-    } else {
-      object[completedMod] = true
-       Projects.update({_id: projectId}, {$set:  object})
-    }
-  },
+  //   if(events[Session.get("event_index")].completed){
+  //     object[completedMod] = false
+  //     Projects.update({_id: projectId}, {$set: object})
+  //   } else {
+  //     object[completedMod] = true
+  //      Projects.update({_id: projectId}, {$set:  object})
+  //   }
+  // },
   "blur .single-event-details li": function(e){
     // variables below grab changes to the event-details by the user
     // these are meant to be sent to mongo to update on server-side
