@@ -8,12 +8,13 @@
 
 <table>
 {{#each attachments}}
-  <tr>
+  <tr id="fileDownloadRow">
+   <td class="input-box">{{this.original.name}}</td>
     <td>
       <a href="{{downloadURL}}{{this._id}}-{{this.original.name}}" download=true> 
-        <button class="input-submit">Download</button> </a>
+        <button class="input-submit"><i class="fa fa-download"></i></button> </a>
     </td>
-    <td>{{this.original.name}}</td>
+   
   </tr>
   <br>
   {{/each}}
