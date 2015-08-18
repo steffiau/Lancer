@@ -1,0 +1,25 @@
+<template name="invoiceEmail">
+<style>
+	a {
+		padding: 10px 15px; 
+		color: black;
+		border-style:solid;
+
+	}
+</style> 
+<div class="col-sm-2">
+</div> 
+<div class="col-sm-8">
+	<div align="center">
+		<h2 style="display:inline">H</h2> <h4 style='display:inline;' align="center" >i, {{client.name}} </h4> 
+		<h1 align="center" > <strong> Your bill is ready.</strong>  </h1> 
+		<p align="center"> From <strong>{{user.profile.name}} </strong> </p> 
+	</div> 
+	<div style="background: #F8F006; padding-top: 20px; padding-bottom: 20px;; margin-bottom: 20px; margin-top:20px;" >
+		<p align="center"> You project has a new invoice to be paid, to view the invoice and make a payment, please vist the following url:  </p>
+		</div> 
+	<div align="center" style="padding-top:20px;padding-bottom:40px" >
+		<a align="center" href="http://localhost:3000/invoice/{{invoice_no }}"><strong> View Invoice </strong>  </a>
+</div> 
+</div> 
+</template> 

@@ -65,5 +65,11 @@ Template.invoice.events({
     var projectId = Session.get("projectId");
 
     Projects.update({_id: projectId}, {$push: obj})
-  }
+  },
+	'click #sendInvoiceEmail': function(e){
+		e.preventDefault();
+		console.log("Sending Email!");
+		var html = Blaze.toHTMLWithData(function(){ return Template.invoiceEmail;},function(){return _.extend(currentProject(),{"event_index":Session.get('event_index')});});
+		Meteor.call("sendEmail",currentClient().email, currentUser().profile.email, "New Invoice From Lancer", html);
+	},
 })
