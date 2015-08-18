@@ -1,9 +1,25 @@
 <template name='project'>
 <div class="conatiner event">
   <ul class="list-group single-event-details">
-    <li class="list-group-item"><h1 id="project-header" contenteditable="true"><div>{{project.name}}</div></h1></li>
-    <li class="list-group-item"> <h2 id="project-desc" contenteditable="true"><div>{{project.description}}</div></h2></li>
-    <li class="list-group-item"> <h3 contenteditable="true" id="project-date">{{dateFormat}}</h3>  </li>
+    <li class="list-group-item">
+      <h1 id="project-header" contenteditable="true">
+        <div>  
+          {{project.name}}
+        </div>
+      </h1>
+    </li>
+    <li class="list-group-item"> 
+      <h2 id="project-desc" contenteditable="true">
+        <div>
+          {{project.description}}
+        </div>
+      </h2>
+    </li>
+    <li class="list-group-item"> 
+      <h3 contenteditable="true" id="project-date">
+       {{dateFormat}}
+     </h3>  
+   </li>
     <li class="list-group-item">
       <br>
       <h3 class="collab-title"><strong>Collaborators:</strong></h3>

@@ -1,3 +1,5 @@
+
+
 Template.project.helpers({
   project: function(){
     return Projects.findOne({ _id : Session.get("projectId") });
