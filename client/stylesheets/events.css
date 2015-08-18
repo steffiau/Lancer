@@ -77,11 +77,26 @@
   color: red;
 }
 
-/*.list-group-item #single-event-notes {
-  width: 500px;
-}*/
+.project-header {
+  color: #2B3D51;
+  font-size: 5em;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #b5bbc2;
+}
 
+.add-collab button {
+  background-color: #2b3d51;
+  color: white;
+  border-radius: 0;
+}
 
-/*.req-item input[type=checkbox] {
-  outline: 1px solid #2b3d51;
-}*/
+.add-collab button:hover {
+  background-color: #374F69;
+}
+
+.add-collab {
+  display: block;
+  float: left;
+  margin-top: 20px;
+}

@@ -1,12 +1,12 @@
 <template name='project'>
-<div class="conatiner">
-<h1>{{project.name}}</h1>
+<div class="conatiner event">
+<h1 class="project-header">{{project.name}}</h1>
   <ul class="list-group single-event-details">
     <li class="list-group-item"> <h2 id="project-desc" contenteditable="true">{{project.description}}   </h2>  </li>
     <li class="list-group-item"> <h3 contenteditable="true" id="project-date">{{project.start_date}} to {{project.due_date}}</h3>  </li>
     <li class="list-group-item">
       <br>
-      <p>Collaborators:</p>
+      <h3 class="collab-title"><strong>Collaborators:</strong></h3>
       <ul>
         {{#each collabUser}}
         <li class="collabuser-item">
@@ -14,19 +14,21 @@
           <i class="fa fa-times-circle delete-collab" data-id="{{_id}}"></i>
         </li>
         {{/each}}
+        <li>
+          <div class="btn-group add-collab">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add User <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <form id="add-project-user">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email of user">
+                </form>
+              </li>
+            </ul>
+          </div>
+        </li>
       </ul>
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Add user  <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <form id="add-project-user">
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email of user">
-            </form>
-          </li>
-        </ul>
-      </div>
     </li>
  </ul>
  </div>
