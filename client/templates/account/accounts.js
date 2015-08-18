@@ -12,7 +12,8 @@ Template.logIn.events({
 		password = $('#login-password').val();
 		Meteor.loginWithPassword(email, password, function(err){
 			if(err){
-				alert(err);
+				console.log(err.reason);
+				toastr.error(err.reason);;
 			}
 		});
 	},
