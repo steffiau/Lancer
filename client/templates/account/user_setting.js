@@ -18,7 +18,7 @@ userSettingSchema = new SimpleSchema({
 		optional: false
 	},
 	phone:{
-		type:string,
+		type:String,
 		optional:true
 	}
 
@@ -37,6 +37,7 @@ AutoForm.addHooks('userSetting',{
 	onSubmit:function(doc){
 	this.event.preventDefault();
 	_.extend(doc,{login_count:currentUser().profile.login_count});
+	_.extend(doc,{login_count:currentUser().profile.stripe});
 	_.extend(doc,{infoComplete:true});
 	Meteor.users.update({_id:currentUser()._id},{$set: {profile: doc}});
 	}		

@@ -8,7 +8,7 @@ Meteor.methods({
 
 		Email.send({
 			to: to,
-			from: from,
+			from: "lighthouselabs_june22_cohort@outlook.com",
 			subject: subject,
 			html: html
 		});
