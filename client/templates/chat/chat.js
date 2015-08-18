@@ -7,9 +7,16 @@ Deps.autorun(function(){
 });
 
 Template.messages.helpers({
-  messages: function(){
+messages: function(){
     var id = currentUserId();
-    return Messages.find({projectId: Session.get("projectId")},{$orderby: {"this.date": -1}});
+    var allMessages =  Messages.find({projectId: Session.get("projectId")},{$orderby: {"this.date": -1}})
+    allMessages.observe(
+     {
+         added: function(){
+            $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
+       }
+     })
+    return allMessages;
   },
   projectName: function(){
     return currentProject().name;
