@@ -37,9 +37,13 @@
                 </li>
               </td>
             </tr>
-
           </table>
         </li>
+        <li class="list-group-item">
+         <h3> <strong>Attachments </strong></h3>
+         {{>uploadForm}}           
+        </li>
+
         <!-- <li class="list-group-item">
           <p>Comments:</p>
             <ul>
@@ -85,5 +89,6 @@
   <li data-index="{{index}}">
     <h5>{{object.text}} <small>({{object.user_name}})</small><i class="fa fa-times-circle delete-com"></i></h5>
   </li>
+
 </template>
 

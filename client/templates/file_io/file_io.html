@@ -1,29 +1,33 @@
 <template name="uploadForm"> 
-  <h1> File I/O </h1>
-  <form> 
-    <input  type="file" id="file">
-    <input type="submit" value="upload">
+   <form> 
+    <input type="file" id="file">
+    <br>
+   <input class="input-submit" type="submit" value="Upload">
   </form>
+  <br>
 
-<ul>
+<table>
 {{#each attachments}}
-<li>{{this.original.name}}<a href="{{downloadURL}}{{this._id}}-{{this.original.name}}" download=true> <button>Download</button>  </a> </li>
-{{/each}}
-</ul>
-
-
-
-<!-- <ul>
-{{#each uploads}}
-
-<li>{{this.name}}: {{this.url}} DL LINK></li>
-{{/each}}
-</ul> -->
-
-
+  <tr id="fileDownloadRow">
+   <td class="input-box">{{this.original.name}}</td>
+    <td>
+      <a href="{{downloadURL}}{{this._id}}-{{this.original.name}}" download=true> 
+        <button class="input-submit"><i class="fa fa-download"></i></button> </a>
+    </td>
+   
+  </tr>
+  <br>
+  {{/each}}
+</table>
 
 
 
 </template>
 
 
+<!-- 
+<ul>
+  {{#each attachments}}
+  <li>{{this.original.name}}<a href="{{downloadURL}}{{this._id}}-{{this.original.name}}" download=true> <button class="input-submit">Download</button>  </a> </li>
+{{/each}}
+</ul> -->
