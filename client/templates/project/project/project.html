@@ -1,8 +1,8 @@
 <template name='project'>
 <div class="conatiner event">
-<h1 class="project-header">{{project.name}}</h1>
   <ul class="list-group single-event-details">
-    <li class="list-group-item"> <h2 id="project-desc" contenteditable="true">{{project.description}}   </h2>  </li>
+    <li class="list-group-item"><h1 id="project-header" contenteditable="true"><div>{{project.name}}</div></h1></li>
+    <li class="list-group-item"> <h2 id="project-desc" contenteditable="true"><div>{{project.description}}</div></h2></li>
     <li class="list-group-item"> <h3 contenteditable="true" id="project-date">{{project.start_date}} to {{project.due_date}}</h3>  </li>
     <li class="list-group-item">
       <br>
