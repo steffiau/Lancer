@@ -2,6 +2,9 @@ Template.invoice.helpers ({
   user_email: function () {
     return currentUser().profile.email;
   },
+  user_phone: function () {
+    return currentUser().profile.phone;
+  },
   project: function () {
     return Projects.findOne({_id: Session.get("projectId")});
   },
