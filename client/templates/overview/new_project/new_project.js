@@ -107,7 +107,7 @@ AutoForm.addHooks('newProjectForm', {
 			});
 		}else{
 			var error = new Error("Scafold failed, please check data");
-			alert("Failed");
+			toastr.error("Failed");
 			return false;
 		};
 	}
@@ -161,7 +161,7 @@ var scafold = function(doc){
 			};
 		});
 		if (amount_sum !== 100 && empty_count == 0){
-			alert("Sum of percentage < 100% and you didn't leave any field empty..., Aborted, Try again .");
+			toastr.error("Sum of percentage < 100% and you didn't leave any field empty..., Aborted, Try again .");
 			return false;
 		} else if (amount_sum !== 100){
 			var default_pct = (100 - amount_sum) / empty_count;
