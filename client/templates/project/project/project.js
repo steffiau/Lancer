@@ -2,8 +2,16 @@ Template.project.onRendered(function() {
     this.$('.datetimepicker').datetimepicker({
       format: "MMM/DD/YYYY",
       viewMode: "days",
-
     });
+
+    $(".datetimepicker").on("dp.change", function(e){
+     var selectedDate = $("#startDateDrop").val();
+      var date = moment(selectedDate).format("MMM Do, YYYY");
+      var isoDate = moment(selectedDate).format();
+      
+      Projects.update({_id: Session.get("projectId")},{$set: {start_date: isoDate}}) 
+    })  
+
 });
 
 Template.project.helpers({
@@ -26,7 +34,6 @@ Template.project.events({
     var obj = {};
     obj["name"] = $("#project-header").text();
     obj["description"] = $("#project-desc").text();
-
     Projects.update({_id: Session.get("projectId")},{$set: obj })
   },
   "submit #add-project-user": function(e){
@@ -48,20 +55,15 @@ Template.project.events({
     // var reqArray = "events." + index + ".requirements";
     objClear["collabId"] = collabId;
     Projects.update({_id: projectId}, {$pull: objClear})
-  }, 
-  "click #submittedDate": function(e){
-    var selectedDate = $("#submittedDate").val();
-    var date = moment(selectedDate).format("MMM Do, YYYY");
-    var isoDate = moment(selectedDate).format();
-    console.log(isoDate, Session.get("projectId"));
-    Projects.update({_id: Session.get("projectId")},{$set: {start_date: isoDate}})
-    
   }
-
-
-
-
-
-
-
+  // "click body": function(e){
+  //   var selectedDate = $("#startDateDrop").val();
+  //   var date = moment(selectedDate).format("MMM Do, YYYY");
+  //   var isoDate = moment(selectedDate).format();
+  //   console.log(isoDate, Session.get("projectId"));
+  //   Projects.update({_id: Session.get("projectId")},{$set: {start_date: isoDate}}) 
+  // },
 });
+
+
+
