@@ -49,13 +49,15 @@ Template.project.events({
     objClear["collabId"] = collabId;
     Projects.update({_id: projectId}, {$pull: objClear})
   }, 
-  "click i": function(e){
+  "click #submittedDate": function(e){
     var selectedDate = $("#submittedDate").val();
+    var date = moment(selectedDate).format("MMM Do, YYYY");
     var isoDate = moment(selectedDate).format();
     console.log(isoDate, Session.get("projectId"));
-
     Projects.update({_id: Session.get("projectId")},{$set: {start_date: isoDate}})
+    
   }
+
 
 
 
