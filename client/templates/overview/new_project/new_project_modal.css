@@ -35,7 +35,7 @@
   color: white;
   font-size: 3em;
   text-align: center;
-  padding-top: 22%;
+  padding-top: 20%;
   opacity: 0.2;
 }
 
@@ -66,6 +66,11 @@
 
 div .selected-question {
   opacity: 1;
+}
+
+.next-button .btn .btn-default {
+  display: hidden;
+  transition: 0.1s;
 }
 
 

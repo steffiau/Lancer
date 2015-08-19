@@ -5,8 +5,9 @@
           <div class="modal-content">
 
               <div class="modal-intro selected-question">
+                &#x1f389;
                 Congrats on the job!<br>
-                <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
+                <button class="next-button btn btn-default">THANKS!</button>
               </div>
 
               <div class="basic-modal-question">
@@ -18,11 +19,20 @@
               </div>
 
               <div class="basic-modal-question">
-                  <div class="question-text">
-                    Describe your project in a few words.
-                  </div>
-                  <div class="modal-short-text-response" id="project-description" contenteditable="true"></div>
-                  <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
+                <div class="question-text">
+                  Which client is this for?
+                </div>
+                <div class="modal-short-text-response client-search" id="client" contenteditable="true"></div>
+                <div class="client-autocomplete-results"></div>
+                <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
+              </div>
+
+              <div class="basic-modal-question">
+                <div class="question-text">
+                  Describe your project in a few words.
+                </div>
+                <div class="modal-short-text-response" id="project-description" contenteditable="true"></div>
+                <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
               </div>
 
               <div class="basic-modal-question">
@@ -30,7 +40,7 @@
                   <div class="form-group">
                       <div id="start-date-picker"></div>
                   </div>
-                  <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
+                  <button class="next-button btn btn-default">OKAY!</button>
               </div>
 
               <div class="basic-modal-question">
@@ -38,7 +48,7 @@
                    <div class="form-group">
                       <div id="end-date-picker"></div>
                   </div>
-                  <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
+                  <button class="next-button btn btn-default">OKAY!</button>
               </div>
 
               <div class="basic-modal-question">
@@ -48,6 +58,8 @@
                 <div class="modal-short-text-response" id="project-amount" contenteditable="true"></div>
                 <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
               </div>
+
+
 
           </div>
 

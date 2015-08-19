@@ -12,7 +12,7 @@ Template.layout.events = {
     e.preventDefault;
     var clickedPage = e.currentTarget.id;
     Modal.show("newProjectModal");
-    // Session.set('onPage', clickedPage);
+    $(".modal-intro").focus();
   },
   'click #profile-pic': function(){
     Session.set('onPage', 'userSetting');
