@@ -1,4 +1,8 @@
 Template.project.onRendered(function() {
+
+  var current
+  var currentDueDate;
+
   this.$('.datetimepicker1').datetimepicker({
     format: "MMM/DD/YYYY",
     viewMode: "days",
