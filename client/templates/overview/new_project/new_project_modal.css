@@ -149,4 +149,8 @@ div .selected-question {
   color: #2B3D51;
 }
 
+div #project-milestones .datepicker-days {
+  color: #2B3D51 !important;
+}
+
 
