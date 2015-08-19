@@ -316,6 +316,10 @@ header h1 {
   cursor: pointer;
 }
 
+.mini-menu-button a:hover {
+  color: #79C3DB;
+}
+
 .mini-menu-button a {
   color: white;
 }
@@ -387,6 +391,10 @@ header h1 {
   padding-top: 20px;
   border-bottom: 1px solid #5d6b7a;
   cursor: pointer;
+}
+
+.menu-button:hover {
+  color: #79C3DB;
 }
 
 .create-button {
