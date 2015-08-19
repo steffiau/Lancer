@@ -5,16 +5,22 @@
 	<div class="row">
 		<div class="col-md-12" id="invoice-header">
 			<h1>Invoice</h1>
-			<span id="invoice-number"><strong>Invoice Number:</strong>{{invoice.invoice_no}}</span>			
+			<span id="invoice-number"><strong>Invoice Number:</strong>{{invoice_no}}</span>			
+			{{# if user.profile.stripe }}
 			{{ # with returndata }} <!-- This passes the data context to stripePayment -->
 			{{> stripePayment }}
 			{{ /with }}
-		</div>
+			{{ else }}
+			<span style="border: solid red; padding:5px;">
+				Configure <h4 style="display:inline"> <strong> Stripe </strong> </h4>   to accecpt payment through credit card
+		</span> 
+		{{ /if }}
+	</div>
 	</div>
 	<div class="row" id="invoice-info">
 		<div class="col-md-6">
 			<h4>
-				<strong>FROM:</strong> {{user_email}}
+				<strong>FROM:</strong> {{user.profile.name}}
 			</h4>
 		</div>
 		<div class="col-md-6">
