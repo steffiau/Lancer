@@ -15,11 +15,29 @@
         </div>
       </h2>
     </li>
+
+    <!-- DATE PICKER v -->
     <li class="list-group-item"> 
-      <h3 contenteditable="true" id="project-date">
+      <h3  id="project-date">
+        <div id= "start-date"></div>
+        <div id="due-date"> </div>
        {{dateFormat}}
      </h3>  
+     <div id="dateTimePick" class="input-group datetimepicker1">
+    <span id="calendarDropdownButton" class="input-group-addon input-submit"><i class="fa fa-calendar"></i></span>
+    <input id="startDateDrop"  class="set-due-date form-control" type="text"/>
+  </div>
+  
+      <div  class="input-group datetimepicker2">
+    <span id="calendarDropdownButton2" class="input-group-addon input-submit"><i class="fa fa-calendar"></i></span>
+    <input id="dueDateDrop"  class="set-due-date form-control" type="text"/>
+  </div>
+ 
    </li>
+   <!-- DATE PICKER ^ -->
+
+
+
     <li class="list-group-item">
       <br>
       <h3 class="collab-title"><strong>Collaborators:</strong></h3>
