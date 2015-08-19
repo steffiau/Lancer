@@ -19,12 +19,20 @@
     <!-- DATE PICKER v -->
     <li class="list-group-item"> 
       <h3  id="project-date">
+        <div id= "start-date"></div>
+        <div id="due-date"> </div>
        {{dateFormat}}
      </h3>  
-     <div id="dateTimePick" class="input-group datetimepicker">
-    <div id="calendarDropdownButton" class="input-group-addon input-submit"><i class="fa fa-calendar"></i></div>
+     <div id="dateTimePick" class="input-group datetimepicker1">
+    <span id="calendarDropdownButton" class="input-group-addon input-submit"><i class="fa fa-calendar"></i></span>
     <input id="startDateDrop"  class="set-due-date form-control" type="text"/>
   </div>
+  
+      <div  class="input-group datetimepicker2">
+    <span id="calendarDropdownButton2" class="input-group-addon input-submit"><i class="fa fa-calendar"></i></span>
+    <input id="dueDateDrop"  class="set-due-date form-control" type="text"/>
+  </div>
+ 
    </li>
    <!-- DATE PICKER ^ -->
 

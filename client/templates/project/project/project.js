@@ -1,18 +1,32 @@
 Template.project.onRendered(function() {
-    this.$('.datetimepicker').datetimepicker({
+  this.$('.datetimepicker1').datetimepicker({
+    format: "MMM/DD/YYYY",
+    viewMode: "days",
+  });
+
+  $(".datetimepicker1").on("dp.change", function(e){
+   var selectedDate = $("#startDateDrop").val();
+   var date = moment(selectedDate).format("MMM Do, YYYY");
+   var isoDate = moment(selectedDate).format();
+   console.log(isoDate);
+   Projects.update({_id: Session.get("projectId")},{$set: {start_date: isoDate}}) 
+ })  
+    // code to  edit start date  ^
+    // code to edit due date v
+    this.$('.datetimepicker2').datetimepicker({
       format: "MMM/DD/YYYY",
       viewMode: "days",
     });
 
-    $(".datetimepicker").on("dp.change", function(e){
-     var selectedDate = $("#startDateDrop").val();
-      var date = moment(selectedDate).format("MMM Do, YYYY");
-      var isoDate = moment(selectedDate).format();
-      
-      Projects.update({_id: Session.get("projectId")},{$set: {start_date: isoDate}}) 
-    })  
+    $(".datetimepicker2").on("dp.change", function(e){
+     var selectedDate = $("#dueDateDrop").val();
+     var date = moment(selectedDate).format("MMM Do, YYYY");
+     var isoDate = moment(selectedDate).format();
+     console.log(isoDate);
+     Projects.update({_id: Session.get("projectId")},{$set: {due_date: isoDate}}) 
+   })  
 
-});
+  });
 
 Template.project.helpers({
   project: function(){
@@ -25,8 +39,8 @@ Template.project.helpers({
   },
   dateFormat: function(){
    var project =  Projects.findOne({ _id : Session.get("projectId") });
-    return moment(project.start_date).format("MMM Do, YYYY")+" to "+ moment(project.due_date).format("MMM Do, YYYY")
-  }
+   return moment(project.start_date).format("MMM Do, YYYY")+" to "+ moment(project.due_date).format("MMM Do, YYYY")
+ }
 });
 
 Template.project.events({
