@@ -73,7 +73,7 @@ Template.invoice.events({
 		e.preventDefault();
 		console.log("Sending Email!");
 		var html = Blaze.toHTMLWithData(function(){ return Template.invoiceEmail;},function(){return _.extend(currentProject(),{"event_index":Session.get('event_index')});});
-		Meteor.call("sendEmail",currentClient().email, currentUser().profile.email, "New Invoice From Lancer", html);
+		Meteor.call("sendEmail",currentClient().email, currentUser().profile.email, "New Invoice From Hammock", html);
 		toastr.success("Email Sent!");
 	},
 })
