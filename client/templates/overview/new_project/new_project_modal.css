@@ -54,6 +54,12 @@
   padding-bottom: 40px;
 }
 
+.question-text span {
+  padding-top: 10px;
+  padding-left: 20px;
+  font-size: 1.3em;
+}
+
 .modal-short-text-response {
   padding-left: 15px;
   border-left: 3px dashed grey;
@@ -71,6 +77,76 @@ div .selected-question {
 .next-button .btn .btn-default {
   display: hidden;
   transition: 0.1s;
+}
+
+.autocomplete-result {
+  background-color: #6bdcc7;
+}
+
+.autocomplete-result:hover {
+  background-color: #4697CE;
+}
+
+.milestone-form {
+  border-radius: 5%;
+  background-color: #6bdcc7;
+}
+
+.milestone-form-element {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.milestone-form-label{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 0px;
+  padding-left: 0px;
+  text-align: center;
+  background-color: white;
+  color: #1ccaa9;
+  margin: 0;
+}
+
+.milestone-form-data {
+  border: 1px solid white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin: 0;
+}
+
+.final-modal-question{
+  color: white;
+  font-size: 3em;
+  text-align: center;
+  padding-top: 20%;
+  padding-bottom: 40%;
+  opacity: 0.2;
+}
+
+.submit-button {
+  background-color: #2B3D51;
+  font-size: .5em;
+  padding: 15px;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-button:focus {
+  outline: none;
+  border: none;
+  background-color: #2B3D51;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: #2B3D51;
 }
 
 
