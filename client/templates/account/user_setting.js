@@ -37,9 +37,9 @@ AutoForm.addHooks('userSetting',{
 	onSubmit:function(doc){
 	this.event.preventDefault();
 	_.extend(doc,{login_count:currentUser().profile.login_count});
-	_.extend(doc,{login_count:currentUser().profile.stripe});
+	_.extend(doc,{stripe:currentUser().profile.stripe});
 	_.extend(doc,{infoComplete:true});
-	Meteor.users.update({_id:currentUser()._id},{$set: {profile: doc}});
+	Meteor.users.update({_id:currentUser()._id},{$set: {profile: doc}},{},function(error,num_doc){ if(error){toastr.error(error)}else{Session.set("onPage","active-projects");toastr.success("User setting updated successfully!")}});
 	}		
 });
 
