@@ -1,11 +1,9 @@
 Template.project.onRendered(function() {
 
-  var current
-  var currentDueDate;
-
   this.$('.datetimepicker1').datetimepicker({
     format: "MMM/DD/YYYY",
     viewMode: "days",
+    defaultDate: new Date (currentProject().start_date)
   });
 
   $(".datetimepicker1").on("dp.change", function(e){
@@ -20,6 +18,7 @@ Template.project.onRendered(function() {
     this.$('.datetimepicker2').datetimepicker({
       format: "MMM/DD/YYYY",
       viewMode: "days",
+      defaultDate: new Date (currentProject().due_date)
     });
 
     $(".datetimepicker2").on("dp.change", function(e){
