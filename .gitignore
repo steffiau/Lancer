@@ -3,3 +3,4 @@
 client/.DS_Store
 *.swp
 env.sh
+*.pem
