@@ -1,4 +1,10 @@
+Template.project.onRendered(function() {
+    this.$('.datetimepicker').datetimepicker({
+      format: "MMM/DD/YYYY",
+      viewMode: "days",
 
+    });
+});
 
 Template.project.helpers({
   project: function(){
@@ -43,4 +49,15 @@ Template.project.events({
     objClear["collabId"] = collabId;
     Projects.update({_id: projectId}, {$pull: objClear})
   },
+  "click i": function(e){
+    var selectedDate = $("#submittedDate").val();
+    var isoDate = moment(selectedDate).format();
+    console.log(isoDate)
+  }
+
+
+
+
+
+
 });
