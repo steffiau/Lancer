@@ -2,6 +2,9 @@ Template.invoice.helpers ({
   user_email: function () {
     return currentUser().profile.email;
   },
+  user_name: function (){
+    return currentUser().profile.name;
+  }
   user_phone: function () {
     return currentUser().profile.phone;
   },
