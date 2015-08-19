@@ -1,9 +1,9 @@
 
 <template name="messages">
-  <div id="chatBox" class="{{chatToggleStatus}}"> 
+  <div id="chatBox" class="{{chatToggleStatus}}">
     <div id="allMessages">
       {{#each messages}}
-     {{> message}} 
+     {{> message}}
       {{/each}}
     </div>
 
@@ -23,6 +23,6 @@
 
 <template name="message">
 
- <div class="singleMessage {{checkLocalUser}}" >{{sender}} <br> {{#emoji}}{{message}}{{/emoji}} </div>
+ <div class="singleMessage {{checkLocalUser}}" ><small>{{sender}}</small> <br> {{#emoji}}{{message}}{{/emoji}} </div>
 
 </template>

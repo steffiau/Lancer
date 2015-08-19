@@ -6,11 +6,12 @@ div#chatBox {
   border-color:white;
   border-width: 1px;
   background-color: #2B3D51;
-  height: 480px;
+  height: 492px;
   width: 350px;
   position: fixed;
   bottom: 0px;
   right:0;
+  margin-right: 20px;
 
   overflow: none;
 
@@ -22,6 +23,8 @@ div#chatBox {
 
 #newMessage {
   border-radius: 5px;
+  height: 50px;
+  padding-left: 15px;
 }
 
 #chatBox.off{
@@ -43,11 +46,11 @@ div#chatBox {
 
 #toggleChat {
   width: 350px;
-  height: 22px;
+  height: 35px;
   background-color: #2B3D51;
   position: fixed;
   bottom: 458px;
-  border-radius: 5px;
+  border-radius: 2px;
   right: 0px;
   color:white;
   text-align: center;
@@ -56,6 +59,8 @@ div#chatBox {
   transition: background-color 0.5s linear;
   opacity: 0.95;
   text-overflow: ellipsis;
+  margin-right: 20px;
+  padding-top: 6px;
 }
 
 #toggleChat.closed {
@@ -64,7 +69,7 @@ div#chatBox {
   bottom: 0px;
   right: 0px;
   background-color: #75CE66;
-  height:28px;
+  height:35px;
 }
 
 #toggleChat:hover {
@@ -91,15 +96,13 @@ div#allMessages div.singleMessage{
 
   max-width: 200px;
   word-wrap:break-word;
-  border-radius: 5px;
+  border-radius: 2px;
   color:white;
-  padding: 10px 10px 10px 2px;
+  padding: 7px 15px 10px 15px;
   display: inline;
   clear:both;
   margin-top: 8px;
-  margin-bottom: 25px;
-  border-style: solid;
-  border-width: 2px;
+  margin-bottom: 35px;
 }
 /*myMessages go on right side of chatbox*/
 .myMessage {
@@ -124,7 +127,7 @@ input[id=newMessage]{
   opacity: 0.9;
   color:white;
 
-} 
+}
 
 input[id=newMessage]:focus{
   outline:none;
