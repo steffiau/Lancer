@@ -74,6 +74,7 @@ AutoForm.addHooks('newProjectForm', {
 			_.extend(project, client_id); // Push client id field into project
 			console.log(project.toString());
 			console.log(project);
+			console.log(doc);
 			Projects.insert(project, function(err,id){
 				// once inserted, now populate events and then update the newly created document in database
 				var events = 	processMilestone(doc.milestones,id,doc.contract_amount);

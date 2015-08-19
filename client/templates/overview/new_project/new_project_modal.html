@@ -59,10 +59,45 @@
                 <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
               </div>
 
+               <div class="basic-modal-question">
+                <div class="question-text">
+                  Cool! Let's set up some milestones!<span id="modal-add-milestone"><i class="fa fa-plus-circle"></i></span>
+                </div>
+                <div id="project-milestones">
+                  {{> milestoneForm}}
+                </div>
+                <button class="next-button btn btn-default">OKAY! <small> (OR HIT ENTER) </small></button>
+              </div>
 
+              <div class="final-modal-question">
+                <div class="question-text"> Phew! &#128513; <br>
+                That was a lot of form! Good Job!</div>
+                <button class="submit-button btn btn-default">OKAY! CREATE MY PROJECT!</button>
+              </div>
 
           </div>
-
       </div>
+  </div>
+</template>
+
+
+<template name="milestoneForm">
+  <div class="milestone-form">
+    <div class="row milestone-form-element">
+      <div class="col-xs-8 milestone-form-label">Milestone Name</div>
+      <div class="col-xs-4 milestone-form-label">Percent</div>
+    </div>
+    <div class="row milestone-form-element">
+      <div class="col-xs-8 milestone-form-data" contenteditable="true" placeholder="Enter a title"></div>
+      <div class="col-xs-4 milestone-form-data" contenteditable="true" placeholder="eg. 20"></div>
+    </div>
+    <div class="form-group">
+      <div class='input-group date milestone-date-picker'>
+        <input type='text' placeholder="Enter a Due Date" class="form-control" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
   </div>
 </template>

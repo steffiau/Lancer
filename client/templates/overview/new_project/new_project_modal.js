@@ -5,6 +5,7 @@ Template.newProjectModal.onRendered( function() {
   this.$('#end-date-picker').datetimepicker({
     inline: true,
   });
+  this.$('.milestone-date-picker').datetimepicker();
 });
 
 
@@ -52,7 +53,7 @@ Template.newProjectModal.events({
       var results = Clients.find( {name: { $regex: search_term, $options: "i"} } ).fetch();
       results_box.empty();
       _.each(results, function(value){
-        results_box.append("<div class='autocomplete-result' tabindex='0'>" + value.name + "</div>");
+        results_box.append("<div class='autocomplete-result'>" + value.name + "</div>");
       })
     }
     if (search_term.length == 0) {
@@ -60,7 +61,35 @@ Template.newProjectModal.events({
     }
   },
   "click .autocomplete-result": function(e) {
-    console.log(e);
+    var client = e.currentTarget.innerText;
+    $(".client-search").focus().text(client);
+  },
+  "click #modal-add-milestone":function(){
+   Blaze.renderWithData(Template.milestoneForm, {}, $("#project-milestones")[0])
+   $('.milestone-date-picker').datetimepicker();
+  },
+  "click .submit-button": function(e){
+    var milestone_arr = [];
+    var milestones = $("#project-milestones").children();
+    _.each(milestones, function(milestone){
+      var milestone_object = {
+        invoice_percentage: $($(milestone).children()[1]).children()[1].innerText,
+        milestone_date: $($(milestone).children()[2]).children().data("date"),
+        milestone_invoice: true,
+        milestone_title: $($(milestone).children()[1]).children()[0].innerText
+      };
+      milestone_arr.push(milestone_object);
+    });
+    var doc = {
+      project_name: $("#project-name")[0].innerText,
+      client_name: $("#client")[0].innerText,
+      project_description: $("#project-description")[0].innerText,
+      contract_amount: $("#project-amount")[0].innerText,
+      project_start_date: $("#start-date-picker").data('date'),
+      project_due_date: $("#end-date-picker").data('date'),
+      milestones: milestone_arr
+    };
+    console.log(doc);
   }
 })
 
