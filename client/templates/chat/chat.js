@@ -48,7 +48,7 @@ Template.messages.events({
     }
     Meteor.call("insertMessage", completeMessage)
     console.log(completeMessage);
-    $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
+    // $("#allMessages").animate({ scrollTop: $('#allMessages')[0].scrollHeight}, 1000);
     $("#newMessage").val('');
 
 
