@@ -12,7 +12,7 @@ Template.project.onRendered(function() {
    var isoDate = moment(selectedDate).format();
    console.log(isoDate);
    Projects.update({_id: Session.get("projectId")},{$set: {start_date: isoDate}}) 
- })  
+ });  
     // code to  edit start date  ^
     // code to edit due date v
     this.$('.datetimepicker2').datetimepicker({
@@ -28,8 +28,7 @@ Template.project.onRendered(function() {
      console.log(isoDate);
      Projects.update({_id: Session.get("projectId")},{$set: {due_date: isoDate}}) 
    })  
-
-  });
+});
 
 Template.project.helpers({
   project: function(){
