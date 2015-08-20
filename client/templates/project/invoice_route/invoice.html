@@ -6,14 +6,19 @@
 		<div class="col-md-12" id="invoice-header">
 			<h1>Invoice</h1>
 			<span id="invoice-number"><strong>Invoice Number:</strong>{{invoice_no}}</span>			
-			{{# if user.profile.stripe }}
-			{{ # with returndata }} <!-- This passes the data context to stripePayment -->
-			{{> stripePayment }}
-			{{ /with }}
-			{{ else }}
-			<span style="border: solid red; padding:5px;">
-				Configure <h4 style="display:inline"> <strong> Stripe </strong> </h4>   to accecpt payment through credit card
-		</span> 
+			{{# unless paid }}
+				{{# if user.profile.stripe }}
+					{{ # with returndata }} <!-- This passes the data context to stripePayment -->
+					{{> stripePayment }}
+					{{ /with }}
+					{{ else }}
+					<span style="border: solid red; padding:5px;">
+						Configure <h4 style="display:inline"> <strong> Stripe </strong> </h4>   to accecpt payment through credit card
+				</span> 
+			{{ /if }}
+		{{ /unless }}
+		{{# if paid }}
+		This invoice has been <span style="border: solid green; padding:3px;">PAID </span> 
 		{{ /if }}
 	</div>
 	</div>

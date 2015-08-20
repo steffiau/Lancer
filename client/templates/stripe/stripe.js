@@ -17,15 +17,28 @@ Template.getStripeUserSecret.helpers({
 
 Template.stripePayment.events({
 "click #stripe_checkout": function(e){
+	var charge = _.reduce(this.event.items,function(memo,b){return memo + (b.price * b.qty)},0)*112;
+	var stripe_user_id = this.user.profile.stripe.stripe_user_id;
+	var project_id = this.project._id;
+	var event_index = this.event_index;
 	var handler = StripeCheckout.configure({
-		key: this.user.profile.stripe.stripe_publishable_key,
+		//key: this.user.profile.stripe.stripe_publishable_key,
+		key:"pk_test_YO89ZBgifqKKnqV7Ny4rEZeq",
 		image: 'https://lh6.ggpht.com/Gg2BA4RXi96iE6Zi_hJdloQAZxO6lC6Drpdr7ouKAdCbEcE_Px-1o4r8bg8ku_xzyF4y=h900',
 		token: function(token) {
-		//	Use the token to create the charge with a server-side script.
-				// You can access the token ID with `token.id`
+				Meteor.call("stripeCharge",token,stripe_user_id,charge,function(error,charge){
+				if (error){
+			toastr.warning("Paymnet fails",error);} else {toastr.success("Payment success" + charge.id);
+			//Charge succeed		
+			project = Projects.findOne({"_id": project_id});
+			console.log(project);
+			project.events[event_index].completed = true;
+			project.events[enevt_index].completedAt = moment().toISOString;
+			console.log(project);
+			Projects.update({"_id": project_id},project);
+			}});
 		}
 	});
-	var charge = _.reduce(this.event.items,function(memo,b){return memo + (b.price * b.qty)},0)*112;
 	handler.open({
 		name: this.client.name,
 		description: this.event.items[0].service,
