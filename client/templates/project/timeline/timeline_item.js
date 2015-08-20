@@ -33,8 +33,8 @@ Template.timelineItem.events({
   'click .delete-timeline-item': function() {
     var events = Projects.findOne({'_id':Session.get('projectId')}).events;
     var newEvents = events.splice(Session.get('event_index'),1);
-    Projects.update({'_id':Session.get('projectId')},
-        {$set:{events: events}});
+    Projects.update({'_id':Session.get('projectId')}, {$set:{events: events}});
+    toastr.success("Event Deleted!");
   },
   "click .cd-timeline-img": function(e) {
     var project = Projects.findOne({_id: Session.get("projectId")});
