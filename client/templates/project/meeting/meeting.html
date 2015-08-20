@@ -8,32 +8,37 @@
     <h1 class="meeting-header">Meeting</h1>
     {{#with singleEvent}}
     <ul class="list-group single-event-details">
-    <li class="list-group-item">
-      <h1 id="single-event-title" contenteditable="true" value="{{title}}"><div><strong>{{title}}</strong></div></h1>
-    </li>
+      <li class="list-group-item">
+        <h1 id="single-event-title" contenteditable="true" value="{{title}}"><div><strong>{{title}}</strong></div></h1>
+      </li>
 
-    <li>
-      <table>
-        <tr>
-          <td class="td-name"><h3><strong>Date: </strong></h3></td>
-          <td class="td-content"><h3 id="single-event-date" value="{{date}}">{{dateFormat}}</h3></td>
-        </tr>
-        <tr>
-          <td class="td-name"><h3><strong>Location: </strong></h3></td>
-          <td class="td-content"><h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>
-            {{#if location}}
+      <li>
+        <table>
+          <tr>
+            <td class="td-name"><h3><strong>Date: </strong></h3></td>
+            <td class="td-content"><h3 id="single-event-date">{{dateFormat}}
+            <div class="input-group datetimepickerMeeting">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input id="meetingDateInput" class="set-due-date form-control" type="text"/>
+              </div>
+            </h3></td>
+          </tr>
+          <tr>
+            <td class="td-name"><h3><strong>Location: </strong></h3></td>
+            <td class="td-content"><h3 contenteditable="true" id="single-event-location" value="{{location}}"><div>
+              {{#if location}}
               {{location}}
-            {{else}}
+              {{else}}
               Input location
-            {{/if}}
-          </div></h3></td>
-        </tr>
-        <tr>
-          <td class="td-name"><h3><strong> Notes: </strong></h3></td>
-          <td class="td-content"><h4 contenteditable="true" id="single-event-notes"><div>{{notes}}</div></h4></td>
-        </tr>
-      </table>
-    </li>
+              {{/if}}
+            </div></h3></td>
+          </tr>
+          <tr>
+            <td class="td-name"><h3><strong> Notes: </strong></h3></td>
+            <td class="td-content"><h4 contenteditable="true" id="single-event-notes"><div>{{notes}}</div></h4></td>
+          </tr>
+        </table>
+      </li>
 
 <!--       <li class="list-group-item">
         <h3 contenteditable="true" id="single-event-date" value="{{date}}"><div>{{date}}</div></h3>
@@ -46,7 +51,7 @@
         <p contenteditable="true" id="single-event-notes" value="{{notes}}"><div>{{notes}}</div></p>
       </li> -->
 
-      {{>uploadForm}}
+      
 
 <!--       <li class="list-group-item">
         <label class="event-completed">

@@ -1,3 +1,24 @@
+Template.milestone.onRendered(function() {
+  this.$('.datetimepickerMilestone').datetimepicker({
+    format: "MMM/DD/YYYY",
+    viewMode: "days",
+    defaultDate: new Date (currentProject().events[Session.get("event_index")].date)
+  });
+
+  $(".datetimepickerMilestone").on("dp.change", function(e){
+   var selectedDate = $("#milestoneDateInput").val();
+   var index = Session.get("event_index")
+   var date = moment(selectedDate).format("MMM Do, YYYY");
+   var isoDate = moment(selectedDate).format();
+   var obj = {}
+   var dateMod = 'events.' + index + '.date';
+   obj[dateMod] = isoDate
+   Projects.update({_id: Session.get("projectId")},{$set: obj}) 
+ });  
+});
+
+
+
 Template.milestone.helpers({
   // targets a single event in the array
   singleEvent: function(){
