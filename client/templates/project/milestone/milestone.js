@@ -13,10 +13,9 @@ Template.milestone.onRendered(function() {
    var obj = {}
    var dateMod = 'events.' + index + '.date';
    obj[dateMod] = isoDate
-   Projects.update({_id: Session.get("projectId")},{$set: obj}) 
- });  
+   Projects.update({_id: Session.get("projectId")},{$set: obj})
+ });
 });
-
 
 
 Template.milestone.helpers({
@@ -54,18 +53,10 @@ Template.milestone.helpers({
 Template.milestone.events({
   "blur .single-event-details li": function(e){
     var title = $("#single-event-title").text();
-    // var date = $("#single-event-date").text();
-    // var notes = $("#single-event-notes").text();
-    // console.log(e)
-    // $("#single-event-notes").html("" + notes)
     var index = Session.get("event_index");
     var obj = {};
     var titleMod = 'events.' + index + '.title';
-    // var dateMod = 'events.' + index + '.date';
-    // var notesMod = 'events.' + index + '.notes';
     obj[titleMod] = title;
-    // obj[dateMod] = date;
-    // obj[notesMod] = notes;
     Projects.update({_id: Session.get("projectId")},{$set: obj });
   },
   "submit #new-requirement": function(e) {
@@ -153,7 +144,7 @@ Template.milestone.events({
 
     var obj = {};
     var reqItemCheckValue = "events." + index + ".requirements." + reqIndex + ".checkValue";
-    
+
     if (reqItems[reqIndex].checkValue) {
       obj[reqItemCheckValue] = false;
     } else {
