@@ -36,9 +36,9 @@ Template.timelineItem.events({
     Session.set("event_index", event_index);
     console.log(e);
     $(".cd-timeline-content").css("background", "");
-    $(".cd-timeline-content").find( "*" ).css({"color":""});
+    $(".cd-timeline-content").find( "h2, small" ).css({"color":""});
     $(e.currentTarget).css({"background":"#2b3d51"});
-    $(e.currentTarget).find( "*" ).css({"color":"white"});
+    $(e.currentTarget).find("h2, small").css({"color":"white"});
   },
   'click .delete-timeline-item': function() {
     var events = Projects.findOne({'_id':Session.get('projectId')}).events;

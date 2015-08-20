@@ -16,5 +16,7 @@ Template.timeline.helpers({
 Template.timeline.events({
   "click #project-title": function() {
     Session.set("template", "Project");
+    $(".cd-timeline-content").css("background", "");
+    $(".cd-timeline-content").find( "h2, small" ).css({"color":""});
   }
 })
