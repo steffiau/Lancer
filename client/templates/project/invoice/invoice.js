@@ -12,6 +12,14 @@ Template.invoice.helpers ({
     var project = Projects.findOne({_id: Session.get("projectId")});
     return project.events[Session.get("event_index")]
   },
+	invoice_no: function(){
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    return project.events[Session.get("event_index")].invoice_no.toUpperCase();
+	},
+	invoiceCompletedAt: function(){
+    var project = Projects.findOne({_id: Session.get("projectId")});
+    return moment(project.events[Session.get("event_index")].completedAt).format("YYYY-MM-DD hh:mm");
+	},
   invoiceitems: function () {
     var project = Projects.findOne({_id: Session.get("projectId")});
     var invoiceitems = project.events[Session.get("event_index")].items;
