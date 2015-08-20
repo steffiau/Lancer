@@ -28,14 +28,15 @@ Template.stripePayment.events({
 		token: function(token) {
 				Meteor.call("stripeCharge",token,stripe_user_id,charge,function(error,charge){
 				if (error){
-			toastr.warning("Paymnet fails",error);} else {toastr.success("Payment success" + charge.id);
+			toastr.warning("Paymnet fails",error);} else {toastr.success("Payment success");
 			//Charge succeed		
 			project = Projects.findOne({"_id": project_id});
 			console.log(project);
 			project.events[event_index].completed = true;
-			project.events[enevt_index].completedAt = moment().toISOString;
+			project.events[event_index].completedAt = moment().toISOString();
 			console.log(project);
 			Projects.update({"_id": project_id},project);
+			document.location.reload();
 			}});
 		}
 	});
