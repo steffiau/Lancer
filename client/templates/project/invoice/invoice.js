@@ -4,7 +4,7 @@ Template.invoice.helpers ({
   },
   user_name: function (){
     return currentUser().profile.name;
-  }
+  },
   user_phone: function () {
     return currentUser().profile.phone;
   },
