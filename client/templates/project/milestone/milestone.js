@@ -64,7 +64,7 @@ Template.milestone.events({
     var dateMod = 'events.' + index + '.date';
     // var notesMod = 'events.' + index + '.notes';
     obj[titleMod] = title;
-    obj[dateMod] = date;
+    // obj[dateMod] = date;
     // obj[notesMod] = notes;
     Projects.update({_id: Session.get("projectId")},{$set: obj });
   },
