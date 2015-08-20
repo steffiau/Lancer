@@ -108,3 +108,23 @@
 .active {
   background: #2b3d51;
 }
+
+.project-date {
+  float: left;
+}
+
+.datetimepicker1, .datetimepicker2 {
+  padding-left: 20px;
+}
+
+.bootstrap-datetimepicker-widget {
+  margin-left: 20px;
+}
+
+.datetimepicker1 i:hover, .datetimepicker2 i:hover {
+  color: #79C3DB;
+}
+
+.dropdown-menu {
+  padding: 2px 5px;
+}
