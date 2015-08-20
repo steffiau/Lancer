@@ -1,7 +1,6 @@
 Template.getStripeUserSecret.helpers({
 	getSecret: function(){
 		var code = window.location.search.split('code=')[1];
-		console.log(code);
 		Meteor.call("getStripeSecret",code,function(error,result){
 			if (!error){
 				var stripe = _.pick(JSON.parse(result.content),"access_token","refresh_token","stripe_publishable_key","stripe_user_id");
@@ -31,10 +30,8 @@ Template.stripePayment.events({
 			toastr.warning("Paymnet fails",error);} else {toastr.success("Payment success");
 			//Charge succeed		
 			project = Projects.findOne({"_id": project_id});
-			console.log(project);
 			project.events[event_index].completed = true;
 			project.events[event_index].completedAt = moment().toISOString();
-			console.log(project);
 			Projects.update({"_id": project_id},project);
 			document.location.reload();
 			}});

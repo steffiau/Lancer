@@ -1,6 +1,5 @@
 Template.invoiceRoute.helpers ({
 	returndata: function(){
-		console.log(this);
 		return this;
 	},
   user_email: function () {
