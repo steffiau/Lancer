@@ -109,11 +109,11 @@
   background: #2b3d51;
 }
 
-.project-date {
+.project-date, .event-date {
   float: left;
 }
 
-.datetimepicker1, .datetimepicker2 {
+.datetimepicker1, .datetimepicker2, .datetimepickerMilestone, .datetimepickerMeeting {
   padding-left: 20px;
 }
 
@@ -121,7 +121,7 @@
   margin-left: 20px;
 }
 
-.datetimepicker1 i:hover, .datetimepicker2 i:hover {
+.datetimepicker1 i:hover, .datetimepicker2 i:hover, .datetimepickerMilestone i:hover, .datetimepickerMeeting i:hover {
   color: #79C3DB;
 }
 

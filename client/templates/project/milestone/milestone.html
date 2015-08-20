@@ -4,14 +4,17 @@
     {{#with singleEvent}}
     <ul class="list-group single-event-details">
       <li class="list-group-item"><h1 id="single-event-title" contenteditable="true"><strong><div>{{title}}</div></strong></h1></li>
-      <li class="list-group-item"><h3><strong>Due date:  </strong><span id="single-event-date"><span>{{dateFormat}}</span></span>
-      <div class="input-group datetimepickerMilestone">
-          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-          <input id="milestoneDateInput" class="set-due-date form-control" type="text"/>
+      <li class="list-group-item">
+        <h3 class="event-date">
+          <strong>Due date:  </strong>
+          <span id="single-event-date"><span>{{dateFormat}}</span></span>
+        </h3>
+        <div class="input-group datetimepickerMilestone">
+            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            <input id="milestoneDateInput" class="set-due-date form-control" type="text"/>
         </div>
+      </li>
 
-
-      </h3></li>
       <li class="list-group-item" id="req-list">
         <h3><strong>Requirements:</strong></h3>
         <form id="new-requirement">
