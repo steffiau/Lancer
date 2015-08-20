@@ -54,14 +54,14 @@ Template.milestone.helpers({
 Template.milestone.events({
   "blur .single-event-details li": function(e){
     var title = $("#single-event-title").text();
-    var date = $("#single-event-date").text();
+    // var date = $("#single-event-date").text();
     // var notes = $("#single-event-notes").text();
     // console.log(e)
     // $("#single-event-notes").html("" + notes)
     var index = Session.get("event_index");
     var obj = {};
     var titleMod = 'events.' + index + '.title';
-    var dateMod = 'events.' + index + '.date';
+    // var dateMod = 'events.' + index + '.date';
     // var notesMod = 'events.' + index + '.notes';
     obj[titleMod] = title;
     // obj[dateMod] = date;
