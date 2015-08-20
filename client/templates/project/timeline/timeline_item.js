@@ -20,7 +20,12 @@ Template.timelineItem.helpers({
   },
   completed: function() {
     return this.value.completed;
-  }
+  },
+  // active: function() {
+  //   if (this.index == Session.get("event_index")) {
+  //     return true
+  //   }
+  // }
 })
 
 Template.timelineItem.events({
@@ -29,6 +34,11 @@ Template.timelineItem.events({
     var event_index = e.currentTarget.parentElement.parentElement.dataset.index;
     Session.set("template", template_type);
     Session.set("event_index", event_index);
+    console.log(e);
+    $(".cd-timeline-content").css("background", "");
+    $(".cd-timeline-content").find( "*" ).css({"color":""});
+    $(e.currentTarget).css({"background":"#2b3d51"});
+    $(e.currentTarget).find( "*" ).css({"color":"white"});
   },
   'click .delete-timeline-item': function() {
     var events = Projects.findOne({'_id':Session.get('projectId')}).events;

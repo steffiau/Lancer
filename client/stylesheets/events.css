@@ -104,3 +104,7 @@
 #project-title:hover {
   cursor: pointer;
 }
+
+.active {
+  background: #2b3d51;
+}

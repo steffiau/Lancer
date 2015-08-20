@@ -1,4 +1,15 @@
 Meteor.methods({
+	stripeCharge: function(token,stripe_account_id,amount){
+		var Stripe = StripeAPI(process.env["STRIPE_SECRET_KEY"]);
+		var charge = Meteor.wrapAsync(Stripe.charges.create, Stripe.charges);
+		var a = charge({
+			amount: amount,
+			currency: 'cad',
+			source: token.id,
+			destination: stripe_account_id
+		});
+		return a
+	},
 	sendEmail: function (to, from, subject, html) {
 		//check([to, from, subject], [String]);
 
