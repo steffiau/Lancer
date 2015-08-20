@@ -39,9 +39,13 @@ Template.project.helpers({
     var project = Projects.findOne({ _id : Session.get("projectId") });
     return Meteor.users.find( { _id: { $in: project.collabId }});
   },
-  dateFormat: function(){
+  startDateFormat: function(){
    var project =  Projects.findOne({ _id : Session.get("projectId") });
-   return moment(project.start_date).format("MMM Do, YYYY")+" to "+ moment(project.due_date).format("MMM Do, YYYY")
+   return moment(project.start_date).format("MMM Do, YYYY")
+ },
+ dueDateFormat: function(){
+  var project =  Projects.findOne({ _id : Session.get("projectId") });
+  return  moment(project.due_date).format("MMM Do, YYYY")
  }
 });
 
