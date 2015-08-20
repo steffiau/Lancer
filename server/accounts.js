@@ -14,9 +14,6 @@ Accounts.onCreateUser(function(options,user){
 	}
 	return user;
 });
-
 Accounts.onLogin(function(user){
 	Meteor.users.update({'_id': user.user._id},{$inc:{"profile.login_count" : 1}});
-	console.log(user.user.profile['login_count']);
-
 });
