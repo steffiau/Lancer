@@ -18,30 +18,30 @@
 
     <!-- DATE PICKER v -->
     <li class="list-group-item"> 
-      <h3  id="project-date">
-       Start: {{startDateFormat}}
-        <div id= "start-date">
-          <div id="dateTimePick" class="input-group datetimepicker1">
+      <h3 class="project-date">
+       Start: {{startDateFormat}}  
+      </h3>
+
+      <div id= "start-date">
+        <div id="dateTimePick" class="input-group datetimepicker1">
           <span id="calendarDropdownButton" class="input-group-addon input-submit"><i class="fa fa-calendar"></i></span>
           <input id="startDateDrop"  class="set-due-date form-control" type="text"/>
          </div>
-        </div>
-        </h3>
-        <h3>
-        <div id="due-date"> 
-          Due: {{dueDateFormat}}
-            <div  class="input-group datetimepicker2">
+      </div>
+    </li>
+
+    <li class="list-group-item"> 
+      <h3 class="project-date">
+        Due: {{dueDateFormat}}
+      </h3>
+
+      <div id="due-date"> 
+        <div  class="input-group datetimepicker2">
           <span id="calendarDropdownButton2" class="input-group-addon input-submit"><i class="fa fa-calendar"></i></span>
           <input id="dueDateDrop"  class="set-due-date form-control" type="text"/>
         </div>
-
-        </div>
-      
-     </h3>  
-    
-  
- 
-   </li>
+      </div>
+    </li>
    <!-- DATE PICKER ^ -->
 
 
@@ -52,7 +52,7 @@
       <ul>
         {{#each collabUser}}
         <li class="collabuser-item">
-          <h4 class="input-box">{{profile.name}}</h4>
+          <h4>{{profile.name}}</h4>
           <i class="fa fa-times-circle delete-collab" data-id="{{_id}}"></i>
         </li>
         {{/each}}
