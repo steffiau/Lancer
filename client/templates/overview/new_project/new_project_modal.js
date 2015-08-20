@@ -93,7 +93,6 @@ Template.newProjectModal.events({
       project_due_date: $("#end-date-picker").data('date'),
       milestones: milestone_arr
     };
-    console.log(doc);
     if (project = scafold(doc)) {
       Projects.insert(project, function(err, id) {
         var events =  processMilestone(doc.milestones, id, doc.contract_amount);
@@ -125,6 +124,7 @@ Template.newProjectModal.events({
           });
 
           Router.go('/project/' + id);
+          $('#create-project-modal').modal('hide');
         };
       });
     } else {
@@ -163,10 +163,9 @@ function writeToGoogleCalendar(start_time, end_time,summary, description, locati
     },
     "summary": summary,
     "description":description,
-    "location":location}
-    GoogleApi.post('calendar/v3/calendars/primary/events?key=' + Meteor.settings.public.GooglePublicAPIKey,{
-      data: data});
-  console.log('google request sent');
+    "location":location
+  }
+  GoogleApi.post('calendar/v3/calendars/primary/events?key=' + Meteor.settings.public.GooglePublicAPIKey, {data: data});
 }
 
 function processMilestone(project_milestone_array, project_id, contract_amount){
