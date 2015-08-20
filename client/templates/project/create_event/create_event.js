@@ -20,6 +20,7 @@ newEventSchema = new SimpleSchema({
 AutoForm.addHooks('newEventForm', {
   onSubmit: function (doc){
     this.event.preventDefault();
+    doc.due_date = moment(doc.due_date).format();
     var newEvent = makeEvent(doc);
     Projects.update(
       {_id: Session.get("projectId")},
@@ -34,7 +35,7 @@ var makeEvent = function(doc){
     newEvent = {
       title: "New Meeting",
       location: "",
-      date: moment(doc.due_date).format("dddd, MMMM Do"),
+      date: moment(doc.due_date).format(),
       notes: "",
       completed: false,
       type: "meeting"
@@ -44,7 +45,7 @@ var makeEvent = function(doc){
     newEvent = {
       title: "New Milestone",
       type: "milestone",
-      date: moment(doc.due_date).format("dddd, MMMM Do"),
+      date: moment(doc.due_date).format(),
       completed:false,
       requirements:[],
     };
@@ -53,7 +54,7 @@ var makeEvent = function(doc){
     newEvent = {
       date: moment(doc.due_date).format("YYYY-MM-DD"),
       type: "invoice",
-      invoice_number: moment(doc.due_date).format("YYYYMMDD") + "-" + Session.get("projectId").slice(-4).toUpperCase(),
+      invoice_no: moment(doc.due_date).format("YYYYMMDD") + "-" + Session.get("projectId").slice(-4).toUpperCase(),
       completed: false,
       items: [
         {

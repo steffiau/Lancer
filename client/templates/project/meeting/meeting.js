@@ -23,7 +23,6 @@ Template.meeting.helpers({
     return project.events[Session.get("event_index")]
   },
   dateFormat: function(){
-
     return moment(this.date).format("MMM Do, YYYY")
   }
 });
