@@ -12,6 +12,12 @@ Template.invoiceRoute.helpers ({
   invoice: function () {
     return this.event;
   },
+	paid: function(){
+		return this.event.completed;
+	},
+	invoice_no: function(){
+		return this.event.invoice_no.toUpperCase()
+	},
 	user: function(){
 		return this.user;
 	},

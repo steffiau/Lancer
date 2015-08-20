@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-md-12" id="invoice-header">
       <h1>Invoice</h1>
-      <span id="invoice-number"><strong>Invoice Number:</strong>{{invoice.invoice_no}}</span><div class="btn btn-default" id="sendInvoiceEmail"> <i class="fa fa-envelope"></i>Send Invoice Email </div>
+			{{# if invoice.completed }}
+				<span> This invoice was completed on {{invoice.completedAt}}
+				</span><br> 
+			{{/if}}
+      <span id="invoice-number"><strong>Invoice Number:</strong>{{invoice_no}}</span><div class="btn btn-default" id="sendInvoiceEmail"> <i class="fa fa-envelope"></i>Send Invoice Email </div>
     </div>
   </div>
 
